@@ -1,0 +1,1699 @@
+{% extends "upbase.html" %}
+{% block title %}
+ C++
+{% endblock title %}
+{% block body %}
+
+<!-- header section ends -->
+
+<div id="menu" class="fas fa-bars"></div>
+
+<!-- home section starts  -->
+
+
+   
+<div style="margin: 2%;"><div class="head_cheat2">All c++ cheat sheet below here...</div>
+
+<!-- contact section ends -->
+<div style="margin:2%;">
+
+
+ <b class="tit">
+Program 1:Display the local variables.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+using namespace std;
+
+int main()
+{
+int a=4;
+cout&lt;&lt;"Hi,Parth shah "&lt;&lt;a;
+return 0;
+}</code></pre></br></br>
+     
+ <b class="tit">
+Program 2:Display input & output program.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+using namespace std;
+
+int main()
+{
+int num1,num2;
+cout&lt;&lt;"enter a=";
+cin&gt;&gt;num2;
+cout&lt;&lt;"enter b=";
+cin&gt;&gt;num1;
+cout&lt;&lt;"the sum of a and b is="&lt;&lt;num1+num2;
+return 0;
+}</code></pre></br></br> 
+
+ <b class="tit">
+Program 3:Display the global variable.
+
+  
+</b>
+
+
+  <pre class="language-cpp"><code class="dec">// For global value display...
+  cout&lt;&lt;"\nThe value of a:"&lt;&lt; ::a&lt;&lt;endl;</code></pre></br></br> 
+
+ <b class="tit">
+Program 4:Type-casting & Reference variable.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">int a=45;
+
+cout&lt;&lt;(float)a;
+cout&lt;&lt;(int)a;
+cout&lt;&lt;int(a);
+
+// Reference variables.
+int &y=a;
+  //or
+int y=a;
+cout&lt;&lt;y;</code></pre></br></br>
+
+   <b class="tit">
+Program 5:Const variables & manipulator.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">const int c=5;
+// Note:c value is not change.
+cout&lt;&lt;c;
+
+//Use manipulator.
+//Use: For perfect Display output.
+#include&lt;iomanip&gt;
+cout&lt;&lt;"manipulator a="&lt;&lt;setw(4)&lt;&lt;a;
+</code></pre></br></br>
+
+   <b class="tit">
+Program 6:If Else-if Else leader.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">int age;
+cout&lt;&lt;"enter your age=";
+cin&gt;&gt;age;
+if(age&lt;18){
+  cout&lt;&lt;"You are not come to the party";
+}
+else if(age&gt;18){
+  cout&lt;&lt;"your come to the party";
+}</code></pre></br></br> 
+
+
+    <b class="tit">
+Program 7:Switch case statments.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">int age;
+cout&lt;&lt;"enter your age=";
+cin&gt;&gt;age;
+switch(age)
+{
+  case 18:
+    cout&lt;&lt;"you are 18";
+    break;
+    
+  default:
+    cout&lt;&lt;"you not valid output";
+    break;
+}</code></pre></br></br> 
+
+  <b class="tit">
+Program 8:For,While & Do-while loop.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">//For loop
+//int i;
+//for(i=0;i&lt;5;i++){
+//  cout&lt;&lt;i&lt;&lt;endl;
+//}
+
+
+//while loop
+//int i=0;
+//while(i&lt;=5){
+//  cout&lt;&lt;i&lt;&lt;endl;
+//  i++;
+//}
+
+
+//do-while loop
+//int i=0;
+//do{
+//  cout&lt;&lt;i&lt;&lt;endl;
+//  i++;
+//}while(i&lt;=5);</code></pre></br></br>
+
+    <b class="tit">
+Program 9:Pointers.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">int a=3;
+int *b=&a;
+cout&lt;&lt;"the value of b is= "&lt;&lt;*b&lt;&lt;endl;</code></pre></br></br>
+
+ <b class="tit">
+Program 10:Arrays & pointers in array.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">int a[]={1,2,3,4};
+int n=4;
+int i;
+for(i=0;i&lt;n;i++){
+  cout&lt;&lt;a[i]&lt;&lt;endl;
+}
+
+//Pointers in array.
+int *p;
+p=a;
+cout&lt;&lt;*p&lt;&lt;endl;
+cout&lt;&lt;*(p+1)&lt;&lt;endl;</code></pre></br></br>
+
+   <b class="tit">
+Program 11:Enum methods.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">//enum
+//Note: Same as array but syntax is different.
+
+enum std{id,name,shah};
+std a=shah;
+cout&lt;&lt;a;</code></pre></br></br> 
+
+ <b class="tit">
+Program 12:Functions.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">main(){
+//  Here actual parameters.
+  g();
+}
+void g(){
+//  Here formal parameters.
+  cout&lt;&lt;"hello,good mornings.";
+}</code></pre></br></br>
+
+
+  <b class="tit">
+Program 13:Default value in the functions.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">int fun(int a ,int b=5){
+//  a is not valid for default.
+//  b is valid for default.
+  return a+b;
+}
+fun(4);</code></pre></br></br>
+
+  <b class="tit">
+Program 14:Function overloading.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">int sum(int a,int b){
+  return a+b;
+}
+int sum(int a,int b,int c){
+  return a+b+c;
+}
+
+int main(){
+  sum(4,5);
+  sum(12,4,6);
+}</code></pre></br></br> 
+
+ <b class="tit">
+Program 15:OOPs class in object in function.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+using namespace std;
+
+class emp{
+  private:
+    int a,b,c;
+  public:
+    int d,e;
+  void setdata(int a1,int a2,int a3);
+  void getdata()
+  {
+    cout&lt;&lt;"the of a is"&lt;&lt;a&lt;&lt;endl;
+    cout&lt;&lt;"the of b is"&lt;&lt;b&lt;&lt;endl;
+    cout&lt;&lt;"the of c is"&lt;&lt;c&lt;&lt;endl;
+    cout&lt;&lt;"the of d is"&lt;&lt;d&lt;&lt;endl;
+    cout&lt;&lt;"the of e is"&lt;&lt;e&lt;&lt;endl;
+  }
+};
+void emp::setdata(int a1,int a2,int a3)
+{
+  a=a1;
+  b=a2;
+  c=a3;
+}
+int main()
+{
+  emp parth;
+  parth.d=8;
+  parth.e=5;
+parth.setdata(5,3,1);
+parth.getdata();
+return 0;
+}</code></pre></br></br>
+
+ <b class="tit">
+Program 16:OOPs Nesting loop program.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+#include&lt;string&gt;
+using namespace std;
+class binary{
+  string s;
+      void chk_bin();
+
+  public:
+    void read();
+    void transfer();
+    void display();
+    
+};
+
+void binary::read()
+{
+  cout&lt;&lt;"Enter the BInary number=";
+  cin&gt;&gt;s;
+}
+void binary::chk_bin() {
+  int i;
+  for(i=0;i&lt;s.length();i++)
+  {
+    if(s.at(i)!='0' && s.at(i)!='1')
+    {
+      cout&lt;&lt;"You enter the binary number is incorrect."&lt;&lt;endl;
+      exit(0);
+    }
+  }
+}
+void binary::transfer()
+{
+    int i;
+  for(i=0;i&lt;s.length();i++)
+  {
+    if(s.at(i)=='0')
+    {
+      s.at(i)='1';
+    }
+    else{
+      s.at(i)='0';
+      
+    }
+  }
+}
+void binary::display()
+
+{
+ chk_bin();
+    int i;
+  for(i=0;i&lt;s.length();i++)
+  {
+    cout&lt;&lt;s.at(i);
+  }
+  cout&lt;&lt;endl;
+}int main()
+{
+
+binary p;
+p.read();
+
+p.display();
+p.transfer();
+p.display();
+
+return 0;
+}
+
+</code></pre></br></br> 
+
+   <b class="tit">
+Program 17:OOPs in array.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+#include&lt;string.h&gt;
+using namespace std;
+class shop
+{
+  int prodid[100];
+  int prodprice[100];
+  int counter;
+  
+  public:
+    void incounter(){
+    counter=0;
+    }
+    void setprice();
+    void displayprice();
+    
+};
+
+void shop::setprice()
+{
+  cout&lt;&lt;"Enter the product id for "&lt;&lt;counter+1&lt;&lt;" position=";
+  cin&gt;&gt;prodid[counter];
+  cout&lt;&lt;"Enter the product price for "&lt;&lt;counter+1&lt;&lt;" position=";
+  cin&gt;&gt;prodprice[counter];
+  counter++;
+}
+void shop::displayprice() 
+{
+  int i;
+  for(i=0;i&lt;counter;i++)
+  {
+    cout&lt;&lt;"The "&lt;&lt;i&lt;&lt;" position product id "&lt;&lt;prodid[i]&lt;&lt;" and price is "&lt;&lt;prodprice[i]&lt;&lt;endl;
+  }
+}
+int main()
+{
+
+shop dukan;
+dukan.incounter();
+dukan.setprice();
+dukan.setprice();
+dukan.setprice();
+dukan.displayprice();
+
+return 0;
+}</code></pre></br></br> 
+
+  <b class="tit">
+Program 18:OOPs in static function & variables.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+using namespace std;
+
+class emp
+{
+  int id;
+  static int count;
+  
+  public:
+    void setid(){
+      cout&lt;&lt;"Enter the id";
+      cin&gt;&gt;id;
+      count++;
+    }
+    void displayid(){
+      cout&lt;&lt;"this id no "&lt;&lt;id&lt;&lt;" is employee no"&lt;&lt;count&lt;&lt;endl;
+    }
+    static void cnt()
+    {
+      cout&lt;&lt;"Here total employeee is "&lt;&lt;count&lt;&lt;endl;
+    }
+};
+int emp::count;
+int main()
+{
+emp parth,mosam,jay;
+parth.setid();
+parth.displayid();
+emp::cnt();
+mosam.setid();
+mosam.displayid();
+emp::cnt();
+jay.setid();
+jay.displayid();
+emp::cnt();
+return 0;
+}</code></pre></br></br>
+
+  <b class="tit">
+Program 19:OOPs class in function object.
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+using namespace std;
+class complex
+{
+  int a;
+  int b;
+  
+  public:
+    void setdata(int p1,int p2)
+    {
+      a=p1;
+      b=p2;
+    }
+    void setdatasum(complex o1,complex o2)
+    {
+      a=o1.a+o2.a;
+      b=o1.b+o2.b;
+    }
+    void printdata(){
+      cout&lt;&lt;"The value of a is "&lt;&lt;a&lt;&lt;" and b is "&lt;&lt;b&lt;&lt;endl;
+    }
+};
+int main()
+{
+complex c1,c2,c3;
+c1.setdata(2,4);
+c1.printdata();
+c2.setdata(3,5);
+c2.printdata();
+
+c3.setdatasum(c1,c2);
+c3.printdata();
+
+return 0;
+}
+</code></pre></br></br>
+
+ 
+       <b class="tit">
+Program 20:Friend function program.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+using namespace std;
+class complex
+{
+  int a;
+  int b;
+  
+  public:
+    void setdata(int p1,int p2)
+    {
+      a=p1;
+      b=p2;
+    }
+    friend complex sumsetdata(complex o1,complex o2);
+    void printdata(){
+      cout&lt;&lt;"The value of a is "&lt;&lt;a&lt;&lt;" and b is "&lt;&lt;b&lt;&lt;endl;
+    }
+};
+
+complex sumsetdata(complex o1,complex o2)
+{
+  complex o3;
+  o3.setdata((o1.a+o2.a),(o1.b+o2.b));
+  return o3;
+}
+int main()
+{
+complex c1,c2,sum;
+c1.setdata(2,4);
+c1.printdata();
+c2.setdata(3,5);
+c2.printdata();
+
+sum=sumsetdata(c1,c2);
+sum.printdata();
+return 0;
+}</code></pre></br></br> 
+
+<b class="tit">
+Program 21:Friend class program.
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+using namespace std;
+class complex;
+class calculater{
+  public:
+//  int add(int s1,int s2)
+//  {
+//    return s1+s2;
+//    }
+int sumsetdata(complex o1,complex o2);
+  
+};
+class complex
+{
+  int a;
+  int b;
+  
+  public:
+    void setdata(int p1,int p2)
+    {
+      a=p1;
+      b=p2;
+    }
+//    friend int calculater::sumsetdata(complex o1,complex o2);
+  friend class calculater;
+    void printdata(){
+      cout&lt;&lt;"The value of a is "&lt;&lt;a&lt;&lt;" and b is "&lt;&lt;b&lt;&lt;endl;
+    }
+};
+
+int calculater:: sumsetdata(complex o1,complex o2)
+    {
+      return (o1.b)+(o2.b);
+    }
+
+int main()
+{
+complex c1,c2,sum;
+calculater calc;
+c1.setdata(2,4);
+c1.printdata();
+c2.setdata(3,5);
+c2.printdata();
+
+//int ad=calc.add(4,5);
+//cout&lt;&lt;ad&lt;&lt;endl;
+
+int res=calc.sumsetdata(c1,c2);
+cout&lt;&lt;res;
+return 0;
+}</code></pre></br></br>
+
+ <b class="tit">
+Program 22:Basic constructor program.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+using namespace std;
+class complex
+{
+  int a,b;
+  public:
+    complex();
+    
+    void printdata()
+    {
+      cout&lt;&lt;"the value of a is "&lt;&lt;a&lt;&lt;" and b is "&lt;&lt;b&lt;&lt;endl;
+    }
+};
+
+complex::complex()
+{
+  a=1231;
+  b=2340;
+}
+int main()
+{
+complex p;
+p.printdata();
+p.printdata();
+p.printdata();
+return 0;
+}</code></pre></br></br> 
+
+
+<b class="tit">
+Program 23:Parameterized constrctor with destructor.
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+using namespace std;
+class num
+{
+  int a,b;
+  public:
+    num(int a=4,int b=6)
+    {
+      cout&lt;&lt;"The value of a is "&lt;&lt;a&lt;&lt;" and b is "&lt;&lt;b&lt;&lt;endl;
+    }
+    ~num(){
+      cout&lt;&lt;"Decunstructor is colled";
+    }
+};
+
+//num :: num(int x,int y)
+//{
+//      a=x;
+//      b=y;
+//    }
+int main()
+{
+num s;
+{
+
+  num n;
+}
+return 0;
+}</code></pre></br></br>
+
+
+<b class="tit">
+Program 24:Single inheritance.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+using namespace std;
+class base
+{
+  public:
+  int a,b;
+  // void display(){}
+  
+};
+
+class derived : public base
+{
+  public:
+    void display(int a,int b)
+    {
+      cout&lt;&lt;"A is "&lt;&lt;a&lt;&lt;endl&lt;&lt;" b  is "&lt;&lt;b&lt;&lt;" "&lt;&lt;endl;
+    } 
+};
+int main()
+{
+  derived d;
+  d.display(4,5);
+
+return 0;
+}</code></pre></br></br>
+
+
+       <b class="tit">
+Program 25:Virtual base function.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+using namespace std;
+class student
+{
+  protected:
+    int rollno;
+  public:
+    void setroll(int a)
+    {
+      rollno=a;
+    }
+    void getroll()
+    {
+      cout&lt;&lt;"This rollno is="&lt;&lt;rollno&lt;&lt;endl;
+    }
+};
+
+class marks:virtual public student
+{
+  protected:
+    int maths;
+    int sciense;
+  public:
+    void setmarks(int b,int c)
+    {
+      maths=b;
+      sciense=c;
+    }
+    void getmarks()
+    {
+      cout&lt;&lt;"Maths subject marks is="&lt;&lt;maths&lt;&lt;endl;
+      cout&lt;&lt;"sciense subject marks is="&lt;&lt;sciense&lt;&lt;endl;
+      }
+};
+
+class score:virtual public student
+{
+  protected:
+    int score;
+  public:
+    void setscore(int d)
+    {
+      score=d;
+    }
+    void getscore()
+    {
+      cout&lt;&lt;"PT subject score is="&lt;&lt;score&lt;&lt;endl;
+      }
+};
+
+class result:public marks,public score
+{
+  protected:
+    int total;
+  public:
+    
+    void show()
+    {
+      total=maths+sciense+score;
+      getroll();
+      getmarks();
+      getscore();
+      cout&lt;&lt;"The total marks is out of 3 subject is= "&lt;&lt;total&lt;&lt;endl;
+  }
+      
+    };
+
+int main()
+{
+result p;
+p.setroll(1153);
+p.setmarks(78,92);
+p.setscore(80);
+p.show();
+return 0;
+}
+
+</code></pre></br></br>
+
+  <b class="tit">
+Program 26:Derived constructor.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+using namespace std;
+class base1{
+  protected:
+  int data1;
+  public:
+    base1(int a)
+    {
+      data1=a;
+    }
+    void getdata()
+    {
+      cout&lt;&lt;"The value of data1 is="&lt;&lt;data1&lt;&lt;endl;
+    }
+};
+
+class base2{
+  protected:
+  int data2;
+  public:
+    base2(int b)
+    {
+      data2=b;
+    }
+    void getdata2()
+    {
+      cout&lt;&lt;"The value of data2 is="&lt;&lt;data2&lt;&lt;endl;
+    }
+};
+
+class derived:public base1,public base2{
+  protected:
+    int derived1;
+    int derived2;
+  public:
+    derived(int a,int b,int c,int d):base1(a),base2(b)
+    {
+      derived1=c;
+      derived2=d;
+    }
+    void show()
+    {
+      getdata();
+      getdata2();
+      cout&lt;&lt;"The value of derived 1 is="&lt;&lt;derived1&lt;&lt;endl;
+      cout&lt;&lt;"The value of derived 2 is="&lt;&lt;derived2&lt;&lt;endl;
+      
+    }
+};
+int main()
+{
+derived deco(4,5,6,7);
+deco.show();
+return 0;
+}</code></pre></br></br>
+
+<b class="tit">
+Program 27:Initialization in constructor.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+using namespace std;
+class test
+{
+  int a;
+  int b;
+  public:
+    test(int x,int y):a(x),b(y)
+    {
+      cout&lt;&lt;"The value of a is "&lt;&lt;a&lt;&lt;endl;
+      cout&lt;&lt;"The value of b is "&lt;&lt;b&lt;&lt;endl;
+    }
+};
+int main()
+{
+test t(4,5);
+return 0;
+}
+
+</code></pre></br></br>
+
+  <b class="tit">
+Program 28:New & Delete keyword.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+using namespace std;
+
+int main()
+{
+int *p=new int[2];
+cout&lt;&lt;p[0];
+cout&lt;&lt;p[1]&lt;&lt;endl;
+
+int *k=new int(4);
+delete k;
+cout&lt;&lt;*k;
+return 0;
+}</code></pre></br></br>
+
+<b class="tit">
+Program 29:Pointer in objects & Arrow functions.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+using namespace std;
+class complex
+{
+  int a,b;
+  public:
+    void setdata(int x,int y)
+    {
+      a=x;
+      b=y;
+    }
+    void getdata()
+    {
+      cout&lt;&lt;a&lt;&lt;endl;
+      cout&lt;&lt;b&lt;&lt;endl;
+      
+    }
+};
+int main()
+{
+//complex p;
+//complex *k=&p;
+complex *k=new complex[2];
+(*k).setdata(2,5);
+k-&gt;getdata();
+return 0;
+}</code></pre></br></br> 
+
+ <b class="tit">
+Program 30:Array of object using pointer.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+using namespace std;
+class shine
+{
+  int a,b;
+  public:
+    void setdata(int x,int y)
+    {
+      a=x;
+      b=y;
+      
+    }
+    void getdata()
+    {
+      cout&lt;&lt;"The value is a="&lt;&lt;a&lt;&lt;endl;
+      cout&lt;&lt;"The value is b="&lt;&lt;b&lt;&lt;endl;
+    }
+};
+int main()
+{
+  int size=3;
+shine *ptr=new shine[size];
+shine *ptrtemp=ptr;
+int i,p,q;
+
+for(i=0;i&lt;size;i++)
+{
+  cout&lt;&lt;"Enter the value of a and b is for "&lt;&lt;i+1&lt;&lt;" element:"&lt;&lt;endl
+  ;
+  cin&gt;&gt;p&gt;&gt;q;
+  
+  ptr-&gt;setdata(p,q);
+  ptr++;
+}
+
+for(i=0;i&lt;size;i++)
+{
+  cout&lt;&lt;i+1&lt;&lt;"Element:"&lt;&lt;endl;
+  ptrtemp-&gt;getdata();
+  ptrtemp++;
+}
+
+return 0;
+}</code></pre></br></br> 
+
+ <b class="tit">
+Program 31:Virtual function using pointer.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+using namespace std;
+class parth
+{
+  public:
+  int a,b;
+    parth(int x,int y)
+    {
+      a=x;
+      b=y;
+    }
+    virtual void display(){
+    }
+};
+
+class pavideo:public parth
+{
+  public:
+  int c;
+    pavideo(int x,int y,int z):parth(x,y)
+    {
+      c=z;
+    }
+    void display()
+    {
+      cout&lt;&lt;"The value of a is="&lt;&lt;a&lt;&lt;endl;
+      cout&lt;&lt;"The value of b is="&lt;&lt;b&lt;&lt;endl;
+      cout&lt;&lt;"The value of c is="&lt;&lt;c&lt;&lt;endl;
+    }
+};
+
+class patext:public parth
+{
+  public:
+  int d;
+    patext(int a,int b,int p):parth(a,b)
+    {
+      d=p;
+    }
+    void display()
+    {
+      cout&lt;&lt;"The value of a is="&lt;&lt;a&lt;&lt;endl;
+      cout&lt;&lt;"The value of b is="&lt;&lt;b&lt;&lt;endl;
+      cout&lt;&lt;"The value of d is="&lt;&lt;d&lt;&lt;endl;
+    }
+};
+int main()
+{
+parth *ptr_parth;
+
+pavideo obj2(1,2,5);
+patext obj3(2,2,3);
+ptr_parth=&obj3;
+ptr_parth-&gt;display();
+return 0;
+}</code></pre></br></br>
+
+
+ <b class="tit">
+Program 32:String file read & write.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+#include&lt;fstream&gt;
+using namespace std;
+
+int main()
+{
+//  fot write this file...
+//  string st="This is demo file for i/o files...";
+//ofstream out("demo.txt");
+//out&lt;&lt;st;
+
+//fot read this file....
+
+string st2;
+ifstream in("demo.txt");
+getline(in,st2);
+cout&lt;&lt;st2;
+return 0;
+}
+</code></pre></br></br>
+
+  <b class="tit">
+Program 33:Files open,close & eof() methods.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+#include&lt;fstream&gt;
+#include&lt;string&gt;
+using namespace std;
+
+int main()
+{
+//ofstream pout;
+//pout.open("demo2.txt");
+//pout&lt;&lt;"hi,good mormning"&lt;&lt;endl;
+//pout&lt;&lt;"hi,good mormning"&lt;&lt;endl;
+//pout.close();
+
+ifstream pin;
+pin.open("demo2.txt");
+string sp;
+while(pin.eof()==0)
+{
+  getline(pin,sp);
+  cout&lt;&lt;sp&lt;&lt;endl;
+}
+pin.close();
+return 0;
+}</code></pre></br></br> 
+
+ <b class="tit">
+Program 34:Basic template functions.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+using namespace std;
+template &lt;class t&gt;
+class vector
+{
+  t a;
+  t b;
+  public:
+    void sum(t x,t y)
+    {
+      a=x;
+      b=y;
+      cout&lt;&lt;a+b&lt;&lt;endl;
+//      cout&lt;&lt;b&lt;&lt;endl;
+    }
+};
+int main()
+{
+vector &lt;int&gt; v1;
+vector &lt;float&gt; v2;
+
+v1.sum(2,3);
+v2.sum(1.5,5);
+return 0;
+}</code></pre></br></br>
+
+ <b class="tit">
+Program 35:Templates all programs.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+using namespace std;
+template &lt;class t1,class t2=int&gt;
+class pa
+{
+  public:
+    t1 a;
+    t2 b;
+    // Membe functiions.
+    pa(t1 x,t1 y)
+    {
+      a=x;
+      b=y;
+    }
+    void show()
+    {
+      
+cout&lt;&lt;this-&gt;a&lt;&lt;this-&gt;b;
+    }
+};
+
+int main()
+{
+pa &lt;float&gt;p(4.4,2.2);
+//p.set(4.5,5.3);
+p.show();
+return 0;
+}
+</code></pre></br></br>
+
+ <b class="tit">
+Program 36:STL vector program.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+#include&lt;vector&gt;
+using namespace std;
+
+void display(vector &lt;int&gt; &v2)
+{
+  int i;
+  for(i=0;i&lt;v2.size();i++)
+{
+  
+//  cout&lt;&lt;i+1&lt;&lt;" Element is "&lt;&lt;v2[i]&lt;&lt;endl;
+  cout&lt;&lt;v2[i]&lt;&lt;" ";
+}
+
+}
+int main()
+{
+vector &lt;int&gt; v1;
+vector &lt;int&gt; v2(10,151);
+int i,element,size;
+cout&lt;&lt;"Enter the array size=";
+cin&gt;&gt;size;
+for(i=0;i&lt;size;i++)
+{
+  cout&lt;&lt;"Enter the Element=";
+  cin&gt;&gt;element;
+  v1.push_back(element);
+}
+//v1.pop_back();
+//v1.pop_back();
+//v1.pop_back();
+//display(v1);
+vector&lt;int&gt; :: iterator iter =v1.end();
+//vector&lt;int&gt; :: iterator iter =v1.begin();
+v1.insert(iter-1,4,50);
+display(v1);
+
+//display(v2);
+return 0;
+}</code></pre></br></br>
+
+<b class="tit">
+Program 37:STL list program.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+#include&lt;list&gt;
+using namespace std;
+
+void display(list&lt;int&gt; lit)
+{
+  
+  list&lt;int&gt; :: iterator it;
+  it=lit.begin();
+  for(it=lit.begin();it!=lit.end();it++)
+  {
+    cout&lt;&lt;*it&lt;&lt;" ";
+  }
+  cout&lt;&lt;endl;
+}
+int main()
+{
+list&lt;int&gt; list1;
+list&lt;int&gt; list2(3);
+list1.push_back(23);
+list1.push_back(13);
+list1.push_back(26);
+list1.push_back(71);
+list1.push_back(3);
+display(list1);
+list1.remove(26);
+list1.sort();
+list1.reverse();
+
+  list&lt;int&gt; :: iterator iter=list2.begin();
+list2.insert(iter,12);
+int i;
+display(list2);
+list1.sort();
+list2.sort();
+list1.merge(list2);
+
+display(list1);
+return 0;
+}</code></pre></br></br>
+
+
+ <b class="tit">
+Program 38:STL map program.
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+#include&lt;map&gt;
+#include&lt;string&gt;
+using namespace std;
+
+int main()
+{
+map&lt;string,int&gt; stmap;
+stmap["parth"]=23;
+stmap["mohan"]=3;
+stmap["parsfth"]=2323;
+stmap["parth"]=23;
+
+stmap.insert(&#123;&#123;"zarna"&#125;,&#123;45&#125;&#125;);
+map&lt;string,int&gt;::iterator iter;
+for(iter=stmap.begin();iter!=stmap.end();iter++)
+{
+cout&lt;&lt;(*iter).first&lt;&lt;" "&lt;&lt;(*iter).second;
+cout&lt;&lt;endl;
+  
+}
+cout&lt;&lt;stmap.max_size();
+return 0;
+}</code></pre></br></br>
+
+ <b class="tit">
+Program 39:STL function operator.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+#include&lt;functional&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+
+int main()
+{
+int arr[]={1,3,54,2,42,32};
+sort(arr,arr+6,greater&lt;int&gt;());
+int i;
+for(i=0;i&lt;6;i++)
+{
+  cout&lt;&lt;arr[i]&lt;&lt;endl;
+}
+return 0;
+}</code></pre></br></br>
+
+<b class="tit">
+Program 40:Destructors.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+using namespace std;
+int count=0;
+class num
+{
+  int a,b;
+  public:
+    num()
+    {
+      count++;
+      cout&lt;&lt;"constructor is called for "&lt;&lt;count&lt;&lt;" times."&lt;&lt;endl;
+    }
+    ~num()
+    {
+    
+      cout&lt;&lt;"destuctor is called for "&lt;&lt;count&lt;&lt;" times."&lt;&lt;endl;
+      count--;
+      
+  } 
+};
+int main()
+{
+num n1;
+{
+  num n2,n3;
+}
+return 0;
+}
+</code></pre></br></br>
+
+ <b class="tit">
+Program 41:Simple calculater.
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+using namespace std;
+class simplecalc{
+  protected:
+    int a;
+    int b;
+    int n;
+  public:
+    void information(){
+    cout&lt;&lt;"Choose the number for different operations:"&lt;&lt;endl;
+    cout&lt;&lt;"1. Addition Operation (+) "&lt;&lt;endl;
+    cout&lt;&lt;"2. Substraction Operation (-) "&lt;&lt;endl;
+    cout&lt;&lt;"3. Multipication Operation (*) "&lt;&lt;endl;
+    cout&lt;&lt;"4. Division Operation (/) "&lt;&lt;endl;
+    cout&lt;&lt;"5. Exit"&lt;&lt;endl;
+    }
+    void setnum(int x,int y)
+    {
+      a=x;
+      b=y;
+    cout&lt;&lt;"number=";
+    cin&gt;&gt;n;
+    switch(n)
+    {
+      case 1:
+        cout&lt;&lt;"Addition is="&lt;&lt;a+b&lt;&lt;endl;
+      break;
+        case 2:
+        cout&lt;&lt;"Substraction is="&lt;&lt;a-b&lt;&lt;endl;
+      break;
+        case 3:
+        cout&lt;&lt;"Multipication is="&lt;&lt;a*b&lt;&lt;endl;
+      break;
+        case 4:
+        cout&lt;&lt;"Division is="&lt;&lt;a/b&lt;&lt;endl;
+      break;
+      default:
+        cout&lt;&lt;"Your input is invalid,Try again!!!!!"&lt;&lt;endl;
+      case 5:
+        cout&lt;&lt;"Thank you";
+        exit (0);
+    }
+    }
+    
+};
+int main()
+{
+simplecalc sica;
+sica.information();
+sica.setnum(5,3);
+return 0;
+}</code></pre></br></br> 
+
+ <b class="tit">
+Program 42:Hote management system project.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+#include&lt;conio.h&gt;
+#include&lt;string.h&gt;
+#include&lt;stdio.h&gt;
+#include&lt;process.h&gt;
+using namespace std;
+void index()
+{
+  
+  cout&lt;&lt;"\n\t\t\t\t\t* * * * * * * * * *"&lt;&lt;endl;
+cout&lt;&lt;"\t\t\t\t\t* Welcome to  our *"&lt;&lt;endl&lt;&lt;"\t\t\t\t\t* TAKERESET Hotel *"&lt;&lt;endl;
+  cout&lt;&lt;"\t\t\t\t\t* * * * * * * * * *"&lt;&lt;endl;
+  cout&lt;&lt;"\n\n\t\t\t\t\t\t\t\t-Create by:"&lt;&lt;endl&lt;&lt;"\t\t\t\t\t\t\t\t     Parth shah."&lt;&lt;endl;
+  cout&lt;&lt;"\n\n\t\tAddress: Smrat nagar,Nr.Isanput Over"&lt;&lt;"\t"&lt;&lt;"||\tContact: 097-2346-28328"&lt;&lt;endl&lt;&lt;"\t\t     Bridge,Ahemdabad-382443.\t\t||";
+
+    cout&lt;&lt;"\n\n\n\n\t\t\t\t\t* * * * * * * * * *"&lt;&lt;endl;
+    cout&lt;&lt;"\t\t\t\t\t* 24 x 7 Services *"&lt;&lt;endl;
+    cout&lt;&lt;"\t\t\t\t\t* * * * * * * * * *"&lt;&lt;endl;
+}
+class hotel
+{
+public:
+int mobile,rno;
+char name[10],gen;
+char bs[10],ds[10];
+
+void accept()
+{
+cout&lt;&lt;"\n Enter your Name:";
+cin&gt;&gt;name;
+cout&lt;&lt;"\n Enter Your Mobile Number:";
+cin&gt;&gt;mobile;
+cout&lt;&lt;"\n Enter your Gender(M/F)";
+cin&gt;&gt;gen;
+cout&lt;&lt;"\n Enter a Type Of Room:";
+cin&gt;&gt;bs;
+cout&lt;&lt;"\n Enter Room Price To Have:";
+cin&gt;&gt;ds;
+}
+
+void display()
+{
+cout&lt;&lt;"\n Name="&lt;&lt;name;
+cout&lt;&lt;"\n mobile="&lt;&lt;mobile;
+cout&lt;&lt;"\n Gender="&lt;&lt;gen;
+cout&lt;&lt;"\n Type of Room="&lt;&lt;bs;
+cout&lt;&lt;"\n Room Price To Have="&lt;&lt;ds;
+}
+};
+
+class second:public hotel
+{
+public:
+
+void accept1()
+{
+cout&lt;&lt;"\n Ac Rooms";
+cout&lt;&lt;"\n from 1-31";
+cout&lt;&lt;"\n Starting from Rooms 10000rs";
+cout&lt;&lt;"\n*****************************";
+cout&lt;&lt;"\n Non-Ac Rooms";
+cout&lt;&lt;"\n from 32-45";
+cout&lt;&lt;"\n Starting from Rooms 5000rs";
+cout&lt;&lt;"\n******************************";
+cout&lt;&lt;"\n Luxury Rooms";
+cout&lt;&lt;"\n from 46-60";
+cout&lt;&lt;"\n Starting from Rooms 20000rs";
+cout&lt;&lt;"\n******************************";
+cout&lt;&lt;"\n Ordinary Rooms";
+cout&lt;&lt;"\n from 61-75";
+cout&lt;&lt;"\n Starting from Rooms 2000rs";
+cout&lt;&lt;"\n******************************";
+cout&lt;&lt;"\n regular rooms";
+cout&lt;&lt;"\n from 76-100";
+cout&lt;&lt;"\n Starting from Rooms 1000rs";
+cout&lt;&lt;"\n******************************";
+}
+};
+
+int main()
+{
+    index();
+second s;
+int ch,a[10],n,i,b,flag=0,acc,c,p;
+char ch1,ch2,ch3;
+do
+{
+
+cout&lt;&lt;"\n \n \t \t \t Taj Hotel";
+cout&lt;&lt;"\n Main Menu:";
+cout&lt;&lt;"\n  1.Room Details";
+cout&lt;&lt;"\n  2.Booking A Room.";
+cout&lt;&lt;"\n  3.Edit Records.";
+cout&lt;&lt;"\n  4.Room Canceling.";
+cout&lt;&lt;"\n  5.Exit.";
+cout&lt;&lt;"\n Enter your Choice";
+cin&gt;&gt;ch;
+
+switch(ch)
+{
+case 1:
+       cout&lt;&lt;"\n \t \t\t ---Room Details---";
+       s.accept1();
+       break;
+case 2:
+       cout&lt;&lt;"\n \t \t \t Booking a Room: ";
+       cout&lt;&lt;"\n \t Enter Number of Rooms To Reserve:";
+       cin&gt;&gt;n;
+       s.rno=1;
+       for(i=0;i&lt;n;i++)
+       {
+  s.accept();
+  s.display();
+       cout&lt;&lt;"\n \t \t  ---Your Room is Booked---";
+
+       cout&lt;&lt;"\n Room No is:"&lt;&lt;s.rno;
+       s.rno++;
+       p=s.rno;
+       if(s.mobile&lt;=10||s.mobile&gt;=60)
+   cout&lt;&lt;"\n \t \t ---Your Room is Booked---";
+   }
+       break;
+case 3:
+       cout&lt;&lt;"\n \t \t \t Change your Rooms details:";
+       cout&lt;&lt;"\n Enter Your Room Number";
+       cin&gt;&gt;c;
+       s.rno--;
+       for(i=0;i&lt;n;i++)
+       {
+       if(s.rno==c)
+       {
+       flag=1;
+       }
+       else
+       {
+       flag=0;
+       s.rno--;
+       }
+       }
+       if(flag==1)
+       {
+       s.accept();
+       cout&lt;&lt;"\n \t \t \t Your Room Information Has been Changed.";
+       s.display();
+       }
+       else
+       {
+       cout&lt;&lt;"\n **Wrong Room Number**";
+       s.rno--;
+       }
+       break;
+case 4:
+       cout&lt;&lt;"\n \t \t \t Room cancel: ";
+       cout&lt;&lt;"\n Enter Your Room Number";
+       cin&gt;&gt;b;
+       p--;
+       for(i=0;i&lt;n;i++)
+       {
+       if(p==b)
+       {
+       flag=1;
+       }
+       else
+       {
+       flag=0;
+       p--;
+       }
+       }
+       if(flag==1)
+       {
+       cout&lt;&lt;"\n Your Room is Cancel.";
+       cout&lt;&lt;"\n Enter Your Bank Account Number:";
+       cin&gt;&gt;acc;
+       cout&lt;&lt;"\n --your Payment Transfer directly in  your bank account.--";
+       }
+       else
+       {
+       cout&lt;&lt;"\n **Wrong Room Number**";
+       p--;
+       }
+       break;
+case 5:
+       exit(0);
+}
+cout&lt;&lt;"\n Do you want to enter another Choice(Yes:press 'y'/No:Press 'n')=";
+cin&gt;&gt;ch3;
+}while(ch3=='y');
+
+return 0;
+}
+</code></pre></br></br>
+
+
+<b class="tit">
+Program 43:Multiple inheritance.
+  
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+using namespace std;
+class p1
+{
+  protected:
+    int a;
+  public:
+    void setdata()
+    {
+      cout&lt;&lt;"hi";
+    }
+    
+};
+class p2
+{
+  protected:
+    int b;
+  public:
+    void setdata()
+    {
+      cout&lt;&lt;"hi,my name si shah parth.";
+    }
+    
+};
+
+class p3:public p1,public p2
+{
+  public:
+    void getsum()
+    {
+      p2::setdata();
+    }
+};
+int main()
+{
+p3 s;
+s.getsum();
+return 0;
+}</code></pre></br></br>
+
+
+ <b class="tit">
+Program 44:Multilevel inheritance.
+</b>
+
+  <pre class="language-cpp"><code class="dec">#include&lt;iostream&gt;
+using namespace std;
+class student
+{
+  protected:
+    int rollno;
+  public:
+    void setrollno(int a)
+    {
+      rollno=a;
+    }
+    void getrollno()
+    {
+      cout&lt;&lt;"Student rollno is="&lt;&lt;rollno&lt;&lt;endl;
+    }
+};
+
+class marks:public student
+{
+  protected:
+    float maths;
+    float sciense;
+  public:
+    void setmarks(float c,float d)
+    {
+      maths=c;
+      sciense=d;
+    }
+    void getmarks()
+    {
+      cout&lt;&lt;"This student maths marks is ="&lt;&lt;maths&lt;&lt;endl;
+      cout&lt;&lt;"This student sciense marks is ="&lt;&lt;sciense&lt;&lt;endl;
+      
+    }
+};
+
+class result:public marks
+{
+  public:
+    void show()
+    {
+      getrollno();
+      getmarks();
+      cout&lt;&lt;"This student result is ="&lt;&lt;(maths+sciense)/2&lt;&lt;endl;
+    }
+};
+int main()
+{
+result p;
+p.setrollno(1153);
+p.setmarks(95.3,91.12);
+p.show();
+return 0;
+}</code></pre></br></br> 
+
+
+
+
+
+</div>
+
+  
+</div>
+{% endblock body %}

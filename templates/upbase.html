@@ -1,0 +1,380 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="{%static 'images/favicon.ico'%}" type="image/x-icon" >
+    <title>{% block title %}
+     
+     
+    {% endblock title %}</title>
+
+
+
+
+
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+   
+
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{%static 'style.css'%}">
+    <link rel="stylesheet" href="{%static 'prism.css'%}">
+    
+<script src="{% static 'prism.js'%}"></script>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<style>
+pre{
+  max-height:300px;
+}
+pre::-webkit-scrollbar{
+  width:0px;
+}
+input[type="text"],input[type="email"],input[type="password"]{
+  font-weight: bold;
+  font-size: 12px;
+  text-transform: none;
+  margin:5px;
+}
+    .postcard.dark .postcard__text:before {
+
+  width:34px;
+}
+div.wel{
+  text-align: center;
+  margin-top: 20px;
+}
+h3.name{
+text-shadow: 0 0 0 0.5px black;
+  font-weight: 1000;
+}
+p.post{
+  text-shadow: 0 0 0 0.5px black;
+  font-weight: 1000;
+}
+div.wel button{
+  color:cyan;
+  border:2px solid green;
+  text-shadow: 0 0 0 0.5px cyan;
+  font-weight: 1000;
+}
+.user{
+  margin-top: 130px;
+}
+.head_cheat,.head_cheat2,.head_cheat3{
+   background: var(--yellow);
+    height: 60px;
+    padding: 10px;
+    text-align: center;
+    color: black;
+    margin-top: 3%;
+    font-family: cursive;
+    margin-right: 1%;
+    margin-left: 1%;
+    font-size: 23px;
+    font-weight: bold;
+    border-radius: 15px;
+    border:5px solid black;
+    margin-bottom: 35px;
+}
+h1.heading span{
+  text-shadow: 0 0 0 0.5px black;
+  font-weight: 1000;
+}
+h1.heading{
+  text-shadow: 0 0 0 0.5px black;
+  font-weight: 1000;
+}
+strong{
+  font-size: 14px;
+}
+h1.project_title{
+  font-size: 35px;
+   text-shadow: 0px 0px 5px black;
+  font-weight: 1000;
+
+}
+.log{
+  width:80%;
+  margin-right:44px;
+  border:none;
+  height: 45px;
+  margin-top: 2px;
+  padding-top: 10px;
+}
+h5.modal-title{
+  font-weight: 1000;
+  margin:5px;
+  font-size: 24px;
+}
+
+.form-label{
+  font-size:14px;
+  margin:5px;
+  font-weight: bold;
+}
+ul{
+  width:200px;
+}
+li{
+  text-align: center;
+}
+.headtit{
+  text-shadow: 0px 0px 5px black;
+  font-weight: 1000;
+}
+li a{
+  width:80%;
+}
+.btn-close{
+  font-size: 11px;
+    margin: 3px;
+    font-weight: bold;
+}
+.mess{
+  margin-right: 72px;
+    margin-top: 17px;
+    margin-left: 13px;
+}
+a:hover{
+  color:black;
+}
+#modalbtn{
+margin-bottom: 10px;
+}
+a{
+  color:white;
+  text-decoration: none;
+}
+.postcard__tagbox{
+ margin:auto; 
+}
+.postcard .postcard__tagbox .tag__item {
+  margin:auto;
+}
+@media (max-width:1024px){
+.postcard .postcard__tagbox .tag__item {
+  margin:5px -10px;
+  margin-right: 15px;
+}
+}
+@media (max-width:768px){
+  .postcard .postcard__tagbox{
+    margin-left: 14%;
+  }
+  }
+
+@media (max-width:505px){
+.head_cheat2{
+  font-size: 16px;
+}
+.head_cheat3{
+font-size: 14px;
+}
+}
+@media (max-width:402px){
+.head_cheat3{
+  font-size: 14px;
+}
+p.head{
+  font-size: 1.5rem;
+}
+.head_cheat{
+  font-size: 19px;
+}
+.head_cheat2{
+  font-size: 14px;
+}
+}
+</style>
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header style="z-index:2;">
+
+    <div class="user">
+        <img class="logo" src="static/images/pic.jpg" alt="">
+        <h3 class="name">Parth Shah</h3>
+        <p class="post">Full Stack developer</p>
+    </div>
+
+    <nav class="navbar">
+        <ul>
+            <ul>
+            <li><a href="/#home">home</a></li>
+            <li><a href="/#about">about</a></li>
+            <li><a href="/#portfolio">Skills</a></li>
+            <li><a href="/cheats">cheat sheet</a></li>
+            <li><a href="/projects">projects</a></li>
+            <li class="cont"><a href="/#contact">contact</a></li>
+            {% if user.is_authenticated %}
+ 
+       <a class="btn btn-primary log" href="/logout">Log Out</a>
+     
+{% else %}
+    <button type="button" id="modalbtn" class="btn btn-primary log" data-bs-toggle="modal" data-bs-target="#signupmodal
+          ">
+  Sing up
+</button>
+<br>
+          <button type="button" id="" class="btn btn-primary log" data-bs-toggle="modal" data-bs-target="#loginmodal">
+  Log in
+</button>
+{% endif %}
+         
+       
+
+
+
+
+
+        </ul>
+    </nav>
+
+</header>
+
+<!-- Button trigger modal -->
+
+
+<!--Login Modal -->
+<div class="modal fade" id="loginmodal" tabindex="-1" aria-labelledby="loginmodaltit" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginmodaltit">Log in</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <form action="/login" method="post">
+        {% csrf_token %}
+  <div class="mb-3">
+    <label for="logemail" class="form-label">Username</label>
+    <input type="text" class="form-control" name="logemail" id="logemail" aria-describedby="emailHelp">
+   </div> 
+  <div class="mb-3">
+    <label for="logpass" class="form-label">Password</label>
+    <input type="password" class="form-control" name="logpass" id="logpass">
+  </div>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+ 
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<!--Sing up Modal -->
+<div class="modal fade" id="signupmodal" tabindex="-1" aria-labelledby="signupmodaltit" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signupmodaltit">Sign Up</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <form action="/signup" method="post">
+        {% csrf_token %}
+         <div class="mb-3">
+    <label for="username" class="form-label">Username</label>
+    <input type="text" class="form-control" name="username" id="username" aria-describedby="emailHelp">
+   </div> 
+  <div class="mb-3">
+    <label for="email" class="form-label">Email address</label>
+    <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
+   </div> 
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3">
+    <label for="cpassword" class="form-label">Confirm Password</label>
+    <input type="password" class="form-control" name="cpassword" id="exampleInputPassword1">
+  </div>
+  
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+ 
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<div class="container my-3"id="home">
+   {% if messages %}
+ {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} alert-dismissible fade show mess" role="alert">
+  <strong>{{ message }}!</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+{% endif %}
+</div>
+
+  {% if user.is_authenticated %}
+<div class="container wel" >
+  
+<button class="btn btn-primary m-auto">Welcome {{request.user}}</button>
+</div>
+
+  {% else %}
+
+ {% endif %}
+</div>
+
+{% block body %}
+
+   
+{% endblock body %}
+
+<a href="#home" class="top">
+    <img src="images/scroll-top-img.png" alt="">
+</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+ function togglePopup() {
+ document.getElementById("popup-1")
+  .classList.toggle("active");
+}
+
+function togglePopup2() {
+ document.getElementById("popup-2")
+  .classList.toggle("active");
+ 
+}
+</script>
+
+<!-- jquery cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="{% static 'script.js'%}"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+ 
+
+
+</body>
+</html>

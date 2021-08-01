@@ -1,0 +1,337 @@
+{% extends "upbase.html" %}
+{% block title %}
+  Git-hub
+{% endblock title %}
+{% block body %}
+  
+<!-- header section ends -->
+
+<div id="menu" class="fas fa-bars"></div>
+
+<!-- home section starts  -->
+
+
+   
+<div style="margin: 2%;"><div class="head_cheat2">All Git-Hub cheat sheet below here...</div>
+
+<!-- contact section ends -->
+<div style="margin:2%;">
+
+
+<b class="tit">
+1.Username create in git-bash.
+  
+</b>
+  <pre class="language-git"><code class="dec">git config --global user.name "yourname"</code></pre></br></br><b class="tit">
+2.Username display in git-bash.
+  
+</b>
+  <pre class="language-git"><code class="dec">git config user.name</code></pre></br></br><b class="tit">
+3.Useremail create in git-bash.
+  
+</b>
+  <pre class="language-git"><code class="dec">git config --global user.email "youremail"</code></pre></br></br><b class="tit">
+4.Useremail display in git-bash.
+  
+</b>
+  <pre class="language-git"><code class="dec">git config user.email</code></pre></br></br><b class="tit">
+5.List information in git-bash.
+  
+</b>
+  <pre class="language-git"><code class="dec">git config --list</code></pre></br></br><b class="tit">
+6.Display git folder status.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git status</code></pre></br></br><b class="tit">
+7.Folder convert in git repository.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git init</code></pre></br></br><b class="tit">
+8.All files add in git repository.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git add --a</code></pre></br></br><b class="tit">
+9.For save process.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git commit -m "initial commit"</code></pre></br></br><b class="tit">
+10.All commits display.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git log</code></pre></br></br><b class="tit">
+11.Only one file add in repository.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git add filename.txt</code></pre></br></br><b class="tit">
+12.Delete the repository from git bash.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">rm -rf .git</code></pre></br></br><b class="tit">
+13.Online repository pull process.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git clone {paste url}</code></pre>
+
+    </br></br><b class="tit">
+14.Display present working directory.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">pwd</code></pre>
+
+  </br></br><b class="tit">
+15.Display command list.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">ls</code></pre>
+
+</br></br><b class="tit">
+16.Apply for current directory.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">cd directorypath/</code></pre>
+
+
+</br></br><b class="tit">
+17.Create new file in git bash.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">touch pa.log</code></pre>
+
+</br></br><b class="tit">
+18.Create gitignore file.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">touch .gitingnore</code></pre>
+
+  </br></br><b class="tit">
+19.Difference between staged file and working directory.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git diff</code></pre>
+  </br></br><b class="tit">
+20.Difference between last commit.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git diff --staged</code></pre>
+
+  </br></br><b class="tit">
+21.Only track file commit.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git commit -a -m "track file commited"</code></pre>
+
+    </br></br><b class="tit">
+22.For remove file.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git rm filename.txt</code></pre>
+
+    </br></br><b class="tit">
+23.Rename file name.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git mv first.txt second.txt</code></pre>
+  </br></br><b class="tit">
+24.Track file convert to untrack file.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git rm --cached filename.txt</code></pre>
+  </br></br><b class="tit">
+25.All commit information display.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git log -p</code></pre>
+  </br></br><b class="tit">
+26.Only last 2 commit display.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git log -p -2</code></pre>
+    </br></br><b class="tit">
+27.Display commit in short information.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git log --start</code></pre>
+  </br></br><b class="tit">
+28.Different format display commit.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git log --pretty=oneline
+git log --pretty=short
+git log --since=2.days
+git log --since=2.week
+git log --pretty=format:"%h--%ae"
+git log --pretty=format:"%an"</code></pre>
+
+  </br></br><b class="tit">
+29.Commit information changed.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git commit --amend
+//new window open
+//i=insert
+//Esc=remove
+//:wq=window close</code></pre>
+
+  </br></br><b class="tit">
+30.Convert staging file to unstaging file.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git restore --staged filename.txt</code></pre>
+    </br></br><b class="tit">
+31.File checkout.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git checkout --filename.txt</code></pre>
+  </br></br><b class="tit">
+32.After last commit file checkout.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git checkout -f</code></pre>
+  </br></br><b class="tit">
+33.Short form for status.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git config --global alias.st status
+// git st</code></pre>
+  </br></br><b class="tit">
+34.Short form for commit.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git config --global alias.ct commit
+// git ct</code></pre>
+  </br></br><b class="tit">
+35.Create repository.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">// step:1 Click in new repository
+// step:3 Copy paste remote add.
+// step:4 git remote add origin {url}.
+// step:5 push.
+// step:6 SSH key create.
+// step:7 git push -u origin master.</code></pre>
+  </br></br><b class="tit">
+36.Create branch.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git checkout -b branchname</code></pre>
+  </br></br><b class="tit">
+37.Move to master branch.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git checkout master</code></pre>
+    </br></br><b class="tit">
+38.Merge two branch.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git merge branchname</code></pre>
+    </br></br><b class="tit">
+39.Dispaly all branch.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git branch</code></pre>
+    </br></br><b class="tit">
+40.Display branch last commit.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git branch -v</code></pre>
+    </br></br><b class="tit">
+41.Display merged branch.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git branch --merged</code></pre>
+    </br></br><b class="tit">
+42.Display no-merged branch.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git branch --no-merged</code></pre>
+      </br></br><b class="tit">
+43.Delete merged branch.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git branch -d branchname</code></pre>
+      </br></br><b class="tit">
+44.Delete no-merged branch.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git branch -D branchname</code></pre>
+      </br></br><b class="tit">
+45.For push branch.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git push origin branchname</code></pre>
+      </br></br><b class="tit">
+46.Duplicate branch on git-hub website.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git push origin branchname1:branchname2</code></pre>
+      </br></br><b class="tit">
+47.Delete branch on git-hub website.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git push -d origin branchname</code></pre>
+      </br></br><b class="tit">
+48.For pull branch.
+
+  
+</b>
+  <pre class="language-git"><code class="dec">git clone -b branchname {url}</code></pre>
+
+
+</br></br>
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+<!-- scroll top button  -->
+
+{% endblock body %}

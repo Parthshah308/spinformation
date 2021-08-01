@@ -1,0 +1,1652 @@
+{% extends "upbase.html" %}
+{% block title %}
+ Java
+{% endblock title %}
+{% block body %}
+  
+<div id="menu" class="fas fa-bars"></div>
+
+<!-- home section starts  -->
+
+
+   
+<div style="margin: 2%;"><div class="head_cheat2">All java cheat sheet below here...</div>
+
+<!-- contact section ends -->
+<div style="margin:2%;">
+
+
+<b class="tit">
+1.Basic structure of the java program.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+public class Main {
+
+    public static void main(String[] args)
+    {
+        System.out.println("hello! Parth shah.")
+    }
+}
+</code></pre></br></br>
+
+ <b class="tit">
+2.Declare variables.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+public class Main {
+
+    public static void main(String[] args)
+    {
+        System.out.println("hello");
+        int a=5;
+        int b=14;
+        int c=1;
+        int sum=a+b+c;
+        String name="parth";
+        System.out.println(sum);
+        System.out.println(name);
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+3.Input from the user using scanner keyword.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+import java.util.Scanner;
+
+public class readdata {
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+//        System.out.println("enter the no 1:");
+//        int a=s.nextInt();
+//
+//        System.out.println("enter the no 2:");
+//        int b=s.nextInt();
+//        int sum=a+b;
+//        System.out.println(sum);
+        boolean d=s.hasNextInt();
+        System.out.println(d);
+
+        System.out.println("Enter your name= ");
+        String name=s.next();
+        System.out.println("hello" + name + ", have a good day.");
+
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+4.All string methods.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+import java.util.Locale;
+
+public class stringmethod {
+    public static void main(String[] args) {
+        System.out.println("All string methods:-");
+//        Scanner s=new Scanner;
+        String str="parth";
+        System.out.println(str.length());
+        System.out.println(str.toLowerCase(Locale.ROOT));
+        System.out.println(str.toUpperCase(Locale.ROOT));
+        String pt="     parth     ";
+        System.out.println(pt.trim());
+        System.out.println(str.substring(2));
+        System.out.println(str.substring(2,4));
+        System.out.println(str.replace("parth","mohan"));
+        System.out.println(str.startsWith("pa"));
+        System.out.println(str.endsWith("h"));
+        System.out.println(str.charAt(2));
+        System.out.println(str.indexOf("t"));
+        System.out.println(str.equals("Parth"));
+        System.out.println(str.equalsIgnoreCase("PARTH"));
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+5.Array in java.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+public class arrayjava {
+    public static void main(String[] args) {
+        int [] a=new int[5];
+        int []b={82,92,23,52,82};
+        int [][]c=new int[2][3];
+        c[0][0]=4;
+        c[0][1]=5;
+        c[0][2]=2;
+        c[1][0]=1;
+        c[1][1]=8;
+        c[1][2]=9;
+//        for(int i=0;i&lt;b.length;i++)
+//        {
+//            System.out.println(b[i]);
+//        }
+//        for(int element:b)
+//        {
+//            System.out.println(element);
+//        }
+        int i,j;
+        for(i=0;i&lt;(c.length);i++)
+        {
+            for(j=0;j&lt;c[i].length;j++)
+            {
+                System.out.print(c[i][j] +" ");
+            }
+            System.out.println("");
+        }
+    }
+}
+</code></pre></br></br>
+
+ <b class="tit">
+6.Methods in java.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+public class methods {
+    int sum(int a,int b)
+    {
+        return a+b;
+    } int sum(int []a)
+    {
+        a[0]=54;
+        return a[0];
+    }
+    static int add(int ...arr)
+    {
+        int result=0;
+        for(int a:arr)
+        {
+            result+=a;
+        }
+        return result;
+    }
+    public static void main(String[] args) {
+
+        int a=5;
+        int b=4;
+        int []marks={3,5,23,23};
+
+        methods obj=new methods();
+        int c=obj.sum(a,b);
+        int d=obj.sum(marks);
+//        int c=sum(a,b);
+        System.out.println(c);
+        System.out.println(d);
+        System.out.println(marks[0]);
+        System.out.println(add(4,5,6));
+        System.out.println(add(6));
+        System.out.println(add(4,5,6,6,6));
+        System.out.println(add());
+    }
+}
+</code></pre></br></br>
+
+ <b class="tit">
+7.Recursion program.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+// factorial programm....
+public class recursion {
+    static int factorial(int n) {
+       if(n==0 || n==1)
+       {
+           return 1;
+       }
+
+        else {
+            return n * factorial(n - 1);
+        }
+    }
+    public static void main(String[] args) {
+        int n=5;
+        System.out.println(factorial(n));
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+8.Creating a custom class in oops.
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+class employee{
+    int id;
+    String name;
+    public void display(int a,String b)
+    {
+        id=a;
+        name=b;
+        System.out.println("Enter the rollno is:"+id);
+        System.out.println("Enter the name is:"+name);
+    }
+}
+public class oopjclassobject {
+    public static void main(String[] args) {
+        employee parth=new employee();
+        employee mohan =new employee();
+        employee yash =new employee();
+        parth.id=1;
+        parth.name="parth";
+//        parth.display();mohan.id=2;
+        mohan.name="mohan";
+//        mohan.display();
+        yash.display(3,"yash");
+//        System.out.println(parth.id);
+//        System.out.println(parth.name);
+
+    }
+}
+</code></pre></br></br> 
+
+<b class="tit">
+9.Access modifier , getter & setter in java.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+class emp1{
+    private int id;
+    private String name;
+
+    public void setid(int a){
+        id=a;
+    }
+    public int getid(){
+        return id;
+    }
+    public void setname(){
+        name="parth";
+    }
+    public String getname(){
+        return name;
+    }
+
+}
+public class accessmodifier {
+
+    public static void main(String[] args) {
+        emp1 mohan=new emp1();
+        mohan.setid(1153);
+        System.out.println(mohan.getid());
+        mohan.setname();
+        System.out.println(mohan.getname());
+    }
+}
+</code></pre></br></br> 
+
+<b class="tit">
+10.Constructor in java.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+class emp2{
+    private int id;
+    private String name;
+
+    public emp2(int a){
+        id=a;
+        name="shah";
+    }
+    public emp2(){
+        id=1;
+        name="shah";
+    }
+    public void setid(){
+        id=50;
+    }
+    public void getid(){
+        System.out.println(id);
+    }
+    public void getname() {
+        System.out.println(name);
+    }
+}
+public class constructor {
+    public static void main(String[] args) {
+
+        emp2 mahesh=new emp2(2);
+//        mahesh.setid();
+        mahesh.getid();
+        mahesh.getname();
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+11.Inheritance in java.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+class animal{
+    int a=4;
+    public void su(){
+       a=7;
+        System.out.println(a);
+    }
+}
+
+class dog extends animal{
+     int b;
+    public void sound(){
+
+        System.out.println(a);
+    }
+}
+public class inheritance {
+    public static void main(String[] args) {
+        dog a = new dog();
+        a.sound();
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+12.Dynamic method dispatch in java.
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+class phone{
+    public void call(){
+        System.out.println("This phone calling....");
+    }
+    public void ring(){
+        System.out.println("This Phone ringing....");
+    }
+    public void music(){
+        System.out.println("phone play music..");
+    }
+}
+
+class smartphone extends phone{
+    public void music(){
+        System.out.println("smartphone play music..");
+    }
+    public void ring(){
+        System.out.println("This smartphone ringing....");
+    }
+}
+public class Dynamic_dispatchinjava {
+    public static void main(String[] args) {
+        phone vivo=new smartphone();
+        vivo.ring();
+        vivo.call();
+        vivo.music();
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+13.Abstract class method in java.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+abstract class saying{
+    abstract void grid();
+}
+class asking extends saying{
+    void grid(){
+        System.out.println("hello,good morning....");
+    }
+}
+abstract class talking extends saying{
+    void say(){
+        System.out.println("hello");
+    }
+}
+public class abstractclass {
+    public static void main(String[] args) {
+        asking s=new asking();
+        s.grid();
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+14.Interfaces in java.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+interface bicycle{
+    default void bell()
+    {
+        System.out.println("tring tring");
+    };
+}
+interface tire{
+    void cmp();
+}
+class hero implements bicycle,tire{
+
+//    public void bell(){
+//        System.out.println("Tring tring tring ...........");
+//    }
+    public void cmp(){
+        System.out.println("Tire is company by default.....");
+    }
+}
+public class interfacesinjava {
+    public static void main(String[] args) {
+        hero h=new hero();
+        h.bell();
+        h.cmp();
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+15.Multithreading with implements in java.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+class th1 implements Runnable{
+    public void run(){
+        System.out.println("Thread 1 running with runnable interface");
+    }
+}
+class th2 implements Runnable{
+    public void run(){
+        System.out.println("Thread 2 running with runnable interface");
+    }
+}
+public class multithreadingwithimplement {
+    public static void main(String[] args) {
+        th1 gun1=new th1();
+        th2 gun2=new th2();
+        Thread bullet1=new Thread(gun1,"parth");
+        Thread bullet2=new Thread(gun2,"yash");
+        bullet1.start();
+        bullet2.start();
+        System.out.println("the name of the thread is="+bullet1.getName());
+        System.out.println("the name of the thread is="+bullet1.getId());
+        System.out.println("the name of the thread is="+bullet2.getName());
+        System.out.println("the name of the thread is="+bullet2.getId());
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+16.Try_catch exception in java.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+public class trycatchwithexception {
+    public static void main(String[] args) {
+
+        int a=5;
+        int b=4;
+        try {
+            int c=a/b;
+            System.out.println(c);
+        }catch (Exception e){
+            System.out.println("You are not divided beacause Reason:");
+            System.out.println(e);
+        }
+        System.out.println("End of the program!");
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+17.Throw vs Throws keyword in java.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+class NegativeArraySizeException extends Exception{
+    public String toString(){
+        return "you not choose negative number";
+    }
+
+}
+public class throw_vs_throws {
+    public static int divide(int a,int b) throws NegativeArraySizeException
+    {
+        if(a&lt;0){
+            throw new NegativeArraySizeException();
+        }
+        return a/b;
+    }
+    public static void main(String[] args) {
+        try {
+           int  c=divide(-4,2);
+            System.out.println(c);
+        }
+        catch (Exception e){
+            System.out.println("Exception");
+            System.out.println(e.toString());
+        }
+    }
+}
+</code></pre></br></br> 
+
+ <b class="tit">
+18.Arraylist in advance java.
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+import java.util.*;
+
+public class arraylistusingfram {
+    public static void main(String[] args) {
+        ArrayList&lt;Integer&gt; li=new ArrayList&lt;&gt;();
+        ArrayList&lt;Integer&gt; li2=new ArrayList&lt;&gt;();
+        li.add(3);
+        li.add(4);
+        li.add(2);
+        li.add(67);
+        li.add(4);
+        li.add(67);
+        li2.add(124);
+        li2.add(174);
+        li2.add(104);
+        li.remove(4);
+        li.addAll(0,li2);
+        li.add(0,1234);
+//        li.clear();
+        li.set(0,1);
+        System.out.println(li.lastIndexOf(67));
+        System.out.println(li.contains(122));
+        System.out.println("Print the array=");
+        int i;
+        for ( i=0;i&lt;li.size();i++)
+        {
+            System.out.println(li.get(i));
+        }
+    }
+}
+</code></pre></br></br> 
+
+<b class="tit">
+19.Linkedlist in advance java.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+import java.util.*;
+
+public class linkedlistusingfram {
+    public static void main(String[] args) {
+        LinkedList&lt;Integer&gt; li=new LinkedList&lt;&gt;();
+        LinkedList&lt;Integer&gt; li2=new LinkedList&lt;&gt;();
+        li.add(3);
+        li.add(4);
+        li.add(2);
+        li.add(67);
+        li.add(4);
+        li.add(67);
+        li2.add(124);
+        li2.add(174);
+        li2.add(104);
+        li.remove(4);
+        li.addAll(0,li2);
+        li.add(0,1234);
+//        li.clear();
+        li.set(0,1);
+        li.addFirst(100);
+        li.addLast(200);
+        System.out.println(li.lastIndexOf(67));
+        System.out.println(li.contains(122));
+        System.out.println("Print the array=");
+        int i;
+        for ( i=0;i&lt;li.size();i++)
+        {
+            System.out.println(li.get(i));
+        }
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+20.Array deque in advance java.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+import java.util.ArrayDeque;
+import java.util.LinkedList;
+
+public class arrayDequeusingfram {
+    public static void main(String[] args) {
+        ArrayDeque&lt;Integer&gt; li=new ArrayDeque&lt;&gt;();
+        ArrayDeque&lt;Integer&gt; li2=new ArrayDeque&lt;&gt;();
+        li.add(3);
+        li.add(4);
+        li.add(2);
+        li.add(67);
+        li.add(4);
+        li.add(67);
+        li2.add(124);
+        li2.add(174);
+        li2.add(104);
+        li.addFirst(1);
+        li.addLast(10);
+        li.removeLast();
+        System.out.println(li.getFirst());
+        System.out.println(li.getLast());
+
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+21.Hashset in advance java.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+import java.util.HashSet;
+
+public class hashingusingfram {
+    public static void main(String[] args) {
+        HashSet&lt;Integer&gt; h=new HashSet&lt;&gt;();
+        h.add(54);
+        h.add(4);
+        h.add(12);
+        h.add(73);
+        h.remove(4);
+        h.clear();
+        System.out.println(h);
+
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+22.The date class in advance java.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+import java.util.Date;
+
+public class dateandtimeusingfram {
+    public static void main(String[] args) {
+        System.out.println(System.currentTimeMillis()/1000/3600/24/365);
+        Date d=new Date();
+        System.out.println(d);
+        System.out.println(d.getTime());
+        System.out.println(d.getDate());
+        System.out.println(d.getHours());
+        System.out.println(d.getMinutes());
+
+    }
+}
+</code></pre></br></br>
+
+
+<b class="tit">
+23.Calender class & datetime formatter in advance java.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+import java.awt.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
+
+public class calenderusingfram {
+    public static void main(String[] args) {
+        Calendar c= Calendar.getInstance();
+        System.out.println(c.getCalendarType());
+        System.out.println(c.getTimeZone().getID());
+        System.out.println(c.get(Calendar.DATE));
+        System.out.println(c.get(Calendar.HOUR));
+        System.out.println(c.get(Calendar.MONTH));
+        System.out.println(c.get(Calendar.HOUR_OF_DAY));
+        GregorianCalendar calc=new GregorianCalendar();
+        System.out.println(calc.isLeapYear(2021));
+        System.out.println(TimeZone.getAvailableIDs()[0]);
+        System.out.println(TimeZone.getAvailableIDs()[1]);
+        System.out.println(TimeZone.getAvailableIDs()[2]);
+
+            // Date time formattter in java
+
+        LocalDate d=LocalDate.now();
+        System.out.println(d);
+        LocalTime t= LocalTime.now();
+        System.out.println(t);
+        LocalDateTime dt=LocalDateTime.now();
+        System.out.println(dt);
+
+//        DateTimeFormatter df=DateTimeFormatter.ISO_DATE;
+        DateTimeFormatter df=DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String mytime=dt.format(df);
+        System.out.println(mytime);
+    }
+}
+</code></pre></br></br>
+
+
+ <b class="tit">
+24.Tools method for java docs.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+/**
+ * @author parth
+ * @since 2003
+ */
+public class toolformethodsdoc {
+    /**
+     *
+     * @param args This is  method for the sum operations.
+     */
+    public static void main(String[] args) {
+        System.out.println("This is the first method");
+    }
+
+    /**
+     *
+     * @param a this is the first number
+     * @param b this is the second number
+     * @return this is return the sum
+     * @throws Exception use for 3 digits number
+     * @deprecated '*' operation is not allowed here
+     */
+    public int add(int a,int b) throws Exception
+    {
+        throw new Exception();
+//        return a+b;
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+25.Lambda expressions in java.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+interface data{
+    void math1();
+}
+public class lamda {
+    public static void main(String[] args) {
+
+        data obj=new data(){
+            public void math1(){
+                System.out.println("my name is math1");
+            }
+        };
+        obj.math1();
+        data obj2=()->{
+
+                System.out.println("my name is math2");
+            };
+        obj2.math1();
+    }
+}
+</code></pre></br></br> 
+
+<b class="tit">
+26.Generics class in java.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+class generic&lt;T1,T2&gt;
+{
+
+    private T1 t1;
+    private T2 t2;
+
+    public generic(T1 t1, T2 t2) {
+        this.t1 = t1;
+        this.t2 = t2;
+    }
+
+//    public void setT1(T1 t1) {
+//        this.t1 = t1;
+//    }
+//
+//    public void setT2(T2 t2) {
+//        this.t2 = t2;
+//    }
+
+    public T1 getT1() {
+        return t1;
+    }
+
+    public T2 getT2() {
+        return t2;
+    }
+}
+public class genericclass {
+    public static void main(String[] args) {
+        generic&lt;String,Integer&gt; g=new generic("parth",1153);
+           String s=     g.getT1();
+        System.out.println(s);
+        int a=g.getT2();
+        System.out.println(a);
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+27.File handling in java.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class filehandlingjava {
+    public static void main(String[] args) throws IOException {
+
+//        File myfile=new File("filehandle.txt");
+//        myfile.createNewFile();
+//
+//        FileWriter myfilew=new FileWriter("filehandle.txt");
+//        myfilew.write("My name is parth  and i am very luck and this file is "+myfile.getName());
+//    myfilew.close();
+//
+//        FileReader fileReader=new FileReader("filehandle.txt");
+//        Scanner s=new Scanner(fileReader);
+//        while(s.hasNextLine())
+//        {
+//            String str=s.nextLine();
+//            System.out.println(str);
+//        }
+
+        File delete=new File("filehandle.txt");
+        if(delete.delete())
+        {
+            System.out.println("File is deleted");
+        }
+        else{
+            System.out.println("File is not deleted");
+        }
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+28.Custom calculater in java.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+class invalidinputexception extends Exception{
+    public String toString(){
+        return "8 and 9 digits are invalid input,";
+    }
+}class dividenotzero extends Exception{
+    public String toString(){
+        return "You are not divide by 0";
+    }
+}
+class customcalc{
+
+    double add(double a,double b) throws invalidinputexception
+    {
+        if(a==8 || b==9)
+        {
+            throw new invalidinputexception();
+        }
+        return a+b;
+    }
+    double div(double a,double b) throws dividenotzero
+    {
+        if(b==0)
+        {
+            throw new dividenotzero();
+        }
+        return a/b;
+    }
+    double mul(double a,double b)
+    {
+        return a*b;
+    }
+    double sub(double a,double b)
+    {
+        return a-b;
+    }
+}
+public class customcalculater {
+    public static void main(String[] args) throws invalidinputexception,dividenotzero{
+        customcalc calc=new customcalc();
+//        double x=calc.add(8,6);
+        double x=calc.div(8,2);
+        System.out.println(x);
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+29.Check this is leap year or not?
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+import java.util.Scanner;
+
+public class exercise_1 {
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        int ptr=s.nextInt();
+        if(ptr%4==0)
+        {
+            System.out.println("this is the leap year");
+        }
+        else {
+            System.out.println("This is not leap year");
+        }
+//        switch(ptr)
+//        {
+//            case 1 -> System.out.println("monday");
+//            case 2 -> System.out.println("tuesday");
+//            case 3 -> System.out.println("wednesday");
+//            case 4 -> System.out.println("thrusday");
+//            case 5 -> System.out.println("friday");
+//            case 6 -> System.out.println("saturday");
+//            case 7 -> System.out.println("sunday");
+//
+//        }
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+30.Guess game in java.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+import java.util.Random;
+import java.util.Scanner;
+
+class game{
+    public int number;
+    public int userinput;
+    public int attemps=0;
+
+    game(){
+        Random rand=new Random();
+       this.number=rand.nextInt(100);
+    }
+
+    public int getAttemps() {
+        return attemps;
+    }
+
+    public void setAttemps(int attemps) {
+        this.attemps = attemps;
+    }
+
+    void takeinput(){
+        Scanner sm=new Scanner(System.in);
+        System.out.print("Guess the number=");
+         this.userinput=sm.nextInt();
+    }
+    boolean iscorrect(){
+        attemps++;
+        if(userinput==number)
+        {
+            System.out.format("correct number is %d and the attemps in %d",number,attemps);
+            return true;
+        }
+        else if(userinput&lt;number)
+        {
+            System.out.println("too low.....");
+        }
+        else if(userinput&gt;number)
+        {
+            System.out.println("too high........");
+        }
+        return false;
+    }
+}
+public class RealGuessGame {
+    public static void main(String[] args) {
+        game g=new game();
+        boolean b=false;
+        while(!b) {
+            g.takeinput();
+            b=g.iscorrect();
+         //100   System.out.println(b);
+        }
+
+    }
+}
+
+</code></pre></br></br>
+
+<b class="tit">
+31.Handling exception in java.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+import java.util.Scanner;
+
+public class handlingexception {
+    public static void main(String[] args) {
+        int[] arr=new int[5];
+        arr[0]=5;
+        arr[1]=7;
+        arr[2]=32;
+        boolean flag=true;
+        while(flag) {
+            System.out.println("Enter the index of array=");
+            Scanner s = new Scanner(System.in);
+            int ind = s.nextInt();
+            System.out.println("Enter the number for use divided=");
+            int number = s.nextInt();
+
+            try {
+                System.out.println("array number in the index=" + arr[ind]);
+                System.out.println("choosing number the divided the number" + arr[ind] / number);
+            flag=false;
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("some index number is not in array");
+                System.out.println(e);
+            } catch (ArithmeticException e) {
+                System.out.println("You can divided number in zero");
+                System.out.println(e);
+            } catch (Exception e) {
+                System.out.println("some error found");
+                System.out.println(e);
+            }
+        }
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+32.Find percentage of the students.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+import java.util.Scanner;
+
+public class percentage {
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        System.out.println("Enter the sub 1 marks:");
+        int sub1=s.nextInt();
+        System.out.println("Enter the sub 2 marks:");
+        int sub2=s.nextInt();
+        System.out.println("Enter the sub 3 marks:");
+        int sub3=s.nextInt();
+        System.out.println("Enter the sub 4 marks:");
+        int sub4=s.nextInt();
+        System.out.println("Enter the sub 5 marks:");
+        int sub5=s.nextInt();
+        int total=sub1+sub2+sub3+sub4+sub5;
+        System.out.print("Total of the all subject=");
+        System.out.println(total);
+        System.out.print("Percentage of the students=");
+        float per=total/5;
+        System.out.println(per);
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+33.practice for the advance java.
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+import java.util.ArrayList;
+/**
+ * This is class is too domestatic so using in java docs.
+ * @author Parth
+ * @version 4.5
+ * @since 2003
+ * @see &lt;a href="javadocs.com" target="_blank"&gt;Java docs&lt;/a&gt;
+ */
+public class practice_advance_java {
+    public static void main(String[] args) {
+        ArrayList&lt;String&gt; name=new ArrayList&lt;&gt;();
+        name.add("parth");
+        name.add("mohan");
+        name.add("zarna");
+        name.add("priya");
+//        for(Object n:name)
+        for(String n:name)
+        {
+            System.out.println(n);
+        }
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+34.Convert kilometer to miles.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+import java.util.Scanner;
+
+public class practice_set1 {
+    public static void main(String[] args) {
+
+//        Program 3:
+//        Scanner s=new Scanner(System.in);
+//        System.out.print("Enter your name:");
+//        String name=s.next();
+//        System.out.println("Hello "+name+" ,Have a good day.");
+
+//        Program 4:
+        System.out.println("Enter the Kilometers:");
+        Scanner s=new Scanner(System.in);
+        float a=s.nextInt();
+        System.out.println(a);
+        float b= (a*62)/100;
+        System.out.println(b);
+    }
+
+}
+</code></pre></br></br>
+
+<b class="tit">
+35.Character increment in integer.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+public class practice_set2 {
+    public static void main(String[] args) {
+        char a='D';
+        char b=(char)(a+2);
+        System.out.println(b);
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+36.Loops practice set in java.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+public class Practice_set5 {
+    public static void main(String[] args) {
+
+//        program 1:
+//        for(int i=4;i&gt;0;i--)
+//        {
+//            for(int j=0;j&lt;i;j++)
+//            {
+//                System.out.print("*");
+//            }
+//            System.out.println("");
+//        }
+
+
+            // Mathemetical tables.
+//        program 2:
+// 0 2 4 6 8
+//        int n=3;
+//        int sum=0;
+//        for(int i=0;i&lt;n;i++)
+//        {
+//          sum+=(2*i);
+//        }
+//        System.out.println(sum);
+
+//        program 3:
+//        int n=8;
+//        for (int i=1;i&lt;=10;i++)
+//        {
+//            System.out.printf("%d x %d = %d",n,i,n*i);
+//            System.out.println("");
+//        }
+
+//            program 4
+//        int n=8;
+//        for (int i=10;i&gt;=1;i--)
+//        {
+//            System.out.printf("%d x %d = %d",n,i,n*i);
+//            System.out.println("");
+//        }
+
+//            program 5
+//int f=1;
+//int n=3;
+//
+//        for(int i=1;i&lt;n;i++)
+//        {
+//            f+=f*i;
+//        }
+//        System.out.println(f);
+
+
+//        program 9
+
+        int n=8;int sum=0;
+        for (int i=1;i&lt;=10;i++)
+        {
+            sum+=n*i;
+        }
+        System.out.println(sum);
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+37.Array practice set in java.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+public class practice_set6 {
+    public static void main(String[] args) {
+        int []a={10,15,111};
+//       int [][]b=&#123;&#123;1,2,3&#125;,&#123;4,5,6&#125;&#125;;
+  //      int [][]c=&#123;&#123;0,0,0&#125;,&#123;0,0,0&#125;&#125;;
+//        int i,j;
+//        for(i=0;i&lt;c.length;i++)
+//        {
+//            for(j=0;j&lt;c[i].length;j++)
+//            {
+//                System.out.print(a[i][j]+b[i][j]+" ");
+//            }
+//            System.out.println("");
+//        }
+//        System.out.println(c[][j]);
+        boolean issort=true;
+        int i;
+                for(i=0;i&lt;a.length-1;i++)
+                {
+                    if(a[i]&gt;a[i+1])
+                    {
+                        issort=false;
+                        break;
+
+                    }
+
+                }
+                if(issort)
+                {
+                    System.out.println("sorted");
+                }
+                else{
+                    System.out.println("not sorted");
+                }
+
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+38.OOPs practice set in java.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+class emp
+{
+    int salary;
+    String name;
+    public int getsalary()
+    {
+        return salary;
+    }
+    public void setname(String a){
+        name=a;
+    }
+    public String getname()
+    {
+        return name;
+    }
+
+}
+
+class cellphone{
+    public void ring(){
+        System.out.println("Ringing.....");
+    }
+    public void call(){
+        System.out.println("Calling....");
+    }
+}
+
+class square{
+    int l;
+    public int area(){
+        return l*l;
+    }
+    public int perimeter(){
+        return 4*l;
+    }
+}
+
+class tommy{
+    public void hit(){
+        System.out.println("Hitting the enemy...");
+    }
+    public void fire(){
+        System.out.println("fireing the enemy...");
+    }
+}
+public class practice_set8 {
+    public static void main(String[] args) {
+        emp parth=new emp();
+        parth.salary=45000;
+        parth.setname("Parth shah");
+        System.out.println(parth.getsalary());
+        System.out.println(parth.getname());
+
+
+        cellphone realme=new cellphone();
+        realme.call();
+        realme.ring();
+
+        square s1=new square();
+        s1.l=3;
+        System.out.println(s1.area());
+        System.out.println(s1.perimeter());
+
+        tommy player1=new tommy();
+        player1.fire();
+        player1.hit();
+    }
+}
+</code></pre></br></br> 
+
+
+
+ <b class="tit">
+39.Rocks,Paper & sizer game in java.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.company;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class rockspapersizer {
+    public static void main(String[] args) {
+        System.out.println("Let's Start The Rocks,Paper & Scissor");
+        System.out.println("Press 0 to choose Rock");
+        System.out.println("Press 1 to choose Paper");
+        System.out.println("Press 2 to choose Scissor");
+        int n=0;
+while(n!=3) {
+    Scanner s = new Scanner(System.in);
+    System.out.println("Enter the user Input=");
+    int userinput = s.nextInt();
+
+    Random r = new Random();
+    int computerinput = r.nextInt(2);
+
+    if (userinput == computerinput) {
+        System.out.println("This game is Draw");
+    } else if (userinput == 0 && computerinput == 2 || userinput == 1 && computerinput == 0 || userinput == 2 && computerinput == 1) {
+        System.out.println("You Win!");
+    } else {
+        System.out.println("You Lose!!!!!!!!!!!!");
+    }
+
+    System.out.println("computer Input is=" + computerinput);
+    n++;
+}
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+40.Constructor in inheritance.
+  
+</b>
+  <pre class="language-java"><code class="dec">
+class base1{
+    base1(){
+        System.out.println("This is the base class");
+    }
+    base1(int x){
+        System.out.println("The value of a is "+ x);
+    }
+}
+
+class derived1 extends base1{
+    derived1(){
+        System.out.println("This is the derived class");
+    }
+    derived1(int x,int y){
+        super(x);
+        System.out.println("The value of b is "+ y);
+    }
+}
+
+class childclass extends derived1{
+    childclass(){
+        System.out.println("This is the childhood class");
+    }
+    childclass(int x,int y,int z)
+    {
+        super(x,y);
+
+        System.out.println("The value of c is "+ z);
+    }
+}
+public class construct_in_inheritance {
+    public static void main(String[] args) {
+childclass c2=new childclass();
+        childclass c1=new childclass(4,5,6);
+    }
+}
+</code></pre></br></br> 
+
+<b class="tit">
+41.Library management in java.
+  
+</b>
+  <pre class="language-java"><code class="dec">/**
+ * @author Parth
+ * @version 4.5
+ * @since 2003
+ * @see &lt;a href="javadocs.com" target="_blank"&gt;Java docs&lt;/a&gt;
+ */
+class Library{
+    public String[] books;
+    public int numofbooks;
+
+    Library(){
+         books=new String[100];
+         numofbooks=0;
+    }
+    void addbook(String book)
+    {
+        books[numofbooks]=book;
+        numofbooks++;
+        System.out.println(book +" named book is added!!!");
+    }
+    void issuebook(String book)
+    {int i;
+        for(i=0;i&lt;books.length;i++)
+        {
+
+                if(books[i]==book)
+                {
+                    System.out.println("this books has been issued");
+                    books[i]=null;
+                    return;
+                }
+            }
+        System.out.println("This books is not available here...");
+    }
+    void returnbook(String book){
+        addbook(book);
+    }
+    void showbooks(){
+        System.out.println("The Available books are below here...");
+        for (String book:books) {
+            if(book==null)
+            {
+                continue;
+            }
+                System.out.println("* " + book);
+
+        }
+    }
+}
+public class Libraraymanagment {
+    public static void main(String[] args) {
+        Library l=new Library();
+        l.addbook("the books of era");
+        l.addbook("the Ethical hacking");
+        l.addbook("the Coding master");
+        l.addbook("c");
+        l.showbooks();
+        l.issuebook("c");
+        l.showbooks();
+        l.returnbook("c");
+        l.showbooks();
+
+    }
+}
+</code></pre></br></br> 
+
+<b class="tit">
+42.Multi threading with extends in java.
+  
+</b>
+  <pre class="language-java"><code class="dec">
+class thread1 extends Thread{
+    thread1(String name){
+        super(name);
+    }
+    public void run(){
+        int i=0;
+        System.out.println("name is "+this.getName());
+//        while(i&lt;4){
+//                System.out.println("Coding thread is running");
+//                i++;
+//        }
+}
+}
+class thread2 extends Thread{
+    public void run(){
+        int i=0;
+        while(i&lt;4){
+            System.out.println("hacking thread is running");
+            i++;
+         }
+    }
+}
+public class multithreadingwithxtends {
+    public static void main(String[] args) {
+        thread1 t=new thread1("megh");
+        thread1 m1=new thread1("parth");
+        thread1 m2=new thread1("magan");
+        thread1 m3=new thread1("danish");
+        thread1 m4=new thread1("saumil");
+        thread1 m5=new thread1("mosam");
+//        t.start();
+//        thread2 m=new thread2();
+//        m.start();
+//        System.out.println("the name of the thread1 is :"+t.getName());
+//        System.out.println("the name of the thread1 is :"+t.getId());
+//        System.out.println(m1.getName());
+//        System.out.println(m2.getName());
+//        System.out.println(m3.getName());
+//        System.out.println(m4.getName());
+//        System.out.println(m5.getName());
+        m1.start();
+        m2.start();
+        m3.start();
+        m4.start();
+        m5.start();
+        m3.setPriority(Thread.MAX_PRIORITY);
+    }
+}
+</code></pre></br></br>
+
+
+<b class="tit">
+43.Thread methods in java.
+  
+</b>
+  <pre class="language-java"><code class="dec">
+class thread3 extends Thread{
+
+    public void run(){
+        int i=0;
+        while(i&lt;4){
+            System.out.println("Coding thread is running");
+            i++;
+        }
+    }
+}class thread4 extends Thread{
+
+    public void run(){
+        int i=0;
+        while(i&lt;4){
+            System.out.println("hacking thread is running");
+            try{
+
+                thread4.sleep(200);
+            }
+            catch(Exception e)
+            {
+                System.out.println(e);
+            }
+            i++;
+        }
+    }
+}
+
+public class threadmethod {
+    public static void main(String[] args) {
+        thread3 t1=new thread3();
+        thread4 t2=new thread4();
+        t1.start();
+        try{
+            t1.join();
+
+        }
+        catch (Exception e)
+        {
+            System.out.println(e);
+        }
+        t2.start();
+        System.out.println(t2.getState());
+
+    }
+}
+</code></pre></br></br>
+
+
+
+
+
+</div>
+
+  
+</div>
+
+{% endblock body %}

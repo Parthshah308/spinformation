@@ -1,0 +1,1660 @@
+{% extends "upbase.html" %}
+{% block title %}
+ C Language
+{% endblock title %}
+{% block body %}
+
+<!-- header section ends -->
+
+<div id="menu" class="fas fa-bars"></div>
+
+<!-- home section starts  -->
+
+
+   
+<div style="margin: 2%;"><div class="head_cheat2" >All C Language cheat sheet below here...</div>
+
+<!-- contact section ends -->
+<div style="margin:2%;">
+
+<b class="tit">
+Program 1:Print Hello world Program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+clrscr( );
+printf("Hello World");
+getch( );
+}</code></pre></br></br>
+
+ <b class="tit">
+Program 2:Print (*) pattern with space and with new line program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+clrscr( );
+printf("*\n*\t*\n*\t*\t*\n*\t*\t*\t*");
+getch( );
+}</code></pre></br></br>
+
+<b class="tit">
+Program 3:Print int,char,float,double,string data type program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int a=10;
+char b='z';
+float c=19.84;
+double d=23.24;
+char e[ ]="parth";
+clrscr( );
+printf("%d %c %f %f %s",a,b,c,d,e);
+getch( );
+}</code></pre></br></br>
+
+<b class="tit">
+Program 4:Print value by user with scanf program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int a;
+char b;
+float c;
+double d;
+char e[5];
+clrscr( );
+scanf("%d %c %f %lf %s",&a,&b,&c,&d,&e);
+printf("%d %c %f %lf %s",a,b,c,d,e);
+getch( );
+}</code></pre></br></br>
+
+ <b class="tit">
+Program 5:Print sum,sub,mul,mod,div functions program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int a;
+int b;
+int sum,sub,mul,div,mod;
+clrscr( );
+scanf("%d",&a);
+scanf("%d",&b);
+printf("%d %d",a,b);
+sum=a+b;
+sub=a-b;
+mul=a*b;
+div=a/b;
+mod=a%b;
+printf("sum of=%d",sum);
+printf("sub of=%d",sub);
+printf("mul of=%d",mul);
+printf("div of=%d",div);
+printf("mod of=%d",mod);
+getch( );
+}</code></pre></br></br>
+
+<b class="tit">
+Program 6:Print 1 to 100 with for loop program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int i;
+clrscr( );
+for(i=1;i&lt;=100;i++)
+{
+printf("%d",i);
+}
+getch( );
+}</code></pre></br></br>
+
+<b class="tit">
+Program 7:A to Z with for loop program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int i;
+clrscr( );
+for(i=65;i&lt;=90;i++)
+{
+printf("%c\t",i);
+}
+getch( );
+}</code></pre></br></br>
+
+<b class="tit">
+Program 8:Print odd or even program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int i;
+clrscr( );
+printf("Enter a number=");
+scanf("%d",&i);
+if(i%2==0)
+{
+printf("Number is Even");
+}
+else
+{
+printf("Number is Odd");
+}
+getch( );
+}</code></pre></br></br>
+
+    <b class="tit">
+Program 9:Print swap number using 3rd variable program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int a,b,c;
+clrscr( );
+printf("Enter a=");
+scanf("%d",&a);
+printf("Enter b=");
+scanf("%d",&b);
+printf("Before swap a value %d and b value %d",a,b);
+c=a;
+a=b;
+b=c;
+printf("After swap a value %d and b value %d",a,b);
+getch( );
+}</code></pre></br></br>
+
+
+ <b class="tit">
+Program 10:Print swap number without 3rd variable program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int a,b;
+clrscr( );
+printf("Enter a=");
+scanf("%d",&a);
+printf("Enter b=");
+scanf("%d",&b);
+printf("Before swap a value %d and b value %d",a,b);
+a=a+b;
+b=a-b
+c=a-b;
+printf("After swap a value %d and b value %d",a,b);
+getch( );
+}</code></pre></br></br>
+
+
+   <b class="tit">
+Program 11:Print Leap year program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int year;
+clrscr( );
+scanf("%d",&year);
+printf("Check this year=");
+if(year % 4==0)
+{
+printf("This is leap year");
+}
+else
+{
+printf("This is not leap year");
+}
+getch( );
+}</code></pre></br></br>
+
+    <b class="tit">
+Program 12:Print convert days to Year,month and reday program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int day,year,month,reday;
+clrscr( );
+printf("Enter the days=");
+scanf("%d",&day);
+year=day/365;
+month=(day%365)/7;
+reday=(day%365)%7;
+printf("%d Convert to %d year %d weak %d reday",day,year,month,reday);
+getch( );
+}</code></pre></br></br>
+
+    <b class="tit">
+Program 13:Print Biggest number in 3 variables program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int a,b,c;
+clrscr( );
+printf("Enter the value of a=");
+scanf("%d",&a);
+printf("Enter the value of b=");
+scanf("%d",&b);
+printf("Enter the value of c=");
+scanf("%d",&c);
+if(a&gt;b && a&gt;c)
+{
+printf("a is Maximum");
+}
+else if(b&gt;a && b&gt;c)
+{
+printf("b is Maximum");
+}
+else
+{
+printf("c is Maximum");
+}
+getch( );
+}</code></pre></br></br>
+
+  <b class="tit">
+Program 14:Print Multipication using addition program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int a=5,b=4,mul,i;
+clrscr( );
+printf("Multipication=");
+mul=0;
+for(i=1;i&lt;=a;i++)
+{
+mul=mul+b;
+}
+printf("%d",mul);
+getch( );
+}</code></pre></br></br>
+
+
+ <b class="tit">
+Program 15:Print Bonus for male and female program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int salary=10000,bonus;
+char gender;
+clrscr( );
+scanf("%c",&gender);
+if(gender=='m' || gender=='M')
+{
+printf("Enter the salary=%d",salary);
+bonus=salary+(salary*0.05);
+printf("Bonus with salary for male=%d",bonus);
+}
+else if(gender=='f' || gender=='F')
+{
+printf("Enter the salary=%d",salary);
+bonus=salary+(salary*0.07);
+printf("Bonus with salary for female=%d",bonus);
+}
+getch( );
+}</code></pre></br></br>
+
+<b class="tit">
+Program 16:Print Sum of N numbers program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int i,n,sum=0;
+clrscr( );
+scanf("%d",&n);
+for(i=0;i&lt;=n;i++)
+{
+sum=sum+i;
+}
+printf("%d",sum);
+getch( );
+}</code></pre></br></br>
+
+    <b class="tit">
+Program 17:Print Sum of all digits in numbers program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int x,n,sum=0;
+clrscr( );
+printf("Enter the number=\n");
+scanf("%d",&n);
+while(n&gt;0)
+{
+x=n%10;
+sum=sum+x;
+n=n/10;
+}
+printf("%d",sum);
+getch( );
+}</code></pre></br></br>
+
+  <b class="tit">
+Program 18:Print Number in reverse order program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int x,n,sum=0;
+clrscr( );
+printf("Enter the number=\n");
+scanf("%d",&n);
+while(n&gt;0)
+{
+x=n%10;
+sum=sum*10+x;
+n=n/10;
+}
+printf("In reverse order=%d",sum);
+getch( );
+}</code></pre></br></br>
+
+<b class="tit">
+Program 19:Print polindrom number program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int x,rev=0,dummy,n;
+clrscr( );
+printf("Enter the number=\n");
+scanf("%d",&n);
+dummy=n;
+while(n&gt;0)
+{
+x=n%10;
+rev=rev*10+x;
+n=n/10;
+}
+if(rev==dummy)
+{
+printf("This number is polindrom");
+}
+else
+{
+printf("This number is not polindrom");
+}
+getch( );
+}</code></pre></br></br>
+
+ <b class="tit">
+Program 20:Print Factorial number program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int n,fact=1,i;
+clrscr( );
+printf("Enter the Factorial number=\n");
+scanf("%d",&n);
+for(i=n;i&gt;0;i--)
+{
+fact=fact*i;
+}
+printf("%d!=%d",n,fact);
+getch( );
+}</code></pre></br></br>
+
+    <b class="tit">
+Program 21:Print Prime number program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int i,num,count=0;
+clrscr( );
+printf("Enter the number=\n");
+scanf("%d",&num);
+for(i=1;i&lt;=num;i++)
+{
+if(num%i==0)
+{
+count++;
+}
+}
+if(count==2)
+{
+printf("Prime number");
+}
+else
+{
+printf("Not Prime number");
+}
+getch( );
+}</code></pre></br></br>
+
+   <b class="tit">
+Program 22:Print Armstrong number program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int x,num,sum=0,t;
+clrscr( );
+printf("Enter the number=\n");
+scanf("%d",&num);
+t=num;
+while(num&gt;0)
+{
+x=num%10;
+sum=sum+(x*x*x);
+num=num/10;
+}
+if(sum==t)
+{
+printf("This is the armstrong no");
+}
+else
+{
+printf("This is not armstrong no");
+}
+getch( );
+}</code></pre></br></br>
+
+  <b class="tit">
+Program 23:Print Area of Triangle,Rectangle,Circle,Parrelogram,Square program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+#define pi 3.14
+void main( )
+{
+int l,b;
+double area;
+clrscr( );
+printf("Enter l and b=");
+scanf("%d %d",&l,&b);
+area=(l*b)/2;
+printf("area of triangle=%lf",area);
+area=l*l;
+printf("area of Square=%lf",area);
+area=pi*l*l;
+printf("area of Circle=%lf",area);
+area=l*b;
+printf("area of rectangle=%lf",area);
+area=l*b;
+printf("area of Parrelogram=%lf",area);
+getch( );
+}</code></pre></br></br>
+
+
+ <b class="tit">
+Program 24:Print Simple interest program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int si,p,r,n;
+clrscr( );
+printf("enter the value of p=");
+scanf("%d",&p);
+printf("enter the value of r=");
+scanf("%d",&r);
+printf("enter the value of n=");
+scanf("%d",&n);
+si=p*r*n/100;
+printf("\nsimple interst=%d",si);
+getch( );
+}</code></pre></br></br>
+
+<b class="tit">
+Program 25:Print All number Factorial numbers program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int i,j,n,ans=1;
+clrscr( );
+printf("Enter no=");
+scanf("%d",&n);
+for(i=1;i&lt;=n;i++)
+{
+ans=1;
+for(j=1;j&lt;=i;j++)
+{
+ans=ans*j;
+}
+printf("%d",ans);
+}
+getch( );
+}</code></pre></br></br>
+
+ <b class="tit">
+Program 26:Print Number of positive,negative or zero program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int no;
+clrscr( );
+printf("Enter the number=");
+scanf("%d",&no);
+if(no&gt;0)
+{
+printf("no is positive");
+}
+else if(no&lt;0)
+{
+printf("no is negative");
+}
+else if(no==0)
+{
+printf(""no is zeros");
+}
+getch( );
+}</code></pre></br></br>
+
+
+    <b class="tit">
+Program 27:Print eligible for vote program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int age;
+clrscr( );
+printf("Enter the person age=");
+scanf("%d",&age);
+if(age&gt;=18)
+{
+printf("Eligible for vote");
+}
+else
+{
+printf("Not Eligible for vote");
+}
+getch( );
+}</code></pre></br></br>
+
+    <b class="tit">
+Program 28:Print Student grade program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int marks;
+clrscr( );
+printf("enter the marks=");
+scanf("%d",&marks);
+if(marks&gt;=1 && marks&lt;=33)
+{
+printf("Fail");
+}
+if(marks&gt;=34 && marks&lt;=40)
+{
+printf("grade D");
+}
+if(marks&gt;=41 && marks&lt;=60)
+{
+printf("grade C");
+}
+if(marks&gt;=61 && marks&lt;=80)
+{
+printf("grade B");
+}
+if(marks&gt;=81 && marks&lt;=100)
+{
+printf("grade A");
+}
+getch( );
+}</code></pre></br></br>
+
+    <b class="tit">
+Program 29:Print menu driven for formula program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+float a,b;
+int choice;
+clrscr( );
+printf("Menu\n");
+printf("1=addition\n");
+printf("2=substraction\n");
+printf("3=multipication\n");
+printf("4=division\n");
+printf("5=sqare of a number\n");
+printf("6=square root of a number\n");
+printf("7=Exit\n");
+do{
+printf("enter your choice=");
+scanf("%d",&choice);
+switch(choice)
+{
+case 1:
+printf("\nenter the value of a=");
+scanf("%f",&a);
+printf("enter the value of b=");
+scanf("%f",&b);
+printf("sum is=%f\n",a+b);
+break;
+case 2:
+printf("\nenter the value of a=");
+scanf("%f",&a);
+printf("enter the value of b=");
+scanf("%f",&b);
+printf("sub is=%f\n",a-b);
+break;
+case 3:
+printf("\nenter the value of a=");
+scanf("%f",&a);
+printf("enter the value of b=");
+scanf("%f",&b);
+printf("mul is=%f\n",a*b);
+break;
+case 4:
+printf("\nenter the value of a=");
+scanf("%f",&a);
+printf("enter the value of b=");
+scanf("%f",&b);
+printf("div is=%f\n",a/b);
+break;
+case 5:
+printf("\nenter the value of a=");
+scanf("%f",&a);
+printf("square of a is =%f\n",a*a);
+break;
+case 6:
+printf("\nenter the value of a=");
+scanf("%f",&a);
+printf("square root of a is =%f\n",sqrt(a));
+break;
+case 7:
+printf("thank you");
+break;
+default:
+printf("invalid output\n");
+printf("please enter correct input\n");
+}
+}while(choice!=7);
+getch( );
+}</code></pre></br></br>
+
+ <b class="tit">
+Program 30:Print Star(*) pattern program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int i,j,k=0,n,rows;
+clrscr( );
+printf("enter number of rows= ");
+scanf("%d",&rows);
+n=(rows+1)/2;
+for(i=1;i&lt;=rows;i++)
+{
+i&lt;=n?k++:k--;
+for(j=1;j&lt;=n;j++)
+{
+if(j&lt;=k)
+printf("*");
+else
+printf(" ");
+}
+printf("\n");
+}
+getch( );
+}</code></pre></br></br>
+
+  <b class="tit">
+Program 31:Print Diamand pattern program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int i,j,k=0,n,rows;
+clrscr( );
+printf("enter number of rows= ");
+scanf("%d",&rows);
+n=(rows+1)/2;
+for(i=1;i&lt;=rows;i++)
+{
+i&lt;=n?k++:k--;
+for(j=1;j&lt;=rows;j++)
+{
+if(j&gt;=(n+1)-k && j&lt;=(n-1)+k)
+printf("*");
+else
+printf(" ");
+}
+printf("\n");
+}
+getch( );
+}</code></pre></br></br>
+
+ <b class="tit">
+Program 32:Print Number pattern program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int i,j;
+clrscr( );
+for(i=5;i&gt;=1;i--)
+{
+for(j=1;j&lt;=i;j++)
+{
+printf("%d",j);
+}
+printf("\n");
+}
+getch( );
+}</code></pre></br></br>
+
+<b class="tit">
+Program 33:Print Number pattern part-2 program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int i,j;
+clrscr( );
+for(i=5;i&gt;=1;i--)
+{
+for(j=5;j&gt;=i;j--)
+{
+printf("%d",i);
+}
+printf("\n");
+}
+getch( );
+}</code></pre></br></br>
+
+
+   <b class="tit">
+Program 34:Print Sum of array numbers program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int i,s[10],ans=0;
+clrscr( );
+printf("Enter the array members:");
+for(i=0;i&lt;=10;i++)
+{
+scanf("%d",&s[i]);
+}
+for(i=0;i&lt;=10;i++)
+{
+printf("%d",s[i]);
+}
+for(i=0;i&lt;=10;i++)
+{
+ans=ans+s[i];
+}
+printf("Answer the sum of array:%d",ans);
+getch( );
+}</code></pre></br></br>
+
+    <b class="tit">
+Program 35:Print 3x3 matrix sum array program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+int a[30];
+int disp[3][3];
+int disp2[3][3];
+int c[3][3];
+int i,j;
+clrscr( );
+for(i=0;i&lt;3;i++)
+{
+for(j=0;j&lt;3;j++)
+{
+printf("Enter value for[%d][%d]=",i,j);
+scanf("%d",&disp[i][j]);
+}
+}
+for(i=0;i&lt;3;i++)
+{
+for(j=0;j&lt;3;j++)
+{
+printf("%d",disp[i][j]);
+}
+printf("\n");
+}
+for(i=0;i&lt;3;i++)
+{
+for(j=0;j&lt;3;j++)
+{
+printf("Enter value for[%d][%d]=",i,j);
+scanf("%d",&disp2[i][j]);
+}
+}
+for(i=0;i&lt;3;i++)
+{
+for(j=0;j&lt;3;j++)
+{
+printf("%d",disp2[i][j]);
+}
+printf("\n");
+}
+for(i=0;i&lt;3;i++)
+{
+for(j=0;j&lt;3;j++)
+{
+c[i][j]=disp[i][j]+disp2[i][j];
+printf("%d",c[i][j]);
+}
+printf("\n");
+}
+getch( );
+}</code></pre></br></br>
+
+   <b class="tit">
+Program 36:Print All string functions program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int l,t;
+char s[10]="parth";
+char p[10]="shah";
+clrscr( );
+printf("%s\n",s);
+strcpy(s,"mohan");
+printf("%s\n",strupr(s));
+printf("%s\n",strlwr(s));
+printf("%s\n",strcat(s,p));
+l=strlen(s);
+printf("string length=%d\n",l);
+t=strcmpi(s,p);
+if(t==0)
+printf("equal");
+else
+printf("not equal");
+getch( );
+}</code></pre></br></br>
+
+    <b class="tit">
+Program 37:Print Bubble short program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int a[100],i,j,n,swap;
+clrscr();
+printf("Enter the numbers=");
+scanf("%d",&n);
+for(i=0;i&lt;n;i++)
+{
+scanf("%d",&a[i]);
+}
+for(i=0;i&lt;n-1;i++)
+{
+for(j=0;j&lt;n-i-1;j++)
+{
+if(a[j] &lt; a[j+1])
+{
+swap=a[j];
+a[j]=a[j+1];
+a[j+1]=swap;
+}
+}
+}
+for(i=0;i&lt;n;i++)
+{
+printf("%d\n",a[i]);
+}
+getch( );
+}</code></pre></br></br>
+
+   <b class="tit">
+Program 38:Print UDF function with arguments and with return value program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+int add(int,int)
+void main( )
+{
+int a=10,b=5;
+clrscr( );
+printf("sum=%d",add(a,b));
+getch( );
+}
+int add(int a,int b)
+{
+return a+b;
+}</code></pre></br></br>
+
+    <b class="tit">
+Program 39:Print Menu driven udf program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+#include&lt;stdlib.h&gt;
+#include&lt;math.h&gt;
+void add(float,float);
+void sub(float,float);
+void mul(float,float);
+void div(float,float);
+void square(float,float);
+void squareroot(float,float);
+void main( )
+{
+float n1,n2;
+int ch;
+clrscr( );
+do{
+printf("Enter two numbers: ");
+scanf("%f %f",&n1,&n2);
+printf("\n*******");
+printf("\n1.Addition");
+printf("\n2.Substraction");
+printf("\n3.Multiplication");
+printf("\n4.Division");
+printf("\n5.Square of a Number");
+printf("\n6.Square root of a Number");
+printf("\n7.Exit\n");
+printf("Enter your choice: \n");
+scanf("%d",&ch);
+switch(ch)
+{ case 1:
+add(n1,n2);
+break;
+case 2:
+sub(n1,n2);
+break;
+case 3:
+mul(n1,n2);
+break;
+case 4:
+div(n1,n2);
+break;
+case 5:
+square(n1,n2);
+break;
+case 6:
+squareroot(n1,n2);
+break;
+case 7:
+printf("Thankyou.");
+exit(0);
+default:
+printf("Invalid output.\n");
+printf("Please enter correct input\n");
+}
+printf("\n***************\n");
+}
+while(1);
+getch( );
+}
+//functionn for addition of two numbers
+void add(float n1,float n2)
+{
+float result=n1+n2;
+printf("sum is:%f",result);
+}
+//function for substraction of two numbers
+void sub(float n1,float n2)
+{
+float result=n1-n2;
+printf("sub is:%f",result);
+}
+//function for multiplication of two numbers
+void mul(float n1,float n2)
+{
+float result=n1*n2;
+printf("mul is:%f",result);
+}
+//fuction for divisionn of
+void div(float n1,float n2)
+{
+float result=n1/n2;
+printf("div is:%f",result);
+}
+//function for square of numbers
+void square(float n1,float n2)
+{
+float result=n1*n1;
+printf("square of number n1:%f\n",result);
+float result1=n2*n2;
+printf("square of number n2:%f\n",result1);
+}
+//function for square root of numbers
+void squareroot(float n1,float n2)
+{
+float result=sqrt(n1);
+printf("square root of number n1 is:%f\n",result);
+float result1=sqrt(n2);
+printf("square root of number n2 is:%f\n",result1);
+}</code></pre></br></br>
+
+    <b class="tit">
+Program 40:Print Sum of digits with UDF program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+int add(int n)
+{
+int r,sum=0;
+while(n&gt;0)
+{
+r=n%10;
+sum=sum+r;
+n=n/10;
+}
+return sum;
+}
+void main( )
+{
+int n,m;
+clrscr( );
+printf("Enter the number of digits=\n");
+scanf("%d",&n);
+m=add(n)
+printf("sum of digits=%d",m);
+getch( );
+}</code></pre></br></br>
+
+
+ <b class="tit">
+Program 41:Print Maximum of array with UDF program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+int max(int [ ],int);
+void main( )
+{
+int a[50],n,i;
+clrscr( );
+printf("Enter the size of arrray=");
+scanf("%d",&n);
+for(i=0;i&lt;n;i++)
+{
+scanf("%d",&a[i]);
+}
+printf("Maximum array=%d",max(a,n));
+getch( );
+}
+int max(int a[50],int n)
+{
+int i,max=0;
+for(i=0;i&lt;n;i++)
+{
+if(max&lt;a[i])
+{
+max=a[i];
+}
+}
+return max;
+}</code></pre></br></br>
+
+    <b class="tit">
+Program 42:Print Sum of digits with recursion program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+int sumofnumber(int n);
+void main( )
+{
+int n;
+clrscr( );
+printf("enter the number=");
+scanf("%d",&n);
+printf("sum of=%d",sumofnumber(n));
+getch( );
+}
+int sumofnumber(int n)
+{
+if(n!=0)
+{
+return n%10+sumofnumber(n/10);
+}
+else {return 0;}
+}</code></pre></br></br>
+
+ <b class="tit">
+Program 43:Print Call by references with swap program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void swap(int *,int *);
+void main( )
+{
+int a,b;
+clrscr( );
+printf("call by references=");
+printf("-------------------");
+printf("\n enter the a=");
+scanf("%d",&a);
+printf("\n enter the b=");
+scanf("%d",&b);
+swap(&a,&b);
+getch( );
+}
+void swap(int *a,int *b)
+{
+int c;
+c=*a;
+*a=*b;
+*b=c;
+printf("After the swap=%d",*a);
+printf("After the swap=%d",*b);
+}</code></pre></br></br>
+
+ <b class="tit">
+Program 44:Print recursion sum number program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+int multirecur(int n);
+void main( )
+{
+int n;
+clrscr( );
+printf("enter the number=");
+scanf("%d",&n);
+printf("sum of=%d",multirecur(n));
+getch( );
+}
+int multirecur(int n)
+{
+if(n&gt;1)
+{
+return n+multirecur(n-1);
+}
+else {return 0;}
+}</code></pre></br></br>
+
+    <b class="tit">
+Program 45:Print recursion Factorial number program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+int multirecur(int n);
+void main( )
+{
+int n;
+clrscr( );
+printf("enter the factorial number=");
+scanf("%d",&n);
+printf("sum of=%d",multirecur(n));
+getch( );
+}
+int multirecur(int n)
+{
+if(n&gt;1)
+{
+return n*multirecur(n-1);
+}
+else {return 1;}
+}</code></pre></br></br>
+
+
+   <b class="tit">
+Program 46:Print Addition,Multipication,division,modulo,substraction with pointer program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int a=20,b=10;
+int *p1,*p2;
+clrscr( );
+p1=&a;
+p2=&b;
+printf("Two numbers=%d %d",a,b);
+printf("\nAddition of 2 Numbers=%d",(*p1+*p2));
+printf("\nSubtraction of 2 numbers=%d",(*p1-*p2));
+printf("\nMultipication of 2 numbers=%d",(*p1**p2));
+printf("\nDivision of 2 numbers=%d",(*p1)/(*p2));
+printf("\nmodulo of 2 numbers=%d",(*p1%*p2));
+getch( );
+}</code></pre></br></br>
+
+   <b class="tit">
+Program 47:Print Sum of array elements with pointer program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int a[5]={1,3,4,3,2};
+int *p,i,sum=0;
+clrscr( );
+p=&a[0];
+for(i=1;i&lt;=5;i++)
+{
+printf("\n%d",*p);
+sum=sum+*p;
+p++;
+}
+printf("\nsum of=%d",sum);
+getch( );
+}</code></pre></br></br>
+
+    <b class="tit">
+Program 48:Print string using with pointer program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+#include&lt;string.h&gt;
+void main( )
+{
+char str[ ]="hello world";
+char *p;
+int i;
+clrscr( );
+p=&str[0];
+for(i=0;i&lt;strlen(str);i++)
+{
+printf("%c",*p);
+p++;
+}
+getch( );
+}</code></pre></br></br>
+
+ <b class="tit">
+Program 49:Print 2-D array in reverse with pointer program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+void main( )
+{
+int i,j;
+int a[2][2];
+int *p;
+clrscr( );
+for(i=0;i&lt;2;i++)
+{
+for(j=0;j&lt;2;j++)
+{
+scanf("%d",&a[i][j]);
+}
+}
+p=&a[0][0];
+for(i=0;i&lt;2;i++)
+{
+for(j=0;j&lt;2;j++)
+{
+printf("%d %p\t",*p,p);
+p++;
+}
+printf("\n");
+}
+p=&a[1][1];
+for(i=1;i&gt;=0;i--)
+{
+for(j=1;j&gt;=0;j--)
+{
+printf("%d %p\t",*p,p);
+p--;
+}
+printf("\n");
+}
+getch( );
+}</code></pre></br></br>
+
+    <b class="tit">
+Program 50:Print Menu driven using pointer program.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+int add( );
+int div( );
+int sub( );
+int mod( );
+int cou( );
+void main( )
+{
+int choice;
+int a,b;
+int (*p1)(int,int);
+int (*p2)(int,int);
+int (*p3)(int,int);
+int (*p4)(int,int);
+int (*p5)(int,int);
+int (*p6)(int);
+clrscr( );
+printf("\n1=addtion");
+printf("\n2=Multipication");
+printf("\n3=Division");
+printf("\n4=Substraction");
+printf("\n5=Modulo");
+printf("\n6=Count total number of digit in the number");
+printf("\n7=exit");
+p1=&add;
+p2=&mul;
+p3=&div;
+p4=&sub;
+p5=&mod;
+p6=&cou;
+do{
+printf("\nEnter your choice=");
+scanf("%d",&choice);
+switch(choice)
+{
+case 1:
+printf("%d",(*p1)(a,b));
+break;
+case 2:
+printf("%d",(*p2)(a,b));
+break;
+case 3:
+printf("%d",(*p3)(a,b));
+break;
+case 4:
+printf("%d",(*p4)(a,b));
+break;
+case 5:
+printf("%d",(*p5)(a,b));
+break;
+case 6:
+printf("%d",(*p6)(a));
+break;
+case 7:
+printf("Thank You");
+break;
+case 8:
+printf("\nInvalid input");
+printf("\nplease Enter the correct Input");
+}
+}
+while(choice!=7);
+getch();
+}
+int add(int a,int b)
+{
+printf("Enter the value of a=");
+scanf("%d",&a);
+printf("Enter the value of b=");
+scanf("%d",&b);
+return a+b;
+}
+int mul(int a,int b)
+{
+printf("Enter the value of a=");
+scanf("%d",&a);
+printf("Enter the value of b=");
+scanf("%d",&b);
+return a*b;
+}
+int div(int a,int b)
+{
+printf("Enter the value of a=");
+scanf("%d",&a);
+printf("Enter the value of b=");
+scanf("%d",&b);
+return a/b;
+}
+int sub(int a,int b)
+{
+printf("Enter the value of a=");
+scanf("%d",&a);
+printf("Enter the value of b=");
+scanf("%d",&b);
+return a-b;
+}
+int mod(int a,int b)
+{
+printf("Enter the value of a=");
+scanf("%d",&a);
+printf("Enter the value of b=");
+scanf("%d",&b);
+return a%b;
+}
+int cou(int a)
+{
+int count=0;
+printf("Enter the number of a=");
+scanf("%d",&a);
+do{ count++;
+a/=10;
+}while(a!=0);
+return count;
+}</code></pre></br></br>
+
+
+<b class="tit">
+Program 51:Print details in input using structure.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+struct book
+{
+char name[40];
+char title[50];
+int pages;
+int price;
+};
+void main()
+{
+struct book p1,p2,p3;
+clrscr();
+strcpy(p1.name,"S.P.Upadhayay");
+strcpy(p1.title,"The Book of Era");
+p1.pages=324;
+p1.price=670;
+printf("Book Author name=%s\n",p1.name);
+printf("Book Author name=");
+scanf("%s",&p2.name);
+printf("Book Author name=");
+scanf("%s",&p3.name);
+printf("\nBook titel=%s\n",p1.title);
+printf("\nBook Title=");
+scanf("%s",&p2.title);
+printf("Book Title=");
+scanf("%s",&p3.title);
+printf("\nBook pages%d\n",p1.pages);
+printf("\nBook pages=");
+scanf("%d",&p2.pages);
+printf("Book pages=");
+scanf("%d",&p3.pages);
+printf("\nBook price=%d\n",p1.price);
+printf("\nBook price=");
+scanf("%d",&p2.price);
+printf("Book price=");
+scanf("%d",&p3.price);
+
+getch();
+
+}</code></pre></br></br>
+
+ <b class="tit">
+Program 52:Struct program no argument and with return value.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+struct a
+{
+  int rollno;              
+  char address[100];
+  char name[50];
+  char insti_name[50];
+};
+struct a getdata();
+void main()
+{
+struct a p1;
+clrscr();
+p1=getdata();
+printf("\n\n\n\nEnter Your rollno=%d\nEnter Your address=%s\nEnter your name=%s\nEnter your Institute name=%s",p1.rollno,p1.address,p1.name,p1.insti_name);
+getch();
+}
+struct a getdata()
+{
+  struct a p1;
+  printf("Enter your rollno=");
+  scanf("%d",&p1.rollno);
+  printf("Enter your address=");
+  gets(p1.name);
+  printf("Enter your name=");
+  scanf("%s",&p1.name);
+  printf("Enter Your Institute name=");
+  scanf("%s",&p1.insti_name);
+  return p1;
+}</code></pre></br></br>
+
+ <b class="tit">
+Program 53:Print the global declaration.
+  
+</b>
+
+  <pre class="language-c"><code class="dec">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+int x=10;
+void main()
+{
+clrscr();
+printf("%d",x);
+getch();
+}</code></pre></br></br>
+
+
+
+</div>
+
+  
+</div>
+{% endblock body %}

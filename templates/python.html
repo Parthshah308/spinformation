@@ -1,0 +1,1301 @@
+{% extends "upbase.html" %}
+{% block title %}
+ Python
+{% endblock title %}
+{% block body %}
+  
+<div id="menu" class="fas fa-bars"></div>
+
+<!-- home section starts  -->
+
+
+   
+<div style="margin: 2%;"><div class="head_cheat2" >All python cheat sheet below here...</div>
+
+<!-- contact section ends -->
+<div style="margin:2%;">
+
+
+  <b class="tit">
+1.Any module download format.
+  
+</b>
+  <pre class="language-py"><code class="dec">pip install modulename</code></pre></br></br>
+
+  <b class="tit">
+2.Hello world program.
+  
+</b>
+  <pre class="language-py"><code class="dec">print("Hello World")</code></pre></br></br>
+
+    <b class="tit">
+3.Use comment.
+  
+</b>
+  <pre class="language-python"><code># For single comment use.
+"""  For Multi comment use.  """</code></pre></br></br>
+
+  <b class="tit">
+4.Two sentences write in one line.
+  
+</b>
+  <pre class="language-py"><code class="dec">print("Parth shah is","a very good boy",end=" ")</code></pre></br></br>
+     
+  <b class="tit">
+5.Declare variables.
+  
+</b>
+  <pre class="language-py"><code class="dec">n1="parth"
+n2=45
+n3=23.23
+print(n2+n3)
+print(n1+str(n2))
+print(100*n1)</code></pre></br></br>
+
+  <b class="tit">
+6.Input from the user.
+  
+</b>
+  <pre class="language-py"><code class="dec">a=input("Enter the value of a=")
+print("Enter the value of b=")
+b=input()
+print(a+b)</code></pre></br></br>
+
+  <b class="tit">
+7.String methods.
+  
+</b>
+  <pre class="language-py"><code class="dec">name="parth shah"
+print(name)
+print(len(name))
+print(name.endswith("shah"))
+print(name.replace("shah", "rathod"))
+print(name.capitalize())
+print(name.upper())
+print(name.lower())
+print(name.count(" "))
+print(name[:5:])
+print(name[::-1])
+print(name.find("sh"))
+print(name.isalnum())
+print(name[1])</code></pre></br></br>
+
+  <b class="tit">
+8.List methods.
+  
+</b>
+  <pre class="language-py"><code class="dec">
+# List declare in [  ] brackets.
+# Note: List value can be changed
+
+name=["parth","shah","mohan","sohan","yash"];
+print(len(name))
+print(name)
+print(name[0])
+print(name[::2])
+name.sort()
+print(name)
+num=[1,23,51,4,61]
+num.append(100)
+num.pop()
+num.insert(1, 33)
+num.remove(23)
+name.reverse()
+print(name)
+print(num)
+num.sort()
+print(num)
+num.reverse()
+print(num)
+num[0]=13
+print(num)
+</code></pre></br></br>
+
+  <b class="tit">
+9.Tuple methods.
+  
+</b>
+  <pre class="language-py"><code class="dec">
+# Tuple declare in (  ) parenthesic.
+# Note: Tuple value can not be changed.
+
+tup=(4,6,2)
+print(tup)</code></pre></br></br>
+
+<b class="tit">
+10.Swap program.
+  
+</b>
+  <pre class="language-py"><code class="dec">a=4
+b=5
+print(a,b)
+a,b=b,a
+print(a,b)</code></pre></br></br> 
+
+<b class="tit">
+11.Dictionary methods.
+  
+</b>
+  <pre class="language-py"><code class="dec">d1={"name":"parth",
+  "surname":"shah",
+  "rollno":"1153",
+  "address":{"isanpur":"ahmedabad","baroda":"gujarat"}
+  }
+print(d1)
+print(type(d1))
+print(d1["name"])
+d1["mobile"]={"Realme"}
+print(d1["address"]["isanpur"])
+del d1["name"]
+print(d1)
+d2=d1.copy()
+del d1["surname"]
+d1["name"]="parth"
+print(d1.update({"name":"yash"}))
+print(d1.get("name"))
+print(d1)
+print(d2)
+print(d1.keys())
+print(d1.items());</code></pre></br></br>
+
+<b class="tit">
+12.Sets methods.
+  
+</b>
+  <pre class="language-py"><code class="dec">
+# Set meaning duplicate value not display in list
+
+s=set([1,2,5,5,2])
+l=[2,6,2,6,1,6]
+m=set(l)
+# print(type(s))
+s.add(23)
+s1=s.union([8,10])
+s.remove(1)
+print(s,s1)
+print(s.isdisjoint(s1))
+print(max(m))</code></pre></br></br>
+
+<b class="tit">
+13.If-Elseif-Else leader.
+  
+</b>
+  <pre class="language-py"><code class="dec">n1=5
+n2=4
+
+# print("enter tha age")
+n3=int(input("enter tha age="))
+
+if n3>18:
+  print("You can drive")
+elif n3==18:
+  print("i cannot decide")
+else:
+  print("You can not drive")
+
+
+l1=[2,6,8]
+
+if 12 not in l1:
+  print("variable is not in list")
+
+if 6 in l1:
+  print("variable is in list")
+</code></pre></br></br>
+
+<b class="tit">
+14.Create own dictionary.
+  
+</b>
+  <pre class="language-py"><code class="dec">MyDictionary={"put":"put meaning is mukvu",
+        "get":"get meaning is medvavu",
+        "set":"set meaning is set karvu",
+        "like":"like meaning is like karvu",
+        "who":"kon",
+        "what":"shu"}
+print("Enter the word for check meaning")
+word=input()
+print(MyDictionary[word])</code></pre></br></br>
+
+
+<b class="tit">
+15.For loops.
+  
+</b>
+  <pre class="language-py"><code class="dec">list1=[["parth",4],[5,"name"]]
+lis=dict(list1)
+print(list1)
+for sh,sy in list1:
+  print(sh,sy)
+for sh in lis:
+  print(sh)
+for sh,sy in  lis.items():
+  print(sh,sy)
+
+# print variable if is int and greater than 14.
+
+li=["shah",3,23,2352,"shdf",48,15,int,float]
+
+for l in li:
+  if str(l).isnumeric() and l>14:
+    print(l)</code></pre></br></br>
+
+ <b class="tit">
+16.While loops.
+  
+</b>
+  <pre class="language-py"><code class="dec">i=0
+while(i<15):
+  print(i)
+  i=i+1</code></pre></br></br>
+
+ <b class="tit">
+17.Break & Continue methods.
+  
+</b>
+  <pre class="language-py"><code class="dec">i=0
+while(i<45):
+  if(i<13):
+    i=i+1
+    continue  
+  print(i)
+  i=i+1
+  
+while(True):
+  inp=input("Enter the number=")
+  if int(inp)>100:
+    print("congratualtiion successs")
+    break
+  else:
+    print("Please try again later.....")
+    continue</code></pre></br></br> 
+
+<b class="tit">
+18.Faulty calculater.
+  
+</b>
+  <pre class="language-py"><code class="dec">
+# This is the faulty calculater.
+# if 56+9=77
+# if 45*3=555
+# if 56/6=4
+
+a=int(input("Enter the value of a="))
+b=int(input("Enter the value of b="))
+print("All Arithmetic operation\n addition +\n substaraction -\n multipication *\n division /\n")
+c=input("Enter the performance=")
+
+if a==56 and b==9 and c=="+":
+  print("Sum is=77")
+elif a==45 and b==3 and c=="*":
+  print("multipication is=555")
+elif a==56 and b==6 and c=="/":
+  print("division is=4")  
+elif c=="+":
+  add=a+b
+  print("sum is=",a+b)
+elif c=="-":
+  sub=a-b
+  print("sub is=",sub)
+elif c=="*":
+  mul=a*b
+  print("mul is=",mul)
+elif c=="/":
+  div=a/b
+  print("div is=",div)
+else:
+  print("choose invalid experession")</code></pre></br></br> 
+
+ <b class="tit">
+19.All operators.
+  
+</b>
+  <pre class="language-py"><code class="dec">#1.Arithmetic operators:
+print("a+b is=",a+b)
+
+#2.Assignment operators:
+x=5
+print(x)
+
+#3.Comparison operators:
+x==5
+
+#4.Logical operators:
+print(a and b)
+print(a or b)
+
+#5.Identity operators:
+print(5 is 5)
+print(5 is not 6)
+
+#6.Membership operators:
+list=[34,56,23]
+print(34 in list)
+print(2 not in list)
+
+#7.Bitwise operators:
+print(0 & 1)=0
+print(0 | 1)=1</code></pre></br></br>
+
+ <b class="tit">
+20.Short-hand if-else.
+</b>
+  <pre class="language-py"><code class="dec">a=6
+b=5
+
+print("a is small") if a&lt;b else print("b is small")</code></pre></br></br>
+
+<b class="tit">
+21.All functions.
+  
+</b>
+  <pre class="language-py"><code class="dec">
+# in-built function.
+a=5
+b=4
+print(sum((a,b)))
+
+#user-define function.
+def p1(a,b):
+  """hi shah parht is comming"""
+  print("hello My name is parth shah",a+b)
+  return a
+
+p1(4,6)
+print(p1(34,123))
+
+#Doc_string function.
+print(p1.__doc__)</code></pre></br></br>
+
+<b class="tit">
+22.Try_except functions.
+  
+</b>
+  <pre class="language-py"><code class="dec">a=input("a=")
+
+b=input("b=")
+
+try:
+  print("sum is=",int(a)+int(b))
+except Exception as e:
+  print(e)
+
+print("last row print")</code></pre></br></br>
+
+
+<b class="tit">
+23.File I/O basics.
+  
+</b>
+  <pre class="language-py"><code class="dec"># "r" = open file for reading -> default.
+# "w" = open file for writing.
+# "x" = creates file if not exists.
+# "a" = add more content to a file.
+# "t" = text mode -> default.
+# "b" = binary mode.
+# "t" = read and write.</code></pre></br></br>
+
+ <b class="tit">
+24.File reading.
+
+</b>
+  <pre class="language-py"><code class="dec">f=open("1.txt","rb")
+f=open("1.txt","rt")
+
+# print(f.readline())
+# print(f.readlines())
+for char in f.read():
+# for char in f:
+  print(char)
+print(f.read(3))
+# print(f.read(3000))
+# print("1",f.read())
+
+f.close()</code></pre></br></br> 
+
+<b class="tit">
+25.File writing,appending & r+.
+  
+</b>
+  <pre class="language-py"><code class="dec"># Writing...
+f=open("2.txt","w")
+f.write("hi, shah")
+f.close()
+
+# Appending...
+f=open("2.txt","a")
+f.write("hi, shah")
+f.close()
+
+# R+ mode.
+f=open("2.txt","r+")
+f.read()
+f.write("hi, shah")
+f.close()</code></pre></br></br>
+
+
+<b class="tit">
+26.Seek & tell functions.
+  
+</b>
+  <pre class="language-py"><code class="dec">f=open("1.txt")
+print(f.tell())
+
+print(f.readline())
+print(f.tell())
+f.seek(0)
+print(f.tell())
+print(f.readline())</code></pre></br></br> 
+
+ <b class="tit">
+27.Shortcuts to file open and close.
+  
+</b>
+  <pre class="language-py"><code class="dec">with open("1.txt") as f:
+    a=f.readline()
+print(a)</code></pre></br></br>
+
+<b class="tit">
+28.Local & global variable.
+  
+</b>
+  <pre class="language-py"><code class="dec">l=40  # global variables.
+def fun():
+  l=23 #local variable.
+  l=l+4  # This is not correct syntax.
+  global l=l+4  # This is correct syntax.</code></pre></br></br>
+
+
+ <b class="tit">
+29.Recursion,Recursive & Interactive approach.
+  
+</b>
+  <pre class="language-py"><code class="dec">
+# Factorial program.
+def fact(n):
+  if n==1:
+    return 1
+  else:
+    return n*fact(n-1)
+
+
+# Fibonaci series.
+b=fact(5)
+print(b)
+
+def fibo(n):
+  if n==0:
+    return 0
+  elif n==1:
+    return 1
+  else:
+    return fibo(n-1)+fibo(n-2)
+c=fibo(7)
+print(c)
+
+
+# Interactive approach.
+fact=1
+for i in range(5):
+  fact=fact*(i+1)
+print(fact)</code></pre></br></br>
+
+ <b class="tit">
+30.Lambda functions.
+  
+</b>
+  <pre class="language-py"><code class="dec">sum=lambda a,b:a+b
+print(sum(4,5))</code></pre></br></br>
+
+<b class="tit">
+  31.Random module import.
+  
+</b>
+  <pre class="language-py"><code class="dec">import random
+rand=random.randint(1, 5)
+print(rand)
+
+rand=random.random()*50
+print(rand)
+
+li=["parth","mohan","shyam"]
+rand=random.choice(li)
+
+print(rand)</code></pre></br></br> 
+
+ <b class="tit">
+32.Fstring method.
+  
+</b>
+  <pre class="language-py"><code class="dec">import math
+me="parth"
+d=34
+# a="my name is shah %s %s"%(me,d)
+a="my name is {} {}"
+b=a.format(me,d)
+print(b)
+
+c=f"my name like that {me} {d} {math.sin(5)}"
+print(c)</code></pre></br></br>
+
+
+<b class="tit">
+33.args & kwargs methods.
+  
+</b>
+  <pre class="language-py"><code class="dec">def args(nor,*ar,**sh):
+  for item in ar:
+    print(item)
+  print(kw)
+  for key,value in sh.items():
+    print("your " +key +" is "+value)
+  print(nor)
+
+
+li=["parth","mohan","ramesh","zarna","astha","binal","disha"]
+
+a="hi,my name is shah parth dipakkumar and my area is maninagar"
+kw={"name":"parth","surname":"shah","dish":"pizza"}
+args(a,*li,**kw)</code></pre></br></br> 
+
+
+<b class="tit">
+34.Time module import.
+  
+</b>
+  <pre class="language-py"><code class="dec">import time
+
+initial=time.time()
+print(initial)
+
+k=0
+while(k<34):
+  time.sleep(2)
+  print("hi")
+  k+=1
+print("time in while loop",time.time()-initial)
+
+for i in range(34):
+  print("hi")
+print("time in for loop",time.time()-initial)
+
+local=time.asctime(time.localtime(time.time()))
+print(local)</code></pre></br></br>
+
+<b class="tit">
+35.Enumerate function. 
+  
+</b>
+  <pre class="language-py"><code class="dec">li=["bhindi","rotla","cheeze","pakodi"]
+
+# i=0
+# for item in li:
+#   if i%2==0:
+#     print(f"please selling the {item}")
+#   i+=1
+
+# In enumerate function index is auto increament.
+for i,item in enumerate(li):
+  if i%2==0:
+    print(f"please selling the {item}")</code></pre></br></br>
+
+  <b class="tit">
+36.Use import function.
+  
+</b>
+  <pre class="language-py"><code class="dec">#importfile1 code...
+  def sum(a,b):
+  print(f"The value of a is {a} and b is {b}")
+
+
+print(__name__)
+if __name__ == '__main__': #write content under the code not display in second file.
+  print("hi my name is parth like that")
+
+#importfile2 code...
+import importfile1
+
+importfile1.sum(4, 5)</code></pre></br></br> 
+
+<b class="tit">
+37.Use join function.
+  
+</b>
+  <pre class="language-py"><code class="dec">lis=["parth","shah","yash","parmar"]
+
+# for item in lis:
+#   print(item,"end ",end="")
+
+a=" , ".join(lis)
+print(a)</code></pre></br></br> 
+
+ <b class="tit">
+38.Use map functions.
+  
+</b>
+  <pre class="language-py"><code class="dec">li1=["2","4","6","7","9","1"]
+
+li1=list(map(int,li1))
+li1[2]=li1[2]-1
+print(li1)
+
+# using map function print square & cube at time.
+# # def cube(x):
+# #   return x*x*x
+
+# cube=list(map(lambda x:x*x*x,li1))
+# square=list(map(lambda x:x*x,li1))
+# # li1=list(map(cube,li1))
+# # print(li1)
+
+# func=[square,cube]
+# i=0
+# for i in range(5):
+#   li1=list(map(lambda x:x[i],func))
+#   print(li1)
+</code></pre></br></br>
+
+<b class="tit">
+39.Use filter function.
+  
+</b>
+  <pre class="language-py"><code class="dec">def is_greater(x):
+  return x>5
+
+li1=list(filter(is_greater,li1))
+print(li1)</code></pre></br></br>
+
+<b class="tit">
+40.Use reduce function.
+  
+</b>
+  <pre class="language-py"><code class="dec">from functools import reduce
+li2=[1,2,3,4]
+li2=reduce(lambda x,y:x+y,li2)
+print(li2)</code></pre></br></br>
+
+ <b class="tit">
+41.Use decoration function.
+  
+</b>
+  <pre class="language-py"><code class="dec">def deco(fun1):
+  def gret():
+    print("hi this is the first")
+    fun1()
+    print("hi this is the last")
+  return gret
+
+#function not declare only write @functionname.
+@deco
+def parth():
+  print("hi this is the middle")
+
+
+# parth=deco(parth)
+parth()</code></pre></br></br>
+
+<b class="tit">
+42.OOPs classes.
+  
+</b>
+  <pre class="language-py"><code class="dec">class student:
+  no_of_leaves=5
+  pass
+
+parth=student()
+yash=student()
+parth.rollno=1153
+parth.surname="shah"
+yash.div='B'
+yash.subject=["maths","stastics"]
+print(parth.rollno,yash.subjuct)</code></pre></br></br> 
+
+ <b class="tit">
+43.OOPs instance.
+  
+</b>
+  <pre class="language-py"><code class="dec"># Note: Class variable value not change using instance.
+# --> __dict__ used define created class in dictionary.
+print(yash.__dict__)
+yash.no_of_leaves=6
+print(yash.__dict__)
+print(parth.no_of_leaves)</code></pre></br></br>
+
+  <b class="tit">
+44.OOPs methods,class method & constructor.
+  
+</b>
+  <pre class="language-py"><code class="dec">class emp:
+  no_of_leaves=5
+
+  # Methods
+  def __init__(self,name,adiv,arollno):
+    self.name=name
+    self.div=adiv
+    self.rollno=arollno
+
+# Constructors
+  def printdetails(self):
+    return f"name is {self.name},div is {self.div},rollno is {self.rollno}"
+
+# Class methods
+# Note: using class method changing all variable in the class and all variables are changed.
+  @classmethod
+  def changelives(cls,newlives):
+    cls.no_of_leaves=newlives
+
+parth=emp("parth","B",1153)
+yash=emp("yash", "B", 1138)
+parth=emp()
+# parth.name="parth"
+parth.changelives(10)
+print(yash.no_of_leaves)
+print(parth.printdetails())
+print(yash.printdetails())</code></pre></br></br>
+
+
+<b class="tit">
+45.OOPs alternative constructor.
+  
+</b>
+  <pre class="language-py"><code class="dec">class emp:
+  no_of_leaves=5
+  def __init__(self,name,adiv,arollno):
+    self.name=name
+    self.div=adiv
+    self.rollno=arollno
+
+  def printdetails(self):
+    return f"name is {self.name},div is {self.div},rollno is {self.rollno}"
+
+  @classmethod
+  def changelives(cls,newlives):
+    cls.no_of_leaves=newlives
+
+  @classmethod
+  def from_str(cls,string):
+    params=string.split("-")
+    print(params)
+    return cls(params[0],params[1],params[2])
+    # return cls(*string.split("-"))
+
+parth=emp.from_str("parth-b-53")
+print(parth.printdetails())
+</code></pre></br></br> 
+
+<b class="tit">
+46.OOPs static method.
+  
+</b>
+  <pre class="language-py"><code class="dec">class emp:
+  no_of_leaves=5
+  def __init__(self,name,adiv,arollno):
+    self.name=name
+    self.div=adiv
+    self.rollno=arollno
+
+  def printdetails(self):
+    return f"name is {self.name},div is {self.div},rollno is {self.rollno}"
+
+  @classmethod
+  def changelives(cls,newlives):
+    cls.no_of_leaves=newlives
+
+  @staticmethod
+  def greet(string):
+    print(f"hi,good morning {string}")
+
+class prog(emp):
+  pass
+
+parth=emp("parth","b", 52)
+emp.greet("parth")
+
+mohan=prog("mohan","c",23)
+print(mohan.printdetails())</code></pre></br></br> 
+
+<b class="tit">
+47.OOPs inheritance.
+  
+</b>
+  <pre class="language-py"><code class="dec">class emp:
+  no_of_leaves=5
+  def __init__(self,name,adiv,arollno):
+    self.name=name
+    self.div=adiv
+    self.rollno=arollno
+
+  def printdetails(self):
+    return f"name is {self.name},div is {self.div},rollno is {self.rollno}"
+
+  @classmethod
+  def changelives(cls,newlives):
+    cls.no_of_leaves=newlives
+
+  @staticmethod
+  def greet(string):
+    print(f"hi,good morning {string}")
+
+class player:
+  def __init__(self,game):
+    self.game=game
+
+  def printdetails(self):
+    return f"Game is {self.game}"
+
+class prog(player,emp):
+  pass
+
+parth=prog(["hacking"])
+print(parth.printdetails())</code></pre></br></br>
+
+ <b class="tit">
+48.OOPs public,private,protected variables.
+  
+</b>
+  <pre class="language-py"><code class="dec">class emp:
+  topi=4
+  _topic=5
+  __top=10
+
+parth=emp()
+print(parth._emp__top) </code></pre></br></br>
+
+<b class="tit">
+49.OOPs super class variables.
+  
+</b>
+  <pre class="language-py"><code class="dec">class a:
+  def __init__(self):
+    self.var1="shah"
+
+class b(a):
+  def __init__(self):
+    self.var1="parth"
+    super().__init__()
+
+    # for variable declaration:
+    #   super().var1
+
+c=b()
+print(c.var1)</code></pre></br></br>
+
+<b class="tit">
+50.Dunder methods.
+  
+</b>
+  <pre class="language-py"><code class="dec">class emp:
+  no_of_leaves=5
+  def __init__(self,name,adiv,arollno):
+    self.name=name
+    self.div=adiv
+    self.rollno=arollno
+
+  def printdetails(self):
+    return f"name is {self.name},div is {self.div},rollno is {self.rollno}"
+
+  @classmethod
+  def changelives(cls,newlives):
+    cls.no_of_leaves=newlives
+
+  def __add__(self,others):
+    return self.rollno+others.rollno
+
+  def __truediv__(self,others):
+    return 420
+
+  def __repr__(self):
+    return self.printdetails()
+
+  def __str__(self):
+    return self.printdetails()+" hi,My name is parth"
+
+parth=emp("parth","B",5)
+yash=emp("yash", "B", 6)
+print(parth / yash)
+print(parth + yash)
+print(str(parth))</code></pre></br></br>
+
+ <b class="tit">
+51.Abstract class method.
+  
+</b>
+  <pre class="language-py"><code class="dec"># Compulsory involved method in class.
+from abc import ABC,abstractclassmethod
+
+class b(ABC):
+  @abstractclassmethod
+  def base(self):
+    return 0
+
+class a(b):
+  def power(self):
+    print("parth")
+
+  def base(self):
+    pass
+
+p1=a()
+p1.power()</code></pre></br></br>
+
+ <b class="tit">
+52.Object introspection.
+  
+</b>
+  <pre class="language-py"><code class="dec">class emp:
+  no_of_leaves=5
+  def __init__(self,name,adiv,arollno):
+    self.name=name
+    self.div=adiv
+    self.rollno=arollno
+
+  def printdetails(self):
+    return f"name is {self.name},div is {self.div},rollno is {self.rollno}"
+
+  @classmethod
+  def changelives(cls,newlives):
+    cls.no_of_leaves=newlives
+
+parth=emp("parth","B",1153)
+yash=emp("yash", "B", 1138)
+# parth.name="parth"
+parth.changelives(10)
+print(yash.no_of_leaves)
+print(parth.printdetails())
+print(yash.printdetails())
+
+# Object introspection.
+print(type("parth"))
+print(id("dkf"))
+print(dir(parth))
+
+import inspect
+print(inspect.getmembers(parth))</code></pre></br></br>
+
+<b class="tit">
+53.Object generators & Object iterators.
+  
+</b>
+  <pre class="language-py"><code class="dec">def gen(n):
+  for i in range(n):
+    yield i
+
+g=gen(5)
+# print(g.__next__())
+# print(g.__next__())
+# print(g.__next__())
+# print(g.__next__())
+
+# print(g.__next__())
+
+# for i in g:
+#   print(i)
+
+# Object iterators.
+p="parth"
+s=iter(p)
+# print(s.__next__())
+# print(s.__next__())
+# print(s.__next__())
+# print(s.__next__())
+# print(s.__next__())
+
+for i in s:
+  print(i)</code></pre></br></br>
+
+<b class="tit">
+54.Comprehensions.
+  
+</b>
+  <pre class="language-py"><code class="dec"># sets:
+ls={i for i in range(10) if i%3==0}
+# lists:
+ls2=[i for i in range(10) if i%3==0]
+# generators:
+ls2=(i for i in range(10) if i%3==0)
+print(type(ls))
+
+print(type(ls2))
+
+dict1={0:"item0",1:"item1"}
+print(type(dict1))
+dict1={i:f"item{i}" for i in range(10)}
+dict2={value:key for key,value in dict1.items()}
+print(dict2)
+print(dict1)</code></pre></br></br>
+
+ <b class="tit">
+55.Else in for loop.
+  
+</b>
+  <pre class="language-py"><code class="dec">for i in range(5):
+  if(i==10):
+    print(i)
+    
+else:
+  print("for loop ending now")</code></pre></br></br> 
+
+
+<b class="tit">
+56.Catching function.
+  
+</b>
+  <pre class="language-py"><code class="dec">import time
+from functools import lru_cache
+
+@lru_cache(maxsize=3)
+def ti(n):
+  time.sleep(n)
+  return n
+
+# Second time function reload is fast.
+
+ti(3)
+print("caching is started")
+ti(3)
+print("caching is ended")</code></pre></br></br>
+
+ <b class="tit">
+57.Try_Except_finally_else methods.
+  
+</b>
+  <pre class="language-py"><code class="dec">try:
+  f=open("122.txt")
+
+except Exception as e:
+  print(e)
+
+else:
+  print("Else part print only exception is not print")
+
+finally:
+  print("thsi the print all time")</code></pre></br></br>
+
+<b class="tit">
+58.Corotines.
+  
+</b>
+  <pre class="language-py"><code class="dec"># One time function run after function run is half in the way.
+def searcher():
+  import time
+  boom="parth is a very handsome"
+  time.sleep(3)
+
+  while True:
+    text=(yield)
+    if text in boom:
+      print("search is found")
+    else:
+      print("search is not found")
+
+print("welcome to my search box")
+search=searcher()
+print("search processing is start")
+next(search)
+print("search processing is end")
+
+search.send("parth")
+input("enter any key")
+search.send("mobile")
+input("enter any key")
+search.send("handsome")
+</code></pre></br></br>
+
+<b class="tit">
+59.Os module.
+  
+</b>
+  <pre class="language-py"><code class="dec">import os
+
+print(os.getcwd())
+# os.chdir("c://")
+print(os.getcwd())
+# print(dir(os))
+# print(os.listdir())
+# os.makedirs("this/that")
+# os.rename("sample.mp3", "demp.mp3")
+print(os.environ.get('path'))
+print(os.path.join("c","://"))
+print(os.path.exists("c://"))
+print(os.path.isdir("c://program files"))
+print(os.path.isfile("c://program files"))</code></pre></br></br>
+
+<b class="tit">
+60.Play music.
+  
+</b>
+  <pre class="language-py"><code class="dec">from pygame import mixer
+
+def musicnloop(file,stopper):
+  mixer.init()
+  mixer.music.load(file)
+  mixer.music.play()
+  while True:
+    a=input()
+    if a==stopper:
+      mixer.music.stop()
+      break
+
+if __name__=='__main__':
+  musicnloop("demp.mp3", "stop")</code></pre></br></br>
+
+   <b class="tit">
+61.News reading.
+  
+</b>
+  <pre class="language-py"><code class="dec">import pyttsx3
+import speech_recognition as sr
+import datetime
+import wikipedia
+import webbrowser
+import os
+import smtplib
+
+engine = pyttsx3.init('sapi5')
+voices = engine.getProperty('voices')
+# print(voices[1].id)
+engine.setProperty('voice', voices[1].id)
+
+
+def speak(audio):
+  engine.say(audio)
+  engine.runAndWait()
+
+
+
+if __name__ == "__main__":
+  p=open("1.txt")
+  s=p.read()
+  speak(s)</code></pre></br></br>
+
+<b class="tit">
+62.Jarvis Assistant.
+  
+</b>
+  <pre class="language-py"><code class="dec">import pyttsx3
+import speech_recognition as sr
+import datetime
+import wikipedia
+import webbrowser
+import os
+import smtplib
+
+engine = pyttsx3.init('sapi5')
+voices = engine.getProperty('voices')
+# print(voices[1].id)
+engine.setProperty('voice', voices[1].id)
+
+
+def speak(audio):
+  engine.say(audio)
+  engine.runAndWait()
+
+
+
+def wishMe():
+  hour = int(datetime.datetime.now().hour)
+  if hour&gt;=0 and hour&lt;12:
+    speak("Good Morning!")
+
+  elif hour&gt;=12 and hour&lt;18:
+    speak("Good Afternoon!")   
+
+  else:
+    speak("Good Evening!")  
+
+  speak("I am Jarvis Sir. hello parth shah,Please tell me how may I help you")       
+
+
+def takeCommand():
+  #It takes microphone input from the user and returns string output
+
+  r = sr.Recognizer()
+  with sr.Microphone() as source:
+    print("Listening...")
+    r.pause_threshold = 1
+    audio = r.listen(source)
+
+  try:
+    print("Recognizing...")    
+    query = r.recognize_google(audio, language='en-in')
+    print(f"User said: {query}\n")
+
+  except Exception as e:
+    # print(e)    
+    print("Say that again please...")  
+    return "None"
+  return query
+
+def sendEmail(to, content):
+  server = smtplib.SMTP('smtp.gmail.com', 587)
+  server.ehlo()
+  server.starttls()
+  server.login('shahparth3082003@gmail.com', 'shahp3082003@')
+  server.sendmail('shahparth3082003@gmail.com', to, content)
+  server.close()
+
+
+if __name__ == "__main__":
+  wishMe()
+  while True:
+    query=takeCommand().lower()
+    if 'wikipedia' in query:
+      speak('searching Wikipedia...')
+      query = query.replace("wikipedia", "")
+      results = wikipedia.summary(query, sentences=2)
+      speak("According to Wikipedia")
+      print(results)
+      speak(results)
+    elif 'open youtube' in query:
+      webbrowser.open("youtube.com")
+    elif 'open google' in query:
+      webbrowser.open("google.com")
+
+    elif 'open stack overflow' in query:
+      webbrowser.open("stackoverflow.com")
+
+    elif 'kem cho' in query:
+      speak("ame sara tame bolo kem cho majama ne")
+
+    elif 'i love you' in query:
+      speak("I love you 2 parth shah")
+
+
+
+    elif 'hello' in query:
+      speak("hello how are you jashriben shah")
+
+    elif 'exit' in query:
+      speak("Thank you")
+      print("Thank you")
+      break
+
+
+    elif 'play music' in query:
+      music_dir = 'C:\\Users\\KRISHNA\\Desktop\\song\\My songs'
+      songs = os.listdir(music_dir)
+      print(songs)    
+      os.startfile(os.path.join(music_dir, songs[5]))
+
+    elif 'the time' in query:
+      strTime = datetime.datetime.now().strftime("%H:%M:%S")    
+      speak(f"Sir, the time is {strTime}")
+
+    elif 'email to parth' in query:
+      try:
+        speak("What should I say?")
+        content = takeCommand()
+        to = "shahparth3082003@gmail.com"    
+        sendEmail(to, content)
+        speak("Email has been sent!")
+      except Exception as e:
+        print(e)
+        speak("Sorry my friend harry bhai. I am not able to send this email")</code></pre></br></br>
+
+</div>
+
+  
+</div>
+
+
+{% endblock body %}

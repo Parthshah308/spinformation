@@ -1,0 +1,514 @@
+{% extends "upbase.html" %}
+{% block title %}
+PHP
+{% endblock title %}
+{% block body %}
+
+<!-- header section ends -->
+
+<div id="menu" class="fas fa-bars"></div>
+
+<!-- home section starts  -->
+
+
+   
+<div style="margin: 2%;"><div class="head_cheat2">All Git-Hub cheat sheet below here...</div>
+
+<!-- contact section ends -->
+<div style="margin:2%;">
+
+
+    <b class="tit">
+1.Simple program.
+  
+</b>
+  <pre class="language-php"><code class="dec">&lt;?php 
+  echo "Welcome to my new website &lt;br&gt;";
+  echo 5+95;
+?&gt;</code></pre></br></br>
+
+ <b class="tit">
+2.Declare variables.
+  
+</b>
+  <pre class="language-php"><code class="dec">echo "&lt;br&gt;";
+$name ="parth";
+echo "My name is $name &lt;br&gt;";
+// php variables is casesensative.</code></pre></br></br>
+
+  <b class="tit">
+3.Array in php.
+  
+</b>
+  <pre class="language-php"><code class="dec">$student = array("parth",1153,"B");
+// variables type display..
+echo var_dump($student);
+echo $student[0];
+echo $student[1];</code></pre></br></br>
+
+
+ <b class="tit">
+4.String function in php.
+  
+</b>
+  <pre class="language-php"><code class="dec">strlen($name);
+echo "The length is "."name of".strlen($name);
+echo str_word_count($name);
+echo strrev($name);
+echo strpos($name, "is");
+echo str_repeat($name, 124);
+echo ltrim($name);
+echo rtrim($name);
+echo str_replace("parth","yash", $name);</code></pre></br></br>
+
+ <b class="tit">
+5.If Else..if Else leader.
+  
+</b>
+  <pre class="language-php"><code class="dec">if($a&gt;18)
+{
+  echo "You are young";
+}
+elseif($a&gt;50){
+  echo "You are old.";
+}
+else{
+  echo "You are child";
+}</code></pre></br></br>
+
+ <b class="tit">
+6.While loop program.
+  
+</b>
+  <pre class="language-php"><code class="dec">$i=0;
+
+while ($i &lt;5) {
+  echo $i;
+  echo "&lt;br&gt;";
+  $i++;
+}</code></pre></br></br>
+
+<b class="tit">
+7.For loop program.
+  
+</b>
+  <pre class="language-php"><code class="dec">for($i=0;$i&lt;=5;$i++){
+  echo $i;
+}</code></pre></br></br> 
+
+
+ <b class="tit">
+8.Do-while loop program.
+  
+</b>
+  <pre class="language-php"><code class="dec">$i=0;
+
+do{
+  echo $i;
+  echo "&lt;br&gt;";
+  $i++;
+}while ($i &lt;5);</code></pre></br></br> 
+
+<b class="tit">
+9.Array print in for loop.
+  
+</b>
+  <pre class="language-php"><code class="dec"> $student = array("parth",1153,"B");
+   for($i=0;$i&lt;count($student);$i++)
+   {
+
+   echo $student[$i];
+   echo "&lt;br&gt;";
+   }</code></pre></br></br>
+
+ <b class="tit">
+10.Better way to use foreach loop.
+  
+</b>
+  <pre class="language-php"><code class="dec">foreach($student as $value)
+   {
+    echo "$value &lt;br&gt;";
+   }</code></pre></br></br>
+
+  <b class="tit">
+11.Function in php.
+  
+</b>
+  <pre class="language-php"><code class="dec"> function summarks($arrmarks)
+   {
+    $sum=0;
+    foreach ($arrmarks as $value) {
+      $sum += $value;
+
+    }
+    return $sum;
+   }
+   $parth=[98,99,96,94];
+   $total=summarks($parth);
+   echo "My total is $total";</code></pre></br></br>
+
+    <b class="tit">
+12.Date function in php.
+  
+</b>
+  <pre class="language-php"><code class="dec">   $dt=date("dS F Y,h:i:s A");
+   echo "today date is $dt";
+   // dS=23rd
+   // F=April
+   // Y=2020
+   // g=hour=h
+   // i=minute 
+   // A=AM 
+   // S=second </code></pre></br></br> 
+
+
+<b class="tit">
+13.Associative array.
+  
+</b>
+  <pre class="language-php"><code class="dec">   $std=array(
+    'name' =&gt; 'parth',
+    'rollno' =&gt; 1153,
+    'div'=&gt; 'b');
+   foreach ($std as $key =&gt; $value) {
+    echo "&lt;br&gt;This $key is $value";
+   }</code></pre></br></br>
+
+ <b class="tit">
+14.Multi-Dimensional array.
+  
+</b>
+  <pre class="language-php"><code class="dec">$multidim=array(array(2,5,3,6),
+      array(1,3,2,1),
+      array(4,5,0,1));
+
+for($i=0,$i&lt;count($multidim);$i++)
+{
+  for($j=0;$j&lt;count($multidim[$i]);$j++)
+  {
+    echo $multidim[$i][$j];
+    echo " ";
+  }
+  echo "&lt;br&gt;";
+}</code></pre></br></br>
+
+
+<b class="tit">
+15.Fetch input value from form to handleform file.
+  
+</b>
+  <pre class="language-php"><code class="dec">&lt;?php 
+
+if($_SERVER['REQUEST_METHOD']=='POST')
+{
+  
+$email=$_POST['loginemail'];
+$password=$_POST['loginpass'];
+
+echo "Your email '.$email.' and password '.$password.' saved successfully.";
+
+}
+?&gt;</code></pre></br></br> 
+
+<b class="tit">
+16.Connect php file to mysql database.
+  
+</b>
+  <pre class="language-php"><code class="dec">&lt;?php 
+
+$servername="localhost";
+$username="root";
+$password="";
+$database="databasename";
+
+
+$conn=mysqli_connect($servername,$username,$password,$database);
+if(!$conn)
+{
+  echo "This file is not connected to database.";
+  die("sorry we failed to connect".mysqli_connect_error());
+}
+
+ ?&gt;</code></pre></br></br> 
+
+
+  <b class="tit">
+17.Create a database in mysql using query in php script.
+  
+</b>
+  <pre class="language-php"><code class="dec">$sql="CREATE DATABASE PARTH";
+  $result=mysqli_query($conn,$sql);
+
+  echo var_dump($result);
+
+  if($result)
+  {
+    echo "the db was succefull";
+  }
+  else
+  {
+    echo "the db was not succefull".mysqli_connect_error);
+  }</code></pre></br></br>
+
+
+ <b class="tit">
+18.Selecting and fetching the data in webpage.
+  
+</b>
+  <pre class="language-php"><code class="dec">$sql="SELECT * FROM `phptrip`";
+$result=mysqli_query($conn,$sql);
+echo mysqli_num_rows($result);
+while ($row=mysql_fetch_assoc($result)) {
+  // print in string format.
+  echo var_dump($row);
+  echo "&lt;br&gt;";
+  echo $row['sno']."hello".$row['name']."welcome to".$row['dest'];
+}</code></pre></br></br>
+
+
+  <b class="tit">
+19.Todo list project inserting php code here.
+  
+</b>
+  <pre class="language-php"><code class="dec">$title=$_POST['title'];
+$description=$_POST['description'];
+
+  $sql="INSERT INTO `notes` (`title`, `description`) VALUES ('$title', '$description')";
+  $result=mysqli_query($conn,$sql);
+  if($result)
+  {
+    $insert=true;
+  }
+  else
+  {
+    echo "not success";
+  }</code></pre></br></br> 
+
+  <b class="tit">
+20.Todo list project updating php code here.
+  
+</b>
+  <pre class="language-php"><code class="dec">$sno=$_POST['snoedit'];
+    $title=$_POST['titleedit'];
+  $description=$_POST['descriptionedit'];
+
+
+  $sql="UPDATE `notes` SET `title` = '$title' , `description` = '$description' WHERE `notes`.`sno` = $sno
+  ";
+  $result=mysqli_query($conn,$sql);
+  if($result)
+  {
+    $update=true;
+  }</code></pre></br></br> 
+
+ <b class="tit">
+21.Todo list project deleting php code here.
+  
+  
+</b>
+  <pre class="language-php"><code class="dec">if(isset($_GET['delete'])){
+  $sno=$_GET['delete'];
+  $delete=true;
+  $sql="DELETE FROM `notes` WHERE `notes`.`sno` = $sno";
+  $result=mysqli_query($conn,$sql);
+}</code></pre></br></br> 
+
+  <b class="tit">
+22.Todo list project editing script code here.  
+</b>
+  <pre class="language-php"><code class="dec">edits=document.getElementsByClassName('edit');
+Array.from(edits).forEach((element)=>{
+  element.addEventListener("click",(e)=>{
+    console.log("edit", );
+    tr=e.target.parentNode.parentNode;
+    title=tr.getElementsByTagName("td")[0].innerText;
+    description=tr.getElementsByTagName("td")[1].innerText;
+    console.log(title,description);
+    descriptionedit.value=description;
+    titleedit.value=title;
+    snoedit.value=e.target.id;
+    console.log(e.target.id);
+    $('#editmodal').modal('toggle');
+  })
+});</code></pre></br></br>
+
+  <b class="tit">
+22.Todo list project deleting script code here.  
+  
+</b>
+  <pre class="language-php"><code class="dec">deletes=document.getElementsByClassName('delete');
+Array.from(deletes).forEach((element)=>{
+  element.addEventListener("click",(e)=>{
+    console.log("delete", );
+    sno=e.target.id.substr(1,);
+     if(confirm("Do you want delete this note?")){
+      console.log("yes");
+      window.location=`/todolist/todo.php?delete=${sno}`;
+     }
+     else
+     {
+      console.log("no");
+     }
+  })
+});</code></pre></br></br>
+
+  <b class="tit">
+23.File reading programs.
+  
+</b>
+  <pre class="language-php"><code class="dec">&lt;?php 
+
+// Readfile in php
+// readfile("demo.html");
+$fptr = fopen("demo1.txt","r");
+$fptr = fopen("demo1.txt","w");
+$fptr = fopen("demo1.txt","a");
+// echo var_dump($fptr);
+// $cont = fread($fptr,filesize("demo.txt"));
+// echo $cont;
+// echo fgets($fptr);
+// echo fgets($fptr);
+// echo fgetc($fptr);
+// while($a = fgets($fptr)){
+  echo $a;
+}
+// while($a=fgetc($fptr))
+// {
+// echo $a;
+// if($a==".")
+// {
+//  break;
+// }
+// }
+fwrite($fptr,"this is the friend like that.....");
+fclose($fptr);
+ ?&gt;</code></pre></br></br>
+
+ <b class="tit">
+24.Cookie in php.
+  
+</b>
+  <pre class="language-php"><code class="dec">&lt;?php 
+setcookie('category','Books',time() + 86400,'/');
+echo "Your cookie is creted";
+
+// see in network-&gt;favicon io-&gt;cookie.
+// Display cookie.
+$cat= $_COOKIE['category'];
+echo "Here is the list of all $cat";
+
+ ?&gt;</code></pre></br></br>
+
+ <b class="tit">
+25.Create session in php.
+  
+</b>
+  <pre class="language-php"><code class="dec">&lt;?php 
+
+//  FOR SESSION CREATE......................
+  
+    session_start();
+
+    $_SESSION['username']="parth";
+
+    $_SESSION['favcat']="coding";
+    echo "Your session is created";
+ ?&gt;</code></pre></br></br>
+
+ <b class="tit">
+26.Display session data in php.
+  
+</b>
+  <pre class="language-php"><code class="dec">&lt;?php 
+
+session_start();
+
+if(isset($_SESSION['username'])){
+  echo "Welcome to ".$_SESSION['username'];
+  echo "&lt;br&gt;Your favorite category is ".$_SESSION['favcat'];
+}
+
+else{
+  echo "please login to continue";
+}
+ ?&gt;</code></pre></br></br> 
+
+  <b class="tit">
+27.For session destroy in php.
+    
+</b>
+  <pre class="language-php"><code class="dec">&lt;?php 
+
+session_start();
+session_unset();
+session_destroy();
+echo "You have been loged out.............";
+
+ ?&gt;</code></pre></br></br> 
+
+ <b class="tit">
+28.Create hashing format in php.
+  
+</b>
+  <pre class="language-php"><code class="dec">$hash=password_hash($password, PASSWORD_DEFAULT);
+
+if(password_verify($password, $row['password']))
+{
+  
+}</code></pre></br></br> 
+
+ <b class="tit">
+29.Brackets and parenthesis error solution.
+  
+</b>
+  <pre class="language-php"><code class="dec">
+$th_comment=$_post['comment'];
+$th_comment=str_replace("&lt;", "/& lt ;", $th_comment);</code></pre></br></br> 
+
+ <b class="tit">
+30.Password show & hide code.
+  
+</b>
+  <pre class="language-php"><code class="dec">const pswd=document.querySelector("form input[type='password']"),
+toggleBtn=document.querySelector("form .field i");
+
+toggleBtn.onclick = ()=>{
+  if(pswd.type=="password")
+  {
+    pswd.type="text";
+    toggleBtn.classList.add("active");
+  }
+  else{
+    pswd.type="password";
+    toggleBtn.classList.remove("active");
+
+  }
+}</code></pre></br></br>
+
+ <b class="tit">
+31.Search box show & hide code.
+  
+</b>
+  <pre class="language-php"><code class="dec">const searchbar=document.querySelector(".search input"),
+searchbtn=document.querySelector(".search button");
+
+searchbtn.onclick = () =>{
+  searchbar.classList.toggle("active");
+  searchbar.focus();
+  searchbtn.classList.toggle("active");
+
+}</code></pre></br></br>
+
+
+  <!--   <b class="tit">
+2.
+  
+</b>
+  <pre class="language-php"><code class="dec"></code></pre></br></br> -->
+
+</div>
+
+  
+</div>
+
+{% endblock body %}

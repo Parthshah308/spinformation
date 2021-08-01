@@ -1,0 +1,1559 @@
+{% extends "upbase.html" %}
+{% block title %}
+ Android App Development
+{% endblock title %}
+{% block body %}
+  
+<div id="menu" class="fas fa-bars"></div>
+
+<!-- home section starts  -->
+
+
+   
+<div style="margin: 2%;"><div class="head_cheat3" >All Android app development cheat sheet below here...</div>
+
+<!-- contact section ends -->
+<div style="margin:2%;">
+
+  <b class="tit">
+1.Internet permission on application.
+  
+</b>
+
+  <pre class="language-xml"><code class="dec">&lt;uses-permission android:name="android.permission.INTERNET"&gt;&lt;/uses-permission&gt;</code></pre></br></br>
+
+<b class="tit">
+2.For choose image to dispaly in app logo.
+  
+</b>
+  <pre class="language-java"><code class="dec">//going to res>new>image asset and change the logo.....</code></pre></br></br>
+
+<b class="tit">
+3.For working back button.
+  
+</b>
+  <pre class="language-xml"><code class="dec">&lt;activity android:name=".orderActivity"
+            android:parentActivityName=".MainActivity"
+            &gt;&lt;/activity&gt;</code></pre></br></br>
+
+<b class="tit">
+4.Display notification application java code.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.example.firstapp;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+//    for click and middle display notipications flash...
+    public void sendNow(View view){
+        android.widget.Toast.makeText(this, "sending this message from APK", Toast.LENGTH_SHORT).show();
+    }public void receiveNow(View view){
+        android.widget.Toast.makeText(this, "receiving this message from APK", Toast.LENGTH_SHORT).show();
+    }public void deleteNow(View view){
+        android.widget.Toast.makeText(this, "deleting this message from APK", Toast.LENGTH_SHORT).show();
+    }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+}
+
+</code></pre></br></br>
+
+<b class="tit">
+5.Display notification application xml code.
+  
+</b>
+  <pre class="language-xml"><code class="dec">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"&gt;
+
+    &lt;Button
+        android:id="@+id/button"
+        android:layout_width="80dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:onClick="sendNow"
+        android:text="@string/send_msg"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button2"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="@string/send_msg" /&gt;
+
+    &lt;Button
+        android:id="@+id/button2"
+        android:layout_width="100dp"
+        android:layout_height="74dp"
+        android:layout_marginBottom="164dp"
+        android:onClick="receiveNow"
+        android:text="@string/receive_msg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button3"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        tools:text="@string/receive_msg" /&gt;
+
+    &lt;Button
+        android:id="@+id/button3"
+        android:layout_width="93dp"
+        android:layout_height="78dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:onClick="deleteNow"
+        android:text="@string/delete_msg"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="@string/delete_msg" /&gt;
+
+    &lt;ImageView
+        android:id="@+id/imageView"
+        android:layout_width="196dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="168dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:mipmap/sym_def_app_icon"
+        tools:srcCompat="@android:mipmap/sym_def_app_icon" /&gt;
+
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</code></pre></br></br>
+
+
+<b class="tit">
+6.Tic-Tac-Toe game application java code.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.example.tictactoe;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+//width :x=112,o=86  height :x=98,o=100
+boolean gameActive = true;
+    // Player representation
+    // 0 - X
+    // 1 - O
+    int activePlayer = 0;
+    int[] gameState = {2, 2 , 2, 2, 2, 2, 2, 2, 2};
+    //    State meanings:
+    //    0 - X
+    //    1 - O
+    //    2 - Null
+    int[][] winPositions = {{0,1,2}, {3,4,5}, {6,7,8},
+            {0,3,6}, {1,4,7}, {2,5,8},
+            {0,4,8}, {2,4,6}};
+    public void playerTap(View view){
+        ImageView img = (ImageView) view;
+        int tappedImage = Integer.parseInt(img.getTag().toString());
+        if(!gameActive){
+            gameReset(view);
+        }
+        if(gameState[tappedImage] == 2) {
+            gameState[tappedImage] = activePlayer;
+            img.setTranslationY(-1000f);
+            if (activePlayer == 0) {
+                img.setImageResource(R.drawable.x);
+                activePlayer = 1;
+                TextView status = findViewById(R.id.status);
+                status.setText("O's Turn - Tap to play");
+            } else {
+                img.setImageResource(R.drawable.o);
+                activePlayer = 0;
+                TextView status = findViewById(R.id.status);
+                status.setText("X's Turn - Tap to play");
+            }
+            img.animate().translationYBy(1000f).setDuration(300);
+        }
+        // Check if any player has won
+        for(int[] winPosition: winPositions){
+            if(gameState[winPosition[0]] == gameState[winPosition[1]] &&
+                    gameState[winPosition[1]] == gameState[winPosition[2]] &&
+                    gameState[winPosition[0]]!=2){
+                // Somebody has won! - Find out who!
+                String winnerStr;
+                gameActive = false;
+                if(gameState[winPosition[0]] == 0){
+                    winnerStr = "X has won";
+                }
+                else{
+                    winnerStr = "O has won";
+                }
+                // Update the status bar for winner announcement
+                TextView status = findViewById(R.id.status);
+                status.setText(winnerStr);
+
+            }
+
+
+
+        }
+
+    }
+
+    public void gameReset(View view) {
+        gameActive = true;
+        activePlayer = 0;
+        for(int i=0; i&lt;gameState.length; i++){
+            gameState[i] = 2;
+        }
+        ((ImageView)findViewById(R.id.imageView0)).setImageResource(0);
+        ((ImageView)findViewById(R.id.imageView1)).setImageResource(0);
+        ((ImageView)findViewById(R.id.imageView2)).setImageResource(0);
+        ((ImageView)findViewById(R.id.imageView3)).setImageResource(0);
+        ((ImageView)findViewById(R.id.imageView4)).setImageResource(0);
+        ((ImageView)findViewById(R.id.imageView5)).setImageResource(0);
+        ((ImageView)findViewById(R.id.imageView6)).setImageResource(0);
+        ((ImageView)findViewById(R.id.imageView7)).setImageResource(0);
+        ((ImageView)findViewById(R.id.imageView8)).setImageResource(0);
+
+        TextView status = findViewById(R.id.status);
+        status.setText("X's Turn - Tap to play");
+
+    }
+
+
+    @Override
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+}</code></pre></br></br>
+
+<b class="tit">
+7.Tic-Tac-Toe game application xml code.
+  
+</b>
+  <pre class="language-xml"><code class="dec">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"&gt;
+
+    &lt;TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:text="Welcome To Tic Tac Toe"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:fontFamily="cursive"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" /&gt;
+
+    &lt;ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:srcCompat="@drawable/grid"
+        android:contentDescription="@string/grid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:srcCompat="@drawable/grid" /&gt;
+
+    &lt;LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="420dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"&gt;
+
+        &lt;LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"&gt;
+
+            &lt;ImageView
+                android:id="@+id/imageView0"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="23dp"
+                android:layout_marginLeft="23dp"
+                android:layout_marginTop="39dp"
+                android:layout_marginEnd="-32dp"
+                android:layout_marginRight="-32dp"
+                android:layout_marginBottom="-39dp"
+                android:layout_weight="1"
+                android:onClick="playerTap"
+                android:padding="20sp"
+                android:tag="0" /&gt;
+
+            &lt;ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="23dp"
+                android:layout_marginBottom="-20dp"
+                android:layout_weight="1"
+                android:onClick="playerTap"
+                android:padding="20sp"
+                android:tag="1" /&gt;
+
+            &lt;ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginTop="23dp"
+                android:layout_marginBottom="-20dp"
+                android:onClick="playerTap"
+                android:padding="20sp"
+                android:tag="2" /&gt;
+        &lt;/LinearLayout&gt;
+
+        &lt;LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"&gt;
+
+            &lt;ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="-12dp"
+                android:layout_marginRight="-12dp"
+                android:layout_weight="1"
+                android:onClick="playerTap"
+                android:padding="20sp"
+                android:tag="3" /&gt;
+
+            &lt;ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginTop="23dp"
+                android:layout_marginBottom="-20dp"
+                android:onClick="playerTap"
+                android:padding="20sp"
+                android:tag="4" /&gt;
+
+            &lt;ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="playerTap"
+                android:layout_marginTop="23dp"
+                android:layout_marginBottom="-20dp"
+                android:padding="20sp"
+                android:tag="5" /&gt;
+        &lt;/LinearLayout&gt;
+
+        &lt;LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"&gt;
+
+            &lt;ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="-32dp"
+                android:layout_marginEnd="-32dp"
+                android:layout_marginRight="-32dp"
+                android:layout_marginBottom="22dp"
+                android:layout_weight="1"
+                android:onClick="playerTap"
+                android:padding="20sp"
+                android:tag="6"
+                app:srcCompat="@drawable/o" /&gt;
+
+            &lt;ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="playerTap"
+                android:layout_marginTop="23dp"
+                android:layout_marginBottom="-20dp"
+                android:padding="20sp"
+                android:tag="7" /&gt;
+
+            &lt;ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginTop="23dp"
+                android:layout_marginBottom="-20dp"
+                android:onClick="playerTap"
+                android:padding="20sp"
+                android:tag="8" /&gt;
+        &lt;/LinearLayout&gt;
+
+    &lt;/LinearLayout&gt;
+
+    &lt;TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15sp"
+        android:text="Tap To Play"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" /&gt;
+
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</code></pre></br></br>
+
+<b class="tit">
+8.Multi-order application java code.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.example.multiapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+
+public class MainActivity extends AppCompatActivity {
+
+        public static final String MSG="com.example.multiapplication.ORDER";
+    @Override
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+    public void placeOrder(View view){
+        Intent intent=new Intent(this,orderActivity.class);
+        EditText edittext1=findViewById(R.id.editText1);
+        EditText edittext2=findViewById(R.id.editText2);
+        EditText edittext3=findViewById(R.id.editText3);
+                String message="Order for " + edittext1.getText().toString() + " , " + edittext2.getText().toString() + " & "
+                        + edittext3.getText().toString() + " has been successfully placed";
+        intent.putExtra(MSG,message);
+        startActivity(intent);
+
+
+
+    }
+}
+
+// Second page application java code here...
+
+package com.example.multiapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class orderActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_order);
+
+//        if you click on the button so this code output display
+
+        Intent intent=getIntent();
+        String message=intent.getStringExtra(MainActivity.MSG);
+
+        TextView textView=findViewById(R.id.orderText);
+        textView.setText(message);
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+9.Multi-order application xml code.
+  
+</b>
+  <pre class="language-xml"><code class="dec">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"&gt;
+
+    &lt;TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Welcome to S.P.Hotel"
+        android:textColor="#0A27C6"
+        android:textSize="34sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" /&gt;
+
+    &lt;EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="Item 1"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" /&gt;
+
+    &lt;EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="Item 2"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText1" /&gt;
+
+    &lt;EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="Item 3"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText2" /&gt;
+
+    &lt;Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:onClick="placeOrder"
+        android:text="Place Order"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText3" /&gt;
+
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;
+
+//// Second page application xml code here...
+
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".orderActivity"&gt;
+
+    &lt;TextView
+        android:id="@+id/orderText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="Please Wait..."
+        android:textColor="#850278"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" /&gt;
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</code></pre></br></br>
+     
+<b class="tit">
+10.Play video application java code.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.example.playvideo;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.widget.MediaController;
+import android.widget.VideoView;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        VideoView spvideo=findViewById(R.id.spvideo);
+        spvideo.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.clip);
+        MediaController mediaController=new MediaController(this);
+        spvideo.setMediaController(mediaController);
+        mediaController.setAnchorView(spvideo);
+        spvideo.start();
+    }
+}</code></pre></br></br>
+
+<b class="tit">
+11.Play video application xml code.
+  
+</b>
+  <pre class="language-xml"><code class="dec">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"&gt;
+
+    &lt;VideoView
+        android:id="@+id/spvideo"
+        android:layout_width="0dp"
+        android:layout_height="587dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" /&gt;
+
+    &lt;TextView
+        android:id="@+id/textView"
+        android:layout_width="370dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="This video is sp video"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/spvideo"
+        app:layout_constraintStart_toStartOf="parent" /&gt;
+
+    &lt;TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome "
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" /&gt;
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</code></pre></br></br>
+
+<b class="tit">
+12.Music controller application java code.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.example.musiccontroler;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.SeekBar;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class MainActivity extends AppCompatActivity {
+
+    MediaPlayer player;
+    AudioManager audioManager;
+    public void play(View view){
+        player.start();
+    }
+
+    public void pause(View view){
+        player.pause();
+    }
+
+    public void stop(View view){
+        player.stop();
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        player=MediaPlayer.create(this,R.raw.music);
+
+        audioManager=(AudioManager)getSystemService(Context.AUDIO_SERVICE);
+        int maxVol=audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        int curVol=audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+
+        SeekBar seekVol=findViewById(R.id.seekProg);
+        seekVol.setMax(maxVol);
+        seekVol.setProgress(curVol);
+
+        seekVol.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                audioManager.setStreamVolume(AudioManager.STREAM_MUSIC,progress,0);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        SeekBar seekProg= findViewById(R.id.seekVol);
+        seekProg.setMax(player.getDuration());
+
+        new Timer().scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                seekProg.setProgress(player.getCurrentPosition());
+            }
+        },0,500000000000000000l);
+
+        seekProg.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                player.seekTo(progress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+    }
+}
+</code></pre></br></br>
+
+<b class="tit">
+13.Music controller application xml code.
+  
+</b>
+  <pre class="language-xml"><code class="dec">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"&gt;
+
+    &lt;TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="14dp"
+        android:text="Welcome to S.P.Music App"
+        android:textSize="27sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.227"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.071" /&gt;
+
+    &lt;Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="56dp"
+        android:onClick="play"
+        android:text="Play"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" /&gt;
+
+    &lt;Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="24dp"
+        android:onClick="pause"
+        android:text="Pause"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" /&gt;
+
+    &lt;Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="36dp"
+        android:onClick="stop"
+        android:text="Stop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2" /&gt;
+
+    &lt;ImageView
+        android:id="@+id/imageView"
+        android:layout_width="116dp"
+        android:layout_height="182dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:srcCompat="@drawable/music" /&gt;
+
+    &lt;SeekBar
+        android:id="@+id/seekProg"
+        android:layout_width="300dp"
+        android:layout_height="34dp"
+        android:layout_marginBottom="68dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent" /&gt;
+
+    &lt;TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="Adjust Volume"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/seekProg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent" /&gt;
+
+    &lt;SeekBar
+        android:id="@+id/seekVol"
+        android:layout_width="300dp"
+        android:layout_height="34dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" /&gt;
+
+
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</code></pre></br></br>
+
+<b class="tit">
+14.Multi photo changing application java code.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.example.multiphotos;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+
+        ImageButton prev,next;
+        ImageView picture;
+        int currentImage=0;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+    }
+    public void prev(View v){
+        String idX="pic" + currentImage;
+        int x=this.getResources().getIdentifier(idX,"id",getPackageName());
+        picture =findViewById(x);
+        picture.setAlpha(0f);
+
+        currentImage = (5 + currentImage - 1) % 5;
+        String idY="pic" + currentImage;
+        int y=this.getResources().getIdentifier(idY,"id",getPackageName());
+        picture =findViewById(y);
+        picture.setAlpha(1f);
+    }
+    public void next(View v){
+        String idX="pic" + currentImage;
+        int x=this.getResources().getIdentifier(idX,"id",getPackageName());
+        picture =findViewById(x);
+        picture.setAlpha(0f);
+
+        currentImage = (currentImage + 1) % 5;
+        String idY="pic" + currentImage;
+        int y=this.getResources().getIdentifier(idY,"id",getPackageName());
+        picture =findViewById(y);
+        picture.setAlpha(1f);
+    }
+}</code></pre></br></br>
+
+<b class="tit">
+15.Multi photo changing application xml code.
+  
+</b>
+  <pre class="language-xml"><code class="dec">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgphotos"
+    tools:context=".MainActivity"&gt;
+
+    &lt;ImageView
+        android:id="@+id/picture"
+        android:layout_width="295dp"
+        android:layout_height="268dp"
+        android:layout_marginTop="156dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/about1" /&gt;
+
+    &lt;ImageView
+        android:id="@+id/picture1"
+        android:layout_width="295dp"
+        android:layout_height="268dp"
+        android:layout_marginTop="156dp"
+        android:alpha="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/about1" /&gt;
+
+    &lt;ImageView
+        android:id="@+id/picture2"
+        android:layout_width="295dp"
+        android:layout_height="268dp"
+        android:layout_marginTop="156dp"
+        android:alpha="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/about1" /&gt;
+
+    &lt;ImageView
+        android:id="@+id/picture3"
+        android:layout_width="295dp"
+        android:layout_height="268dp"
+        android:layout_marginTop="156dp"
+        android:alpha="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/about1" /&gt;
+
+    &lt;ImageView
+        android:id="@+id/picture4"
+        android:layout_width="295dp"
+        android:layout_height="268dp"
+        android:layout_marginTop="156dp"
+        android:alpha="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/about1" /&gt;
+
+    &lt;ImageView
+        android:id="@+id/picture5"
+        android:layout_width="295dp"
+        android:layout_height="268dp"
+        android:layout_marginTop="156dp"
+        android:alpha="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/about1" /&gt;
+
+    &lt;ImageButton
+        android:id="@+id/prev"
+        android:layout_width="149dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="224dp"
+        android:layout_marginRight="224dp"
+        android:layout_weight="1"
+        android:onClick="prev"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/picture"
+        app:srcCompat="@drawable/icon_prev" /&gt;
+
+    &lt;ImageButton
+        android:id="@+id/next"
+        android:layout_width="149dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="64dp"
+        android:layout_weight="1"
+        android:onClick="next"
+        app:layout_constraintStart_toEndOf="@+id/prev"
+        app:layout_constraintTop_toBottomOf="@+id/picture"
+        app:srcCompat="@drawable/icon_next" /&gt;
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</code></pre></br></br>
+
+<b class="tit">
+16.All listing applcation java code.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.example.alllistview;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        ListView myListview=findViewById(R.id.myListView);
+        ArrayList&lt;String&gt; Stationary=new ArrayList&lt;&gt;();
+        Stationary.add("Pen");
+        Stationary.add("Pencil");
+        Stationary.add("Scale");
+        Stationary.add("Eraser");
+        Stationary.add("Sharpner");
+        Stationary.add("Table");
+        ArrayAdapter&lt;String&gt; arrayadapter= new ArrayAdapter&lt;String&gt;(this, android.R.layout.simple_list_item_1,Stationary);
+
+        myListview.setAdapter(arrayadapter);
+
+        myListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView&lt;?&gt; parent, View view, int position, long id) {
+                String text="Item" + position+ " " + ((TextView) view).getText().toString();
+                Toast.makeText(MainActivity.this,text , Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+    }
+}</code></pre></br></br>
+
+<b class="tit">
+17.All listing applcation xml code.
+  
+</b>
+  <pre class="language-xml"><code class="dec">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"&gt;
+
+    &lt;ListView
+        android:id="@+id/myListView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="164dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" /&gt;
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</code></pre></br></br>
+
+
+<b class="tit">
+18.Count down timer application java code.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.example.countdowntimer;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.os.Handler;
+import android.util.Log;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    int number=1;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+//        new CountDownTimer(35000,1000){
+//            @Override
+//            public void onTick(long millisUntilFinished) {
+//                Log.d("lpg","onTick: I am hacker and Hacking is started...");
+//            }
+//
+//            @Override
+//            public void onFinish() {
+//                Log.d("lpg","onFinish: So,Hacking is finished...");
+//            }
+//        }.start();
+
+        final Handler handler=new Handler();
+        Runnable run=new Runnable() {
+            @Override
+            public void run() {
+                number++;
+                Toast.makeText(MainActivity.this,"Everything is Good "+ number ,Toast.LENGTH_SHORT).show();
+                handler.postDelayed(this,1000);
+            }
+        };
+        handler.post(run);
+    }
+}</code></pre></br></br>
+
+<b class="tit">
+19.Count down timer application xml code.
+  
+</b>
+  <pre class="language-xml"><code class="dec">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"&gt;
+
+    &lt;TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="S.P. Tasks Scheduler"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.437"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.077" /&gt;
+
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</code></pre></br></br>
+
+<b class="tit">
+20.Volly application java code.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.example.volleydemo;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.VoiceInteractor;
+import android.os.Bundle;
+import android.util.Log;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        RequestQueue requestQueue;
+        requestQueue=Volley.newRequestQueue(this);
+        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(Request.Method.GET,
+                "https://jsonplaceholder.typicode.com/todos", null, new Response.Listener&lt;JSONArray&gt;() {
+            @Override
+            public void onResponse(JSONArray response) {
+                try {
+                    for(int i=0;i&lt;response.length();i++){
+                        JSONObject obj=response.getJSONObject(i);
+                        Log.d("parth","onResponse: Title is= " + obj.getString("title") +
+                                " and User id is= " + obj.getInt("id"));
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("myapp","something went wrong");
+            }
+        });
+        requestQueue.add(jsonArrayRequest);
+
+//        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,
+//                "https://jsonplaceholder.typicode.com/todos/1", null, new Response.Listener&lt;JSONObject&gt;() {
+//            @Override
+//            public void onResponse(JSONObject response) {
+//                try {
+//                    Log.d("myapp", "Thre response is " + response.getString("title"));
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                Log.d("myapp","something went wrong");
+//            }
+//        });
+//        requestQueue.add(jsonObjectRequest);
+    }
+}</code></pre></br></br>
+
+<b class="tit">
+21.Maths table application java code.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.example.mathstables;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.SeekBar;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity {
+
+    TextView textView;
+    ListView listView;
+    SeekBar seekBar;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        textView = findViewById(R.id.textView);
+        listView = findViewById(R.id.listView);
+        seekBar = findViewById(R.id.seekBar);
+
+        seekBar.setMax(50);
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                populate(progress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+    }
+
+    public void populate(int table) {
+        ArrayList&lt;String&gt; multable = new ArrayList&lt;&gt;();
+        for (int i=1; i&lt;=10;i++) {
+            multable.add(table + " X " + i + " = " + table*i);
+        }
+        ArrayAdapter&lt;String&gt; arrayAdapter = new ArrayAdapter&lt;String&gt;(this, android.R.layout.simple_list_item_1, multable);
+        listView.setAdapter(arrayAdapter);
+        textView.setText("Multiplication table of " + table);
+    }
+}</code></pre></br></br>
+
+<b class="tit">
+22.Maths table application xml code.
+  
+</b>
+  <pre class="language-xml"><code class="dec">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"&gt;
+
+    &lt;TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="Multiplication Table "
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" /&gt;
+
+    &lt;ListView
+        android:id="@+id/listView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" /&gt;
+
+    &lt;SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="53dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" /&gt;
+
+    &lt;TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="(Scroll For Change Tables)"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.235"
+        app:layout_constraintStart_toStartOf="parent" /&gt;
+
+    &lt;TextView
+        android:id="@+id/textView3"
+        android:layout_width="155dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="4dp"
+        android:text="Let's Start,"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" /&gt;
+
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</code></pre></br></br>
+
+
+<b class="tit">
+23.Quick notes application java code.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.example.quicknotes;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+
+    Button button;
+    TextView textView;
+    EditText editText;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        button=findViewById(R.id.button);
+        textView=findViewById(R.id.textView);
+        editText=findViewById(R.id.editText);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String msg=editText.getText().toString();
+
+                SharedPreferences shrd=getSharedPreferences("demo",MODE_PRIVATE);
+                SharedPreferences.Editor editor=shrd.edit();
+
+                editor.putString("str",msg);
+                editor.apply();
+                textView.setText(msg);
+
+            }
+        });
+
+        SharedPreferences getShared=getSharedPreferences("demo",MODE_PRIVATE);
+        String value=getShared.getString("str","save a note and it will show up here");
+        textView.setText(value);
+    }
+}</code></pre></br></br>
+
+<b class="tit">
+24.Quick notes application xml code.
+  
+</b>
+  <pre class="language-xml"><code class="dec">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"&gt;
+
+    &lt;TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" /&gt;
+
+    &lt;EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginBottom="68dp"
+        android:ems="10"
+        android:hint="Enter your notes"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" /&gt;
+
+    &lt;Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="68dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.339"
+        app:layout_constraintStart_toEndOf="@+id/editText" /&gt;
+
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;</code></pre></br></br>
+
+<b class="tit">
+25.Website convert to application java code.
+  
+</b>
+  <pre class="language-java"><code class="dec">package com.example.spdcreation;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+
+public class MainActivity extends AppCompatActivity {
+    private WebView mywebView;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        mywebView=(WebView) findViewById(R.id.webview);
+        mywebView.setWebViewClient(new WebViewClient());
+        mywebView.loadUrl("https://spdcreation.000webhostapp.com/");
+        WebSettings webSettings=mywebView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+    }
+    public class mywebClient extends WebViewClient{
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon){
+            super.onPageStarted(view,url,favicon);
+        }
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view,String url){
+            view.loadUrl(url);
+            return true;
+        }
+    }
+    @Override
+    public void onBackPressed(){
+        if(mywebView.canGoBack()) {
+            mywebView.goBack();
+        }
+        else{
+            super.onBackPressed();
+        }
+    }
+}</code></pre></br></br>
+
+<b class="tit">
+26.Website convert to application xml code.
+  
+</b>
+  <pre class="language-xml"><code class="dec">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"&gt;
+
+
+    &lt;WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" /&gt;
+&lt;/RelativeLayout&gt;</code></pre></br></br>
+
+
+
+
+
+</div>
+
+  
+</div>
+
+{% endblock body %}
