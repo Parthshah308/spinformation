@@ -3,6 +3,7 @@
 PHP
 {% endblock title %}
 {% block body %}
+{% if user.is_authenticated %}
 
 <!-- header section ends -->
 
@@ -510,5 +511,9 @@ searchbtn.onclick = () =>{
 
   
 </div>
-
+{% else %}
+<div class="container" style="margin:50px;margin-right:150px;  ">
+<h1 style="background:#ccc;padding:30px;margin:100px 80px;font-weight:bold;margin-left:30px;">You are not logged in! Please   login to see a cheat sheet.</h1>
+</div>
+{% endif %}
 {% endblock body %}
