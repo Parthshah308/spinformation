@@ -3,7 +3,6 @@
  Android App Development
 {% endblock title %}
 {% block body %}
-{% if user.is_authenticated %}
   
 <div id="menu" class="fas fa-bars"></div>
 
@@ -13,6 +12,7 @@
    
 <div style="margin: 2%;"><div class="head_cheat3" >All Android app development cheat sheet below here...</div>
 
+{% if user.is_authenticated %}
 <!-- contact section ends -->
 <div style="margin:2%;">
 

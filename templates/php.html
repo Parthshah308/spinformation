@@ -3,7 +3,6 @@
 PHP
 {% endblock title %}
 {% block body %}
-{% if user.is_authenticated %}
 
 <!-- header section ends -->
 
@@ -13,7 +12,8 @@ PHP
 
 
    
-<div style="margin: 2%;"><div class="head_cheat2">All Git-Hub cheat sheet below here...</div>
+<div style="margin: 2%;"><div class="head_cheat2">All php cheat sheet below here...</div>
+{% if user.is_authenticated %}
 
 <!-- contact section ends -->
 <div style="margin:2%;">

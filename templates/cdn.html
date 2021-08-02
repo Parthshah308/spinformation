@@ -3,7 +3,6 @@
  CDN
 {% endblock title %}
 {% block body %}
-{% if user.is_authenticated %}
   
 <!-- header section ends -->
 
@@ -14,6 +13,7 @@
 
    
 <div style="margin: 2%;"><div class="head_cheat2" >All CDN cheat sheet below here...</div>
+{% if user.is_authenticated %}
 
 <!-- contact section ends -->
 <div style="margin:2%;">

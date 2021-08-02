@@ -3,7 +3,6 @@
  Java
 {% endblock title %}
 {% block body %}
-{% if user.is_authenticated %}
   
 <div id="menu" class="fas fa-bars"></div>
 
@@ -12,6 +11,7 @@
 
    
 <div style="margin: 2%;"><div class="head_cheat2">All java cheat sheet below here...</div>
+{% if user.is_authenticated %}
 
 <!-- contact section ends -->
 <div style="margin:2%;">
