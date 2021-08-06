@@ -1,0 +1,473 @@
+{% extends "upbase.html" %}
+{% block title %}
+ Django
+{% endblock title %}
+{% block body %}
+
+
+<div id="menu" class="fas fa-bars"></div>
+
+<div style="margin: 2%;"><div class="head_cheat3">All Data structure & Algoritham cheat sheet below here...</div>
+
+{% if user.is_authenticated %}
+<!-- contact section ends -->
+<div style="margin:2%;">
+
+ <b class="tit">
+1.For project create.
+  
+</b>
+
+  <pre class="language-py"><code class="dec">django-admin startproject projectname </code></pre></br></br>
+
+
+ <b class="tit">
+2.For Server run.
+  
+</b>
+
+  <pre class="language-py"><code class="dec">python manage.py runserver </code></pre></br></br>
+  <b class="tit">
+3.For App create.
+  
+</b>
+
+  <pre class="language-py"><code class="dec"> python manage.py startapp appname</code></pre></br></br>
+<b class="tit">
+4.For app register.
+  
+</b>
+
+  <pre class="language-py"><code class="dec"># In the setting file.
+  	INSTALLED_APPS = [
+    'appname',
+]</code></pre></br></br>
+
+ <b class="tit">
+5.For display template file.
+
+</b>
+
+  <pre class="language-py"><code class="dec"># In the project file open urls.py
+from django.contrib import admin
+from django.urls import path,include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('',include('appname.urls'))
+] 
+
+# In the app file open urls.py
+from django.contrib import admin
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('',views.index,name="index"),
+    path('projects',views.projects,name="projects"),
+]
+
+# In the app file open views.py.
+from django.shortcuts import render,HttpResponse,redirect
+
+def index(request):
+	return render(request, 'index.html')
+
+def projects(request):
+	return HttpResponse("This is the project page")</code></pre></br></br>
+
+
+
+<b class="tit">
+6.For static files register. 
+  
+</b>
+
+  <pre class="language-py"><code class="dec"> #In the setting.py file.
+import os
+STATICFILES_DIRS = [
+
+    os.path.join(BASE_DIR,"static")
+
+]
+</code></pre></br></br>
+
+ <b class="tit">
+7.For templates files register. 
+  
+</b>
+
+  <pre class="language-py"><code class="dec"> 'DIRS': [os.path.join(BASE_DIR,"templates")],</code></pre></br></br>
+
+ <b class="tit">
+8.Insert & fetch the context variables in the web page.
+  
+</b>
+
+  <pre class="language-py"><code class="dec"># Open views.py file.
+  def index(request):
+    context={
+    "variable1":"Parth",
+    "variable2":"Shah",
+    }
+    return render(request,'index.html',context)
+
+
+# Open index.html file:
+
+&#123;&#123;variable1&#125;&#125; and &#123;&#123;variable2&#125;&#125;
+   </code></pre></br></br> 
+
+
+<b class="tit">
+9.Move to one page to another page.
+  
+</b>
+
+  <pre class="language-py"><code class="dec">
+  href="/"
+  href="about"
+  render(request,"about.html") </code></pre></br></br>
+
+ <b class="tit">
+10.Import file code.
+  
+</b>
+
+  <pre class="language-py"><code class="dec"> &#123;% extends "filename.html" %&#125;
+&#123;% block title %&#125;
+
+&#123;% endblock title %&#125;
+&#123;% block body %&#125;
+
+&#123;% endblock body %&#125;
+</code></pre></br></br>
+
+ <b class="tit">
+11.In the admin page create username & password.
+  
+</b>
+
+  <pre class="language-py"><code class="dec"> 
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser</code></pre></br></br>
+
+
+ <b class="tit">
+12.Customize in the admin site.
+  
+</b>
+
+  <pre class="language-py"><code class="dec"> 
+  # 3 code copy paste in project folder urls.py file.
+
+  # and edit in &#123; custome Bookstore &#125; </code></pre></br></br>
+
+  <b class="tit">
+13.Problem in csrf varifications.
+  
+</b>
+
+  <pre class="language-py"><code class="dec"> &#123;% csrf_token %  &#125;</code></pre></br></br> 
+
+   <b class="tit">
+14.For modal create in models.py.
+  
+</b>
+
+  <pre class="language-py"><code class="dec"> class Contact(models.Model):
+  sno=models.AutoField(primary_key=True)
+  name=models.CharField(max_length=255)
+  email=models.CharField(max_length=100)
+  phone=models.CharField(max_length=13)
+  content=models.TextField()
+  timestamp=models.DateTimeField(auto_now_add=True,blank=True)
+
+
+
+  def __str__(self):
+    return self.name +"-"+self.email
+</code></pre></br></br>
+
+ <b class="tit">
+15.For modal register in admin.py.
+  
+</b>
+
+  <pre class="language-py"><code class="dec"> from spinformation.models import Contact
+
+# Register your models here.
+admin.site.register(Contact)</code></pre></br></br>
+
+
+
+
+ <b class="tit">
+16.Store Informatin in the database.
+  
+</b>
+
+  <pre class="language-py"><code class="dec">from datetime import datetime
+from homw.models import Contact
+
+
+def contact(request):
+  if request.method=="POST":
+    name=request.POST.get('name')
+    email=request.POST.get('mail')
+    phonenumber=request.POST.get('phonenumber')
+
+    if len(name)&lt;2: 
+      messages.error(request, 'Please fill the name correctly...')
+      return redirect('/')
+
+    else:
+      contact=Contact(name=name,email=email,phonenumber=phonenumber,date=datetime.today())
+      contact.save()
+      messages.success(request, 'Your Contact information has been saved successfully...')
+  return render(request, 'contact.html') </code></pre></br></br>
+
+  <b class="tit">
+17.Alert message display.
+  
+</b>
+
+  <pre class="language-py"><code class="dec">
+  # Open django message framework.
+  # Import in setting.py
+  from django.contrib.messages import constants as messages
+  MESSAGE_TAGS = {
+   messages.ERROR:'danger',
+  }
+
+# Import in views.py
+from django.contrib import messages
+messages.success(request, 'Your Information is submitted.')
+
+# Import in html file.
+ &#123;% if messages %&#125;
+ &#123;% for message in messages %&#125;
+  &lt;div class="alert alert-&#123;&#123; message.tags &#125;&#125; alert-dismissible fade show mess" role="alert"&gt;
+  &lt;strong&gt;&#123;&#123; message &#125;&#125;!&lt;/strong&gt;
+  &lt;button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"&gt;&lt;/button&gt;
+&lt;/div&gt;
+&#123;% endfor %&#125;
+&#123;% endif %&#125;
+ </code></pre></br></br>
+
+ <b class="tit">
+18.All queries run in the editor terminal.
+  
+</b>
+
+  <pre class="language-py"><code class="dec">1. python  manage.py shell
+2. from .models import contact
+3. Contact.objects.all()
+4. Contact.objects.all()[0]
+5. Contact.objects.all()[0].name
+6. Contact.objects.filter(name="parth")
+7. ins=Contact.objects.all()[0]
+8. ins.name="shah"
+9. ins.save()
+10. Contact.objects.all().first()
+11. Contact.objects.filter(name__startswith="sh")
+12. exit()
+</code></pre></br></br>
+
+<b class="tit">
+19.Create login system.
+  
+</b>
+
+  <pre class="language-py"><code class="dec"> 
+from django.contrib.auth import authenticate,login,logout
+
+
+def handlelogin(request):
+  if request.method=='POST':
+    logusername=request.POST['logemail']
+    logpass=request.POST['logpass']
+
+    user=authenticate(username=logusername,password=logpass)
+
+    if user is not None:
+      login(request, user)
+      messages.success(request, 'successfully logged in.')
+      return redirect('/')
+    else:
+      messages.error(request, 'invalid credentials,Please try again later.')
+      return redirect('/')
+
+  else:
+    return HttpResponse('page -404 not found')
+  </code></pre></br></br> 
+
+<b class="tit">
+20.Create signup system.
+  
+</b>
+
+  <pre class="language-py"><code class="dec"> 
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate,login,logout
+
+  def handlesignup(request):
+  if request.method=='POST':  
+    username=request.POST['username']
+    email=request.POST['email']
+    pass1=request.POST['password']
+    pass2=request.POST['cpassword']
+
+    if pass1 != pass2:
+      messages.error(request, 'PASSWORD do not match.')
+      return redirect('/')
+
+    myuser=User.objects.create_user(username,email,pass1)
+    myuser.save()
+    messages.success(request, 'Account created successfully.')
+    return redirect('/')
+  else:
+    return HttpResponse('page -404 not found')</code></pre></br></br>
+
+     <b class="tit">
+21.Create logout system.
+  
+</b>
+
+  <pre class="language-py"><code class="dec">
+from django.contrib.auth import authenticate,login,logout
+
+def handlelogout(request):
+  # if request.method=="post":
+    logout(request)
+    messages.success(request, 'successfully logout.')
+    return redirect('/')
+
+   </code></pre></br></br>
+
+    <b class="tit">
+22.Create virtual environment.
+  
+</b>
+
+  <pre class="language-py"><code class="dec"> 
+virtualenv
+
+myvirtual\Scripts\activate
+  </code></pre></br></br> 
+
+<h2 style="color:white;">Heroku hosting code......</h2>
+<br><br><br><br>
+ <b class="tit">
+Step 1.Package download.
+  
+</b>
+
+  <pre class="language-txt"><code class="dec">asgiref==3.4.1
+dj-database-url==0.5.0
+Django==3.2.5
+gunicorn==20.1.0
+psycopg2-binary==2.9.1
+pytz==2021.1
+sqlparse==0.4.1
+whitenoise==5.3.0
+</code></pre></br></br> 
+
+<b class="tit">
+Step 2.Edit in the setting file.
+  
+</b>
+
+  <pre class="language-py"><code class="dec">DEBUG = False
+
+ALLOWED_HOSTS = ["*"]
+
+MIDDLEWARE = [
+  'whitenoise.middleware.WhiteNoiseMiddleware',
+]
+
+ROOT_URLCONF = 'spinfo.urls'
+
+WSGI_APPLICATION = 'spinfo.wsgi.application'
+
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
+
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+ </code></pre></br></br> 
+
+<b class="tit">
+Step.Create folder Procfile
+  
+</b>
+
+  <pre class="language-py"><code class="dec">web: gunicorn spinfo.wsgi --log-file -
+   </code></pre></br></br> 
+
+<b class="tit">
+Step.Create file requirement
+  
+</b>
+
+  <pre class="language-py"><code class="dec">pip freeze > requirement.txt
+   </code></pre></br></br> 
+
+<b class="tit">
+Step 3.Create Git repository.
+  
+</b>
+<br><br><br>
+<b class="tit">
+Step 4.git push -u origin master
+  
+</b>
+<br><br><br>
+<b class="tit">
+Step 5.git push heroku master
+  
+</b><br><br><br>
+<b class="tit">
+Step 6.heroku create spinfo
+  
+</b><br><br><br>
+<b class="tit">
+Step 7.heroku run python manage.py migrate
+  
+</b><br><br><br>
+<b class="tit">
+Step 8.heroku run python manage.py createsuperuser
+  
+</b><br><br><br>
+
+
+ 
+ <b class="tit">
+Step 9.After the hosting edit in website.
+  
+</b>
+
+  <pre class="language-py"><code class="dec">  git add .
+  git commit -m " "
+  git push -u origin master
+  git push heroku master
+   </code></pre></br></br> 
+
+
+
+
+</div>
+
+  
+</div>
+{% else %}
+<div class="container" style="margin:50px;margin-right:150px;  ">
+<h1 style="background:#ccc;padding:30px;margin:100px 80px;font-weight:bold;margin-left:30px;">You are not logged in! Please   login to see a cheat sheet.</h1>
+</div>
+{% endif %}
+{% endblock body %}

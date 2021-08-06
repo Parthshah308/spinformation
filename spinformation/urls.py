@@ -15,6 +15,7 @@ urlpatterns = [
     path('cplus',views.cplus,name="cplus"),
     path('dsalgo',views.dsalgo,name="dsalgo"),
     path('php',views.php,name="php"),
+    path('django',views.django,name="django"),
     path('signup',views.handlesignup,name="handlesignup"),
     path('login',views.handlelogin,name="handlelogin"),
     path('logout',views.handlelogout,name="handlelogout"),

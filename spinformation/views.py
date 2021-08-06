@@ -47,6 +47,9 @@ def dsalgo(request):
 def php(request):
 	return render(request, 'php.html')
 
+def django(request):
+	return render(request, 'django.html')
+
 def contact(request):
 	if request.method=="POST":
 		name=request.POST['name']
@@ -54,8 +57,22 @@ def contact(request):
 		phone=request.POST['phone']
 		content=request.POST['content']
 		
-		if len(name)<2 or len(email)<3 or len(phone)<10 or len(content)<5:
-			messages.error(request, 'Please fill the form correctly...')
+		if len(name)<2: 
+			messages.error(request, 'Please fill the name correctly...')
+			return redirect('/')
+
+		if len(email)<3: 
+			messages.error(request, 'Please fill the email correctly...')
+			return redirect('/')
+
+		if len(phone)<10: 
+			messages.error(request, 'Please fill the phone correctly...')
+			return redirect('/')
+
+		if len(content)<5:
+			messages.error(request, 'Please fill the message correctly...')
+			return redirect('/')
+
 		else:
 			contact=Contact(name=name,email=email,phone=phone,content=content)
 			messages.success(request, 'Your Information is submitted.')

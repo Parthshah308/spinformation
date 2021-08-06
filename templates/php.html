@@ -500,6 +500,138 @@ searchbtn.onclick = () =>{
 
 }</code></pre></br></br>
 
+ <b class="tit">
+32.Signup system code in php.
+  
+</b>
+  <pre class="language-php"><code class="dec">
+&lt;?php 
+$existerror=false;
+$sha=false;
+$passerr=false;
+if($_SERVER['REQUEST_METHOD']=='POST')
+{
+  include "dbconn.php";
+$username=$_POST['username'];
+$password=$_POST['password'];
+$cpassword=$_POST['cpassword'];
+
+$exitsql="SELECT * FROM `login` WHERE `username`='$username'";
+$result=mysqli_query($conn,$exitsql);
+$existrow=mysqli_num_rows($result);
+if($existrow&gt;0)
+{
+  $existerror=true;
+}
+else{
+if($password==$cpassword)
+{
+  $hash=password_hash($password,PASSWORD_DEFAULT);
+$sql="INSERT INTO `login` (`username`, `password`) VALUES ('$username', '$hash')";
+$result=mysqli_query($conn,$sql);
+if($result)
+{
+
+$sha=true;
+}
+else{
+  $passerr=true;
+  }
+}
+else{
+  $passerr=true;
+}
+}
+}
+
+ ?&gt;</code></pre></br></br>
+
+<b class="tit">
+33.Login system code in php.
+  
+</b>
+  <pre class="language-php"><code class="dec">&lt;?php 
+
+$sha=false;
+$passerr=false;
+if($_SERVER['REQUEST_METHOD']=='POST')
+{
+  include "dbconn.php";
+$username=$_POST['username'];
+$password=$_POST['password'];
+$sql="SELECT * FROM `login` WHERE `username`='$username'";
+$result=mysqli_query($conn,$sql);
+$row=mysqli_num_rows($result);
+
+if($row==1)
+{
+  while ($row=mysqli_fetch_assoc($result)){
+    if(password_verify($password, $row['password']))
+  {
+  $sha=true;
+  session_start();
+  $_SESSION['loggin']=true;
+  $_SESSION['username']=$username;
+  header("location: welcome.php");
+}
+
+else{
+  $passerr='&lt;div class="alert alert-danger alert-dismissible fade show" role="alert"&gt;
+  &lt;strong&gt;Error!&lt;/strong&gt; You are not login. So,please
+  going to sign-up page and fill this details.
+  &lt;button type="button" class="close" data-dismiss="alert" aria-label="Close"&gt;
+    &lt;span aria-hidden="true"&gt;&times;&lt;/span&gt;
+  &lt;/button&gt;
+&lt;/div&gt;';
+}
+}
+}
+else
+{
+  $passerr='&lt;div class="alert alert-danger alert-dismissible fade show" role="alert"&gt;
+  &lt;strong&gt;Error!&lt;/strong&gt; You are not login. So,please
+  going to sign-up page and fill this details.
+  &lt;button type="button" class="close" data-dismiss="alert" aria-label="Close"&gt;
+    &lt;span aria-hidden="true"&gt;&times;&lt;/span&gt;
+  &lt;/button&gt;
+&lt;/div&gt;';
+}
+}
+// else{
+//  $passerr=true;
+// }
+
+?&gt;</code></pre></br></br>
+
+
+<b class="tit">
+33.Logout system code in php.
+  
+</b>
+  <pre class="language-php"><code class="dec">&lt;?php 
+
+session_start();
+session_unset();
+session_destroy();
+header("location: login.php");
+exit;
+
+ ?&gt;</code></pre></br></br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <!--   <b class="tit">
 2.
