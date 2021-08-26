@@ -1,0 +1,724 @@
+{% extends "upbase.html" %}
+{% block title %}
+ JavaScript
+{% endblock title %}
+{% block body %}
+
+<!-- header section ends -->
+
+<div id="menu" class="fas fa-bars"></div>
+
+<!-- home section starts  -->
+
+
+
+<div style="margin: 2%;"><div class="head_cheat2" >All javascipt cheat sheet below here...</div>
+{% if user.is_authenticated %}
+
+<!-- contact section ends -->
+<div style="margin:2%;">
+
+
+    <b class="tit">
+1.What is the difference between == & === ?
+
+</b>
+  <pre class="language-js"><code class="dec">
+== :- This operator use only value and compare only value.
+
+=== :- This operator compare value and datatype.
+  </code></pre></br></br>
+
+  <b class="tit">
+  2.Leap year program.
+
+  </b>
+  <pre class="language-js"><code class="dec">function leapyear(year)
+    {
+        return (year % 100 === 0) ? (year % 400 === 0) : (year % 4 === 0);
+    }
+   leapyear(2016);</code></pre></br></br>
+
+   <b class="tit">
+   3.Ternary(conditional) operator.
+
+   </b>
+   <pre class="language-js"><code class="dec">
+     variablename = (condition) ? value1 : value2 ;
+   </code></pre></br></br>
+
+   <b class="tit">
+ 4.Anonymous function.
+
+ </b>
+ <pre class="language-js"><code class="dec">var sum=function(a,b){
+   return a+b;
+ }</code></pre></br></br>
+
+ <b class="tit">
+ 5.Difference between let vs const vs var.
+
+ </b>
+ <pre class="language-js"><code class="dec">
+   var = function scope.
+   let & const = block scope.
+ </code></pre></br></br>
+
+ <b class="tit">
+ 6.Template literal(string).
+
+ </b>
+ <pre class="language-js"><code class="dec">console.log(myname + "*" +sum+"+");
+console.log(`${myname} * ${sum} +`);</code></pre></br></br>
+
+<b class="tit">
+7.Arrow function.
+
+</b>
+<pre class="language-js"><code class="dec">const sum = (a,b) =>{
+  return a+b;
+}
+//different way.
+const sum = (a,b) => a+b;</code></pre></br></br>
+
+<b class="tit">
+8.for in loop.
+
+</b>
+<pre class="language-js"><code class="dec">let marks=[4,5,2,6,0];
+for(let index in marks){
+  console.log(index);
+}</code></pre></br></br>
+
+<b class="tit">
+9.for of loop.
+
+</b>
+<pre class="language-js"><code class="dec">let marks=[4,5,2,6,0];
+for(let elements of marks){
+  console.log(elements);
+}</code></pre></br></br>
+
+
+<b class="tit">
+10.Difference between for in loop and for of loop.
+
+</b>
+<pre class="language-js"><code class="dec">
+  for in = it is display all index number.
+  for of = it is display all elements.
+</code></pre></br></br>
+
+<b class="tit">
+11.for each loop.
+
+</b>
+<pre class="language-js"><code class="dec">let marks=[4,5,2,6,0];
+marks.forEach(function(elements,index,array){
+  console.log(elements,index,array);
+})
+// different way.
+marks.forEach((elements,index,array)=>{
+  console.log(elements,index,array);
+})
+</code></pre></br></br>
+
+
+<b class="tit">
+12.Difference between find() and filter().
+
+</b>
+<pre class="language-js"><code class="dec">
+//  find() = if it is true so return only one element otherwise it is false so return -1.
+//  filter() = if it is true so return all elements otherwise it is false so return empty erray.
+</code></pre></br></br>
+
+<b class="tit">
+13.splice() method.
+
+</b>
+<pre class="language-js"><code class="dec">let marks=[4,5,2,6,0];
+// syntax: splice(2,0,"parth");
+// 2=startIndex.
+// 1=delete.
+// "parth"=string.
+marks.splice(2,1,4);</code></pre></br></br>
+
+<b class="tit">
+14.Map() function.
+
+</b>
+<pre class="language-js"><code class="dec">// map method is return new array and not change in original array.
+// Using another method with map function like that...
+let arr2=marks.map((currval,index,array)=>{
+  return currval * 2;
+}).filter((currval)=>{
+  return currval > 10;
+});</code></pre></br></br>
+
+<b class="tit">
+15.reduce() method.
+
+</b>
+<pre class="language-js"><code class="dec">// reduce method is return only one value.
+// This method is using in the find sum and total and flat array in single dimentional array.
+// Accumulater = stored data in the Accumulater means box.
+console.log(marks.reduce((accumu,currval,currindex,array)=>{
+   return accumu+=currval;
+ },12));</code></pre></br></br>
+
+ <b class="tit">
+ 16.flat two dimentional array to single dimentional array.
+
+ </b>
+ <pre class="language-js"><code class="dec">let marks=[[4,5],[5,2]];
+let sin=marks.reduce((accu,curr)=>{
+    return accu.concat(curr);
+});
+console.log(sin);</code></pre></br></br>
+
+<b class="tit">
+17.String methods.
+
+</b>
+<pre class="language-js"><code class="dec">
+// length method:
+str = "parth shah";
+console.log(str.length);
+
+// Escape characters:
+str = "parth is the \"front-end developer\" ";
+
+// find the string:
+console.log(str.indexof("parth"));
+console.log(str.search("parth"));
+
+// slice(start,end) method:
+// it is accept negative value.
+
+// substring(start,end) method:
+// it is same as slice method but it can not accept a negative value otherwise it is start in the 0th position.
+
+// substr(start,length) method:
+// it is same as slice method but it can not accept a negative value.
+
+// replace method:
+ console.log(str.replace("parth","shah"));
+
+</code></pre></br></br>
+
+
+<b class="tit">
+18.Extracting string characters.
+
+</b>
+<pre class="language-js"><code class="dec">
+  1) charAt(position):
+  let str="Hello world";
+  console.log(str.charAt(6));
+
+  2) charCodeAt(position):
+  console.log(str.charCodeAt(6));
+  // it is return UTF-16 code.
+
+  3) property access:
+  console.log(str[1]);
+
+</code></pre></br></br>
+
+<b class="tit">
+19.Other methods.
+
+</b>
+<pre class="language-js"><code class="dec">
+// .toUpperCase( );
+// .toLowerCase( );
+// .concat( );
+// .trim( ); Both side whitespace removing...
+</code></pre></br></br>
+
+<b class="tit">
+20.String convert to array.
+
+</b>
+<pre class="language-js"><code class="dec">
+  str.split(",");
+  str.split(" ");
+  str.split("/");
+</code></pre></br></br>
+
+<b class="tit">
+21.Date & time method.
+
+</b>
+<pre class="language-js"><code class="dec">
+// Date time start 1 january 1970 UTC.
+
+* 4 ways to create date object=
+
+1. new Date()
+2. new Date(year,month,day,hour,minute,second,milisecond)
+3. new Date(milliseconds)
+4. new Date(date String)
+
+* new Date()=
+
+console.log(new Date());
+console.log(new Date().toLocalString());
+console.log(new Date().toLocalTimeString());
+console.log(new Date().toLocalDateString());
+console.log(new Date().toString());
+
+* Date.now()=
+
+return milisecond //now days
+
+
+</code></pre></br></br>
+
+
+<b class="tit">
+22.JavaScript Math object.
+
+</b>
+<pre class="language-js"><code class="dec">
+  console.log(Math.PI);
+
+  //Math.round(),
+  // 10.49 = 10.
+  // 10.53 = 11.
+
+  //Math.pow(),
+  //like that 2**3 = 8.
+
+  //Math.sqrt(),
+  //Math.abs()  return positive value.
+  //Math.ceil(), all cases not increament.
+  //Math.floor(), all cases increament.
+  //Math.min().
+  //Math.max().
+  //Math.random()*10.
+  //Math.trunc() like that Math.ceil().
+
+</code></pre></br></br>
+
+<b class="tit">
+23.Document Object Model(DOM).
+
+</b>
+<pre class="language-js"><code class="dec">document.documentElement
+document.body.childNodes.
+document.body.hasChildNodes().
+document.body.child.
+document.body.firstElementChild.
+document.body.parentNode.
+document.body.parentElement.
+document.head.nextElementSibling.</code></pre></br></br>
+
+<b class="tit">
+24.How to search the element and reference.
+
+</b>
+<pre class="language-js">&lt;code class="dec"&gt;
+  &lt;button onclick="changecontent()"&gt;Click Me&lt;/button&gt;
+  const changecontent = () =&gt;{
+    document.getElementById('heading').innerHTML="parth shah";
+    document.getElementsByClassName('heading');
+    document.querySeletor('.heading');
+    document.querySeletor('#heading');
+    document.querySeletorAll('#heading'); // return total data.
+    document.getElementByTagName("p");
+    document.getElementByName("gender");
+  }
+</code></pre></br></br>
+
+<b class="tit">
+25.Event types & Event Object.
+
+</b>
+<pre class="language-js"><code class="dec">const introevent=document.getElementsByClassName('introduction');
+let eveobj=()=>{
+  console.log(event);
+  console.log(event.key);
+  console.log(event.type);
+  console.log(event.target);
+  console.log(event.code);
+}
+
+
+  introevent.addEventListener('keypress',()=>{
+    alert("hi,my name is parth");
+  });
+  // let introduction=()=>{
+  //   alert('hi my name is');  };</code></pre></br></br>
+
+  <b class="tit">
+  26.Difference between onclick and addEventListener.
+
+  </b>
+  <pre class="language-js"><code class="dec">
+    ==> onclick method is the override and display only last methods.
+    ==> addEventListener method is not override and all method apply.
+  </code></pre></br></br>
+
+  <b class="tit">
+  27.Timing Events.
+
+  </b>
+  <pre class="language-js"><code class="dec">  let para=document.querySelector('.timing');
+  let clickbtn=document.querySelector('#btn');
+  let stopBtn=document.querySelector('#stopbtn');
+
+clickbtn.addEventListener('click',()=>{
+  // para.innerHTML="Loading ...";
+
+   solve=setInterval(()=>{  let date=new Date();
+    para.innerHTML=date.toLocaleTimeString();},1000);
+});
+
+stopBtn.addEventListener('click',()=>{
+
+clearInterval(solve);
+});</code></pre></br></br>
+
+<b class="tit">
+28.Object oriented programing languages(OOPs).
+
+</b>
+<pre class="language-js"><code class="dec">let surname="shah";
+  let Biodata={
+    name:{
+      surname:surname,
+      firstname:"parth",
+    },
+    age:18,
+getdata : ()=>{
+    console.log( `my name is ${Biodata.name.surname} and age is ${Biodata.age}`);
+  }
+//
+  }
+  Biodata.getdata();
+let age1=56;
+  getdata = ()=>{
+    console.log( `my name is ${this.age1} and age is ${Biodata.age}`);
+  }
+  // this statement is the only accept global context but in the object it is accept current context.
+  // and in the arrow function it is accept gloabal context.
+console.log(Biodata.age);
+getdata();</code></pre></br></br>
+
+<b class="tit">
+29.Destructing.
+
+</b>
+<pre class="language-js"><code class="dec">// array Destructing
+let number=[5,62,23,6,12];
+let [first,second,third,fourth,five]=number;
+
+// object Destructing
+let marks = {
+  name:"parth",
+  age:12
+};
+let {name,age} = marks;
+console.log(name);</code></pre></br></br>
+
+
+<b class="tit">
+30.Spread operator.
+
+</b>
+<pre class="language-js"><code class="dec">let marks = {
+  name:"parth",
+  age:12
+};
+let allmarks={...marks};</code></pre></br></br>
+
+<b class="tit">
+31.Object properties.
+
+</b>
+<pre class="language-js"><code class="dec">
+//all value display in array.
+object.values();
+
+//all entries display.
+object.entries();
+
+//all entries display in object.
+object.fromEntries();
+
+//String padding.
+let myAge="26".padStart(10);
+
+</code></pre></br></br>
+
+<b class="tit">
+32.flat() method.
+
+</b>
+<pre class="language-js"><code class="dec">
+arr.flat();
+arr.flat(2);
+arr.flat(infinity);
+</code></pre></br></br>
+
+<b class="tit">
+33.bigInt datatypes.
+
+</b>
+<pre class="language-js"><code class="dec">console.log(typeof(23n));</code></pre></br></br>
+
+<b class="tit">
+34.Event bubbling,capturing and propagation.
+
+</b>
+<pre class="language-js"><code class="dec">
+//By default bubbling mode .
+chid.addEventListener('click',paracall,false);
+paid.addEventListener('click',paracall,false);
+
+//By capturing mode.
+chid.addEventListener('click',paracall,true);
+paid.addEventListener('click',paracall,true);
+
+//only one event call.
+chid.addEventListener('click',paracall);
+let paracall = () =>{
+  event.stopPropagation();
+}
+
+</code></pre></br></br>
+
+<b class="tit">
+35.Difference between synchronous and Asynchronous.
+
+</b>
+<pre class="language-js"><code class="dec">synchronous = Only one function is run at a time.
+Asynchronous = All function run at a time.</code></pre></br></br>
+
+<b class="tit">
+36.function currying.
+
+</b>
+<pre class="language-js"><code class="dec">sum(2)(4)(5);
+
+let sum = (num1) => (num2) => (num3) => console.log(num1+num2+num3);
+
+let sum = function(num1){
+  return function(num2){
+    return function(num3){
+      console.log(num1+num2+num3);
+    }
+  }
+}</code></pre></br></br>
+
+<b class="tit">
+37.Ajax call using XMLHttpRequest.
+
+</b>
+<pre class="language-html"><code class="dec">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+  &lt;title&gt;XML Http Request&lt;/title&gt;
+  &lt;style media="screen"&gt;
+    #container{
+      font-size:15px;
+      color:black;
+      background:#ccc;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id="container"&gt;
+  &lt;/div&gt;
+  &lt;script type="text/javascript"&gt;
+    const container=document.querySelector('#container');
+
+    const request=new XMLHttpRequest();
+    request.open('GET',"https://restcountries.eu/rest/v2/name/japan");
+    request.send();
+
+    request.addEventListener('load',function(){
+      // console.log(this.responseText);
+      const [data]=JSON.parse(this.responseText);
+      console.log(data);
+
+      const htmldata =  `${data.name}  &lt;br&gt;
+${data.capital}  &lt;br&gt;
+${data.region} &lt;br&gt;
+&lt;img src="${data.flag}" width="300px" height="300px"&gt;
+&lt;br&gt;
+      `;
+      container.insertAdjacentHTML('afterbegin',htmldata);
+    });
+
+
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></br></br>
+
+<b class="tit">
+38.JSON introduction.
+
+</b>
+<pre class="language-js"><code class="dec">JSON = JavaScript object notation.
+
+Json is the same as object but key is the string.
+
+//Object convert to JSON:
+JSON.stringify(my_object);
+
+//JSON convert to object:
+JSON.parse(my_object);</code></pre></br></br>
+
+<b class="tit">
+39.fetch API with promises statement.
+
+</b>
+<pre class="language-js"><code class="dec">const jokefetch = ()=>{
+  const setHeader = {
+    headers :{
+      Accept:'application/json'
+    }
+  }
+  fetch('https://icanhazdadjoke.com/',setHeader)
+  .then((res)=>
+  res.json()
+).then((data)=>{
+  jokes.innerHTML=data.joke;
+}).catch((error)=>{
+    console.log(error);
+  })
+}</code></pre></br></br>
+
+<b class="tit">
+40.fetch API with async await.
+
+</b>
+<pre class="language-js"><code class="dec">const jokefetch = async ()=>{
+  try{
+  const setHeader = {
+    headers :{
+      Accept:'application/json'
+    }
+  }
+  const res=await fetch('https://icanhazdadjoke.com/',setHeader)
+const data=await res.json();
+jokes.innerHTML=data.joke;
+}catch(error){
+    console.log(error);
+  }
+}</code></pre></br></br>
+
+<b class="tit">
+41.Project 1 : Light On/Off.
+
+</b>
+<pre class="language-html"><code class="dec">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+  &lt;title&gt;Light On/Off&lt;/title&gt;
+  &lt;link rel="stylesheet" href="lightstyle.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div&gt;
+    &lt;p&gt;Are you turn on the light?&lt;/p&gt;
+    &lt;button onclick="document.querySelector('#myimage').src='lighton.jfif'"&gt;Turn on the light&lt;/button&gt;
+
+    &lt;img src="lightoff.jfif" alt="" id="myimage"&gt;
+
+      &lt;button onclick="document.querySelector('#myimage').src='lightoff.jfif'"&gt;Turn off the light&lt;/button&gt;
+  &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></br></br>
+
+<b class="tit">
+42.Project 2:celsius to fahernhit converter
+
+</b>
+<pre class="language-html"><code class="dec">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+  &lt;title&gt;Cel to fah conveter&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form onsubmit="resultconverter(); return false"&gt;
+      &lt;p&gt;Convert celsius to fahernhit&lt;/p&gt;&lt;br&gt;
+      &lt;input type="number" id="inputnum"&gt;
+    &lt;select id="inputfield" name=""&gt;
+      &lt;option value="cel"&gt;
+        celsius
+      &lt;/option&gt;
+      &lt;option value="fah"&gt;
+        fahernhit
+      &lt;/option&gt;
+    &lt;/select&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;button type="submit"&gt;Submit&lt;/button&gt;
+    &lt;p id="resultcon"&gt;&lt;/p&gt;
+  &lt;/form&gt;
+    &lt;script type="text/javascript"&gt;
+      const resultconverter = () =&gt;{
+      const inputnum=document.querySelector('#inputnum').value;
+      // console.log(inputnum);
+
+      const inputfild=document.querySelector('#inputfield');
+      // console.log(inputfild);
+      const valuetemp=inputfield.options[inputfild.selectedIndex].value;
+      // console.log();
+      const celtofah= (cel)=&gt;{
+        let celsius=Math.round((cel *9/5)+32);
+        return celsius;
+      }
+
+      const fahtocel= (fah)=&gt;{
+        let fahernhit=Math.round((fah - 32) * 5/9);
+        return fahernhit;
+      }
+
+      let result;
+      if(valuetemp == 'cel')
+      {
+         result=celtofah(inputnum);
+         document.getElementById('resultcon').innerHTML= `= ${result} fahernhit`;
+      }
+      else{
+        result=fahtocel(inputnum);
+        document.getElementById('resultcon').innerHTML= `= ${result} celsius`;
+      }
+
+    }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></br></br>
+
+  <!-- <b class="tit">
+4.
+
+</b>
+<pre class="language-js"><code class="dec"></code></pre></br></br> -->
+
+</div>
+
+
+</div>
+
+{% else %}
+<div class="container" style="margin:50px;margin-right:150px;  ">
+<h1 style="background:#ccc;padding:30px;margin:100px 80px;font-weight:bold;margin-left:30px;">You are not logged in! Please   login to see a cheat sheet.</h1>
+</div>
+{% endif %}
+{% endblock body %}

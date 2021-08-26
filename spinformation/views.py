@@ -28,6 +28,9 @@ def android(request):
 def python(request):
 	return render(request, 'python.html')
 
+def javascript(request):
+	return render(request, 'javascript.html')
+
 def java(request):
 	return render(request, 'java.html')
 
@@ -56,16 +59,16 @@ def contact(request):
 		email=request.POST['email']
 		phone=request.POST['phone']
 		content=request.POST['content']
-		
-		if len(name)<2: 
+
+		if len(name)<2:
 			messages.error(request, 'Please fill the name correctly...')
 			return redirect('/')
 
-		if len(email)<3: 
+		if len(email)<3:
 			messages.error(request, 'Please fill the email correctly...')
 			return redirect('/')
 
-		if len(phone)<10: 
+		if len(phone)<10:
 			messages.error(request, 'Please fill the phone correctly...')
 			return redirect('/')
 
@@ -80,7 +83,7 @@ def contact(request):
 	return render(request, 'index.html')
 
 def handlesignup(request):
-	if request.method=='POST':	
+	if request.method=='POST':
 		username=request.POST['username']
 		email=request.POST['email']
 		pass1=request.POST['password']
@@ -121,4 +124,3 @@ def handlelogout(request):
 		logout(request)
 		messages.success(request, 'successfully logout.')
 		return redirect('/')
-
