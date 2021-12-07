@@ -53,6 +53,9 @@ def php(request):
 def django(request):
 	return render(request, 'django.html')
 
+def react(request):
+	return render(request, 'react.html')
+
 def contact(request):
 	if request.method=="POST":
 		name=request.POST['name']

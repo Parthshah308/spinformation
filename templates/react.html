@@ -1,0 +1,1305 @@
+{% extends "upbase.html" %}
+{% block title %}
+ ReactJS
+{% endblock title %}
+{% block body %}
+
+<!-- header section ends -->
+
+<div id="menu" class="fas fa-bars"></div>
+
+<!-- home section starts  -->
+
+
+
+<div style="margin: 2%;"><div class="head_cheat2" >All ReactJS cheat sheet below here...</div>
+{% if user.is_authenticated %}
+
+<!-- contact section ends -->
+<div style="margin:2%;">
+
+
+    <b class="tit">
+1.Create react application.
+
+</b>
+  <pre class="language-js"><code class="dec">npx create-react-app appname</code></pre></br></br>
+
+  <b class="tit">
+  2.All package and dependencies install.
+
+  </b>
+    <pre class="language-js"><code class="dec">npm install</code></pre></br></br>
+<b class="tit">
+3.Run react application.
+
+</b>
+  <pre class="language-js"><code class="dec">npm start</code></pre></br></br>
+
+  <b class="tit">
+  4.Proptypes syntax.
+
+  </b>
+    <pre class="language-js"><code class="dec">Navbar.propTypes = {
+  title: PropTypes.string.isRequired
+}</code></pre></br></br>
+
+    <b class="tit">
+    5.Default propTypes.
+
+    </b>
+      <pre class="language-js"><code class="dec">Navbar.defaultProps = {
+  title:"Add the title",
+  about:"About us"
+}</code></pre></br></br>
+
+
+  <b class="tit">
+  6.useState() Hook.
+
+  </b>
+    <pre class="language-js"><code class="dec"> import React,{useState} from 'react'
+
+       const [text,setText] = useState();
+
+      const changeHandler= (event) =>{
+          setText(event.target.value);
+        }
+
+        const upperHandler = () =>{
+          let newText=text.toUpperCase();
+          setText(newText);
+        }</code></pre></br></br>
+
+
+        <b class="tit">
+        7.Different component me Title change.
+
+        </b>
+          <pre class="language-js"><code class="dec">document.title = 'text' </code></pre></br></br>
+
+
+            <b class="tit">
+            8.React router dom (without loading page).
+
+            </b>
+              <pre class="language-js"><code class="dec">npm install react-router-dom@5.2.0
+                import {
+                  BrowserRouter as Router,
+                  Switch,
+                  Route,
+                  Link
+                } from "react-router-dom";
+                &lt;Router&gt;
+
+      &lt;Navbar title="TextUtily" Mode={mode} togglebtn={darkmode}/&gt;
+      &lt;Alert alert={alert}/&gt;
+      &lt;div className="container m-5"&gt;
+      &lt;Switch&gt;
+              &lt;Route exact path="/about"&gt;
+                &lt;About /&gt;
+              &lt;/Route&gt;
+
+              &lt;Route exact path="/"&gt;
+                &lt;Textform showAlert={showAlert}/&gt;
+
+              &lt;/Route&gt;
+            &lt;/Switch&gt;
+      &lt;/div&gt;
+
+    &lt;/Router&gt;
+
+In the Navbar.js file:
+import {
+
+  Link
+} from "react-router-dom";
+
+&lt;Link className="navbar-brand" to="/"&gt;{props.title}&lt;/Link&gt;
+
+</code></pre></br></br>
+
+<b class="tit">
+9.Deploy react app without router.
+
+</b>
+  <pre class="language-js"><code class="dec">create git repository.
+git init
+git remote
+git add
+git commit
+npm run build
+
+step 1:   "homepage": "https://myusername.github.io/my-app",
+
+step 2: npm install --save gh-pages
+
+step 3: "predeploy": "npm run build",
+        "deploy": "gh-pages -d build",
+
+step 4: npm run deploy
+
+step 5: If error in deploy "deploy": "gh-pages -b master -d build",
+
+step 6: npm run deploy
+
+step 7: setting -> pages -> gh-pages`
+</code></pre></br></br>
+
+
+  <b class="tit">
+  10.Shortuct for react function base components.
+
+  </b>
+    <pre class="language-js"><code class="dec">rfc</code></pre></br></br>
+
+    <b class="tit">
+    11.Shortuct for react class base components.
+
+    </b>
+      <pre class="language-js"><code class="dec">rc</code></pre></br></br>
+
+      <b class="tit">
+      12.Props declare in class base components.
+
+      </b>
+        <pre class="language-js"><code class="dec">  let {title,desc,urlImage,url} = this.props;</code></pre></br></br>
+
+
+          <b class="tit">
+          13.State declare in class base components.
+
+          </b>
+            <pre class="language-js"><code class="dec">{this.state.articles.map((element) =>{
+        return
+        &lt;div className="col-md-4" key={element.url}&gt;
+          &lt;Newsitem  title={element.title.slice(0,44)} desc={element.description.slice(0,60)}
+          urlImage={element.urlToImage} url={element.url}/&gt;</code></pre></br></br>
+          <b class="tit">
+          14.Constructor using state in class base components.
+
+          </b>
+            <pre class="language-js"><code class="dec">constructor(){
+        super();
+        console.log("constructor can be called ");
+        this.state = {
+          articles : this.articles,
+          loading : false
+        }
+      }</code></pre></br></br>
+
+      <b class="tit">
+      15.componentDidMount with fetch API.
+
+      </b>
+        <pre class="language-js"><code class="dec">  async componentDidMount(){
+        let url= `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=1049097f25dd4816afde60bb0679ed46`;
+        this.setState({loading:true})
+        let data=await fetch(url);
+        let parsedData= await data.json();
+        this.setState({
+          articles : parsedData.articles,
+          totalResults : parsedData.totalResults,
+          loading:false
+        })
+      }</code></pre></br></br>
+
+      <b class="tit">
+      16.previous button on page.
+
+      </b>
+        <pre class="language-js"><code class="dec">const previoushandler = async () => {
+            let url= `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=1049097f25dd4816afde60bb0679ed46&page=${this.state.page - 1}`;
+            this.setState({loading:true})
+
+            let data=await fetch(url);
+            let parsedData= await data.json();
+
+              this.setState({
+                page: this.state.page - 1,
+                articles : parsedData.articles,
+                loading:false
+
+              })
+          }</code></pre></br></br>
+
+          <b class="tit">
+          17.next button on page.
+
+          </b>
+            <pre class="language-js"><code class="dec">const nexthandler = async () =>{
+            if(!(this.state.page + 1 > Math.ceil(this.state.totalResults/20)))
+            {
+
+            let url= `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=1049097f25dd4816afde60bb0679ed46&page=${this.state.page + 1}`;
+            this.setState({loading:true})
+
+            let data=await fetch(url);
+            let parsedData= await data.json();
+
+              this.setState({
+                page: this.state.page + 1,
+                articles : parsedData.articles,
+                loading:false
+
+              })
+          }</code></pre></br></br>
+
+          <b class="tit">
+          18.Default props in class base components.
+
+          </b>
+            <pre class="language-js"><code class="dec">  static defaultProps =  {
+        country: "in",
+        category: "general"
+      }
+</code></pre></br></br>
+
+            <b class="tit">
+            19.PropTypes props in class base components.
+
+            </b>
+              <pre class="language-js"><code class="dec">static propTypes = {
+        country : PropTypes.string,
+        category: PropTypes.string
+      }</code></pre></br></br>
+
+      <b class="tit">
+      20.Rebound content on change category.
+
+      </b>
+        <pre class="language-js"><code class="dec">         &lt;Route exact path="/business"&gt;
+
+          &lt;News  key="business"country="in" category="business"/&gt;
+
+           &lt;/Route&gt;
+
+</code></pre></br></br>
+
+<b class="tit">
+21.React infinity scroll content.
+
+</b>
+  <pre class="language-js"><code class="dec">Install : npm i react-infinite-scroller
+import InfiniteScroll from 'react-infinite-scroller';
+
+
+  &lt;InfiniteScroll
+      dataLength={this.state.articles.length}
+      next={this.fetchMoreData}
+       //To put endMessage and loader to the top.
+      hasMore={this.state.articles.length !== this.state.totalResults}
+      loader={&lt;Spinner /&gt;}
+    &gt;
+      {items} // &lt;-- This is the content you want to load
+  &lt;/InfiniteScroll&gt;
+
+
+  fetchMoreData = async () =&gt;{
+    this.setState({page: this.state.page + 1})
+    let url= `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=1049097f25dd4816afde60bb0679ed46`;
+    let data=await fetch(url);
+    let parsedData= await data.json();
+    this.setState({
+      articles : this.state.articles.concat(parsedData.articles),
+      totalResults : parsedData.totalResults,
+
+    })
+  }</code></pre></br></br>
+
+
+
+    <b class="tit">
+    22.React top loading bar on after navbar.
+
+    </b>
+      <pre class="language-js"><code class="dec">npm i react-top-loading-bar
+import LoadingBar from 'react-top-loading-bar'
+state ={
+    progress : 0
+  }
+
+  setProgress = (progress) =&gt;{
+    this.setState({progress : progress})
+  }
+
+  &lt;LoadingBar
+      color='#f11946'
+      progress={this.state.progress}
+    /&gt;
+
+    &lt;Route exact path="/business"&gt;  &lt;News setProgress={this.setProgress}
+    key="business"country="in" category="business"/&gt;    &lt;/Route&gt;
+
+
+    this.props.setProgress(100);
+</code></pre></br></br>
+
+<b class="tit">
+23.React using environment variable.
+
+</b>
+  <pre class="language-js"><code class="dec">
+    create in main folder .env.local file.
+    REACT_APP_foldername_API='1688497a5f844b319a98426e073cd043'
+
+    apikey=process.env.REACT_APP_LEARNPROJECT6_API
+  </code></pre></br></br>
+
+  <b class="tit">
+  24.Use useEffect Hook.
+
+  </b>
+    <pre class="language-js"><code class="dec">->>useEffect is the use for only one time in website.
+--> And use in function component otherwise componentDidMount use in class base components.
+       useEffect(async() =>{.....},[])</code></pre></br></br>
+
+  <b class="tit">
+  25.backend file setup.
+  </b>
+    <pre class="language-js"><code class="dec">npm init
+npm i express
+npm i mongoose</code></pre></br></br>
+
+<b class="tit">
+26.backend db & express server setup.
+
+</b>
+  <pre class="language-js"><code class="dec">// db.js <fieldset>
+    const mongoose = require('mongoose');
+
+
+    const mongoURI = "mongodb://localhost:27017/&inotebook?readPreference=primary&appname=MongoDB%20Compass&ssl=false"
+
+    const connectToMongo = () =>{
+      mongoose.connect(mongoURI,() =>{
+        console.log("Connected to mongoose.");
+      })
+    }
+
+    module.exports = connectToMongo;
+
+    // index.js file.
+    const connectToMongo = require('./db');
+
+
+connectToMongo();
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
+
+And if you run the code
+npm install -g nodemon
+
+nodemon ./index.js
+  </fieldset></code></pre></br></br>
+  <b class="tit">
+  27.Create Basic Routes in express JS.
+
+  </b>
+    <pre class="language-js"><code class="dec">const express = require('express');
+
+const router = express.Router();
+
+router.get('/',(req,res)=>{
+  res.json([]);
+})
+
+module.exports = router;</code></pre></br></br>
+
+<b class="tit">
+28.Create Authentication Route in express JS.
+
+</b>
+  <pre class="language-js"><code class="dec">const express = require('express');
+const User = require('../models/User');
+const { body, validationResult } = require('express-validator');
+
+
+const router = express.Router();
+
+router.get('/',[
+  body('email','Invalid email').isEmail(),
+  body('password','At least 5 charachter').isLength({ min: 5 }),
+   body('name','At least 3 charachter').isLength({ min: 3 }),
+],(req,res)=>{
+  req.body = {
+    "name":"parth",
+    "email":"parth3@gmail.com",
+    "password":"3082003"
+  }
+
+
+
+   const errors = validationResult(req.body);
+   if (!errors.isEmpty()) {
+     return res.status(400).json({ errors: errors.array() });
+   }
+
+   User.create({
+     name: req.body.name,
+     email: req.body.email,
+     password: req.body.password,
+   }).then(user => res.json(user)).catch(err=>{console.log(err);
+res.json({'error':'Please Enter a unique email id',message:err.message})});
+
+
+
+})
+
+module.exports = router;
+</code></pre></br></br>
+
+<b class="tit">
+29.Create basic schema in models
+
+</b>
+  <pre class="language-js"><code class="dec">const mongoose = require('mongoose');
+const { Schema } = mongoose;
+const UserSchema = new Schema({
+   name :{
+     type:String,
+     required: true,
+   },
+   email :{
+     type:String,
+     required: true,
+     unique:true
+   },
+   password :{
+     type:String,
+     required: true,
+   },
+   date :{
+     type:Date,
+     default: Date.now,
+   },
+ });
+User=mongoose.model("user",UserSchema);
+User.createIndexes();
+ module.exports = User;
+</code></pre></br></br>
+
+<b class="tit">
+30.Add the bcryptJS to use the [hash+salt+pepper].
+
+</b>
+  <pre class="language-js"><code class="dec">var bcrypt = require('bcryptjs');
+var salt = bcrypt.genSaltSync(10);
+var hash = bcrypt.hashSync("B4c0/\/", salt);</code></pre></br></br>
+
+<b class="tit">
+31.Use jsonwebtoken.
+
+</b>
+  <pre class="language-js"><code class="dec">// No return full details to user but return security code like authtoken.
+
+npm i jsonwebtoken
+const jwt = require('jsonwebtoken');
+const JWT_SECRET = "parth232@";
+
+     const data ={
+       user:{
+         id:user.id
+       }
+     }
+
+const authtoken = jwt.sign(data, JWT_SECRET);
+ res.json(authtoken);
+  </code></pre></br></br>
+
+  <b class="tit">
+  32.Creating login Endpoint with Authentication token.
+
+  </b>
+    <pre class="language-js"><code class="dec">//  LOGIN USER END POINT.
+  router.get('/login',[
+    body('email','Invalid email').isEmail(),
+    body('password','At least 5 charachter').isLength({ min: 5 }),
+  ],async (req,res)=>{
+    req.body = {
+      "email":"ph12sd@gmail.com",
+      "password":"122as5"
+    }
+     const errors = validationResult(req.body);
+     if (!errors.isEmpty()) {
+       return res.status(400).json({ errors: errors.array() });
+     }
+     const {email,password} =  req.body;
+     try{
+       let user= await User.findOne({email})
+       if(!user){
+         return res.status(400).json({error: "Please try to login with correct credential."})
+       }
+
+const passwordCompare = await bcrypt.compare(password, user.password);
+      if(!passwordCompare){
+        return res.status(400).json({error: "Please try to login with correct credential."})
+      }
+
+       const data ={
+         user:{
+           id:user.id
+         }
+       }
+
+       const authtoken = jwt.sign(data, JWT_SECRET);
+       res.json(authtoken);
+     }
+     catch(error){
+     console.error(message.error);
+     return res.status(500).json({message: "Some error is occured."})
+
+    }
+  })</code></pre></br></br>
+
+    <b class="tit">
+    33.Creating a middleware for the getUser.
+
+    </b>
+      <pre class="language-js"><code class="dec">  //  Get USER END POINT.
+    router.get('/getuser',fetchuser,async (req,res)=>{
+
+       try{
+         const userid=req.user.id;
+         const user= await User.findById(userid).select("-password")
+         res.send(user);
+      }
+       catch(error){
+       console.error(message.error);
+       return res.status(500).json({message: "Some error is occured."})
+
+      }
+    })
+
+    //MIDDLEWARE FOR FETCHUSER.
+    const jwt = require('jsonwebtoken');
+    const JWT_SECRET = "parth232@";
+
+    const fetchuser = (req,res,next) =>{
+      const token = req.header('authtoken');
+      if(!token){
+        return res.status(401).json({message: "Please authentication is valid token."})
+      }
+      try {
+        const data = jwt.verify(token,JWT_SECRET);
+        req.user= data.user;
+        next();
+      } catch (error) {
+        return res.status(401).json({error: "Please authentication is valid token."})
+      }
+    }
+
+    module.exports= fetchuser;
+
+  </code></pre></br></br>
+
+
+      <b class="tit">
+      34.Fetch all notes in notes router.
+
+      </b>
+        <pre class="language-js"><code class="dec">router.get('/fetchallnotes',fetchuser,async(req,res)=>{
+  try {
+    const notes=await Notes.find({user:req.user.id});
+    res.json(notes);
+  }  catch(error){
+   console.error(message.error);
+   return res.status(400).json({message: "Some error is occured."})
+
+  }
+
+})</code></pre></br></br>
+
+<b class="tit">
+35.Add notes in notes router.
+
+</b>
+  <pre class="language-js"><code class="dec">// ADD ALL NOTES.
+router.get('/addnote',fetchuser,[
+  body('title','At least 3 charachter').isLength({ min: 3 }),
+  body('description','At least 5 charachter').isLength({ min: 5 }),
+],async(req,res)=>{
+  try{
+
+req.body={
+    "title":"my Title2",
+    "description":"My notes2 is description.",
+    "tag":"youtube"
+  }
+  const errors = validationResult(req.body);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+  const {title,description,tag}=req.body;
+
+  const notes=new Notes({
+    title,description,tag,user:req.user.id
+  })
+  const savenote= await notes.save()
+    res.json(savenote);
+  }
+  catch(error){
+  console.error(message.error);
+  return res.status(400).json({message: "Some error is occured."})
+
+ }
+})</code></pre></br></br>
+
+<b class="tit">
+36.Update notes in notes router.
+
+</b>
+  <pre class="language-js"><code class="dec">//UPDATE ALL NOTES.
+router.put('/updatenote/:id',fetchuser,async(req,res)=>{
+  try{
+  req.body={
+      "title":"my update Title",
+      "description":"My notes update is description.",
+      "tag":"youtube"
+    }
+
+  const {title,description,tag} = req.body;
+
+  const newNote = {};
+  if(title){newNote.title = title};
+  if(description){newNote.description = description};
+  if(tag){newNote.tag = tag};
+
+  let note = await Notes.findById(req.params.id);
+  if(!note){
+    return req.status(401).send("not found");
+  }
+
+  if(note.user.toString() !== req.user.id){
+    return req.status(401).send("not allowed");
+  }
+
+  note = await Notes.findByIdAndUpdate(req.params.id,{$set:newNote},{new:true})
+  res.json(note);
+}
+catch(error){
+console.error(message.error);
+return res.status(400).json({message: "Some error is occured."})
+
+}
+})</code></pre></br></br>
+
+<b class="tit">
+37.Delete note in notes router.
+
+</b>
+  <pre class="language-js"><code class="dec">//DELETE NOTE.
+router.get('/deletenote/:id',fetchuser,async(req,res)=>{
+
+try{
+  let note = await Notes.findById(req.params.id);
+  if(!note){
+    return req.status(401).send("not found");
+  }
+
+  if(note.user.toString() !== req.user.id){
+    return req.status(401).send("not allowed");
+  }
+
+  note = await Notes.findByIdAndDelete(req.params.id)
+  res.json({"Success":"Note has been deleted."});
+}
+catch(error){
+console.error(message.error);
+return res.status(400).json({message: "Some error is occured."})
+
+}
+
+})</code></pre></br></br>
+
+<b class="tit">
+38.frondend and backend both npm run at a time.
+
+</b>
+  <pre class="language-js"><code class="dec">
+npm install react-router-dom@5.2.0 concurrently
+// In the scripts.
+"both": "concurrently \"npm run start\" \"nodemon backend/index.js\""
+
+and write in terminal.
+npm run both.
+
+  </code></pre></br></br>
+
+  <b class="tit">
+  39.createContext Hook.
+
+  </b>
+    <pre class="language-js"><code class="dec">import {createContext} from "react";
+
+const noteContext=  createContext();
+
+export default noteContext;
+</code></pre></br></br>
+
+
+        <b class="tit">
+        40.noteState Hook use connect to Context hook.
+
+        </b>
+          <pre class="language-js"><code class="dec">import React,{useState} from 'react';
+import NoteContext from './noteContext';
+
+const  NoteState=(props)=> {
+  const s1 = {
+    "name" :"parth",
+  }
+  const [state,setState] = useState(s1);
+  const update = ()=>{
+    setTimeout(()=>{
+      setState({
+        "name":"yash",
+      })
+    },1000);
+  }
+  return (
+&lt;NoteContext.Provider value={state,update}&gt;
+      {props.children}
+    &lt;/NoteContext.Provider&gt;
+  )
+}
+
+export default NoteState;
+</code></pre></br></br>
+
+
+          <b class="tit">
+        41.use NoteState to in app.js file.
+          </b>
+            <pre class="language-js"><code class="dec">import NoteState from './context/notes/NoteState';
+
+              &lt;NoteState&gt;
+                        &lt;Router&gt;
+                        &lt;Navbar/&gt;
+                          &lt;div className="container"&gt;
+                        &lt;Switch&gt;
+                            &lt;Route exact path="/"&gt;  &lt;Home/&gt;  &lt;/Route&gt;
+                            &lt;Route exact path="/about"&gt; &lt;About /&gt; &lt;/Route&gt;
+                          &lt;/Switch&gt;
+
+                            &lt;/div&gt;
+                        &lt;/Router&gt;
+                        &lt;/NoteState&gt;
+                        </code></pre></br></br>
+
+            <b class="tit">
+          42.use useContext Hook in the about.js file.
+            </b>
+              <pre class="language-js"><code class="dec">import React,{ useContext,useEffect } from 'react'
+import noteContext from '../context/notes/noteContext';
+
+const About = () => {
+  const a=useContext(noteContext)
+  useEffect(()=>{
+    a.update();
+  },[])
+  return (
+    <div>This is my About {a.state.name} & {a.state.relation}</div>
+  )
+}
+
+export default About
+</code></pre></br></br>
+
+
+<b class="tit">
+43.useLocation Hook.
+</b>
+  <pre class="language-js"><code class="dec">// Use the navbar.js file.
+    let location = useLocation();
+   React.useEffect(() => {
+     console.log(location.pathname);
+   }, [location]);
+  </code></pre></br></br>
+
+  <b class="tit">
+44.All operation in noteState.
+  </b>
+    <pre class="language-js"><code class="dec">import React,{useState} from 'react';
+import NoteContext from './noteContext';
+
+const  NoteState=(props)=&gt; {
+  const host="http://localhost:5000"
+  const tempnotes =[]
+  const [notes,setNotes] = useState(tempnotes);
+
+  const getNotes = async () =&gt;{
+
+        const response = await fetch("http://localhost:5000/api/notes/fetchallnotes", {
+          method: 'GET',
+          headers: {
+             'Content-Type': 'application/json',
+       "authtoken":localStorage.getItem('token')
+     },
+  });
+  const json=await response.json();
+  console.log(json);
+  setNotes(json);
+}
+
+  const addNotes = async (title,description,tag) =&gt;{
+
+        const response = await fetch(`${host}/api/notes/addnote`, {
+          method: 'POST',
+          headers: {
+       'Content-Type': 'application/json',
+       "authtoken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFhMzZmNzk1NGMyYjc1YjdhYWNhZWJlIn0sImlhdCI6MTYzODEwMDg1N30.jkw8xKshGkohnQkJOd3wi2nmSI1p5maoebPY5zZ764I"
+     },
+        body: JSON.stringify({title,description,tag})
+  });
+
+  const note=await response.json();
+  setNotes(notes.concat(note))
+
+  }
+
+  const deleteNotes = async (id) =&gt;{
+    const response = await fetch(`${host}/api/notes/deletenote/${id}`, {
+      method: 'POST',
+      headers: {
+   'Content-Type': 'application/json',
+   "authtoken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFhMzZmNzk1NGMyYjc1YjdhYWNhZWJlIn0sImlhdCI6MTYzODEwMDg1N30.jkw8xKshGkohnQkJOd3wi2nmSI1p5maoebPY5zZ764I"
+ },
+});
+    console.log("deleing this note " + id);
+    const newNote=notes.filter((note)=&gt;{return note._id!==id})
+    setNotes(newNote);
+  }
+
+  const editNotes = async (id,title,description,tag) =&gt;{
+      // API call.
+//       const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
+//         method: 'GET',
+//         headers: {
+//      'Content-Type': 'application/json',
+//      authtoken:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFhMzZmNzk1NGMyYjc1YjdhYWNhZWJlIn0sImlhdCI6MTYzODEwMDg1N30.jkw8xKshGkohnQkJOd3wi2nmSI1p5maoebPY5zZ764I'
+//    },
+//       body: JSON.stringify({title,description,tag})
+// });
+//   const json = response.json();
+
+      for (var i = 0; i &lt; notes.length; i++) {
+        const element=notes[i];
+        if(element._id===id){
+          element.title=title;
+          element.description=description;
+          element.tag=tag;
+          }
+      }
+  }
+  return (
+&lt;NoteContext.Provider value={notes,addNotes,deleteNotes,editNotes,getNotes}&gt;
+      {props.children}
+    &lt;/NoteContext.Provider&gt;
+  )
+}
+
+export default NoteState;
+</code></pre></br></br>
+
+<b class="tit">
+45.Signup file with connect with backend.
+</b>
+  <pre class="language-js"><code class="dec">import React,{useState} from 'react'
+import {useHistory} from 'react-router-dom';
+
+export default function Signup() {
+  const [credential,setCredential] = useState({name:"" ,email:"",password:"",cpassword:""});
+  let history= useHistory();
+  const handlesubmit= async (e) =&gt;{
+    e.preventDefault();
+    const response = await fetch("http://localhost:5000/api/auth/createuser", {
+      method: 'POST',
+      headers: {
+   'Content-Type': 'application/json',
+    },
+         body: JSON.stringify({name:credential.name,email:credential.email,password:credential.password})
+
+});
+const json= await response.json();
+console.log(json);
+
+if(json.success){
+    localStorage.setItem('token',json.authtoken);
+    history.push("/");
+}
+else{
+  alert("invalid credential");
+}
+  }
+  const onChange= (e) =&gt;{
+    setCredential({...credential,[e.target.name]:e.target.value});
+  }
+  return (
+    &lt;form onSubmit={handlesubmit}&gt;
+      &lt;div className="mb-3"&gt;
+        &lt;label htmlFor="exampleInputEmail1" className="form-label"&gt;name&lt;/label&gt;
+        &lt;input type="name" className="form-control" onChange={onChange} value={credential.name} id="name" name="name" aria-describedby="emailHelp"/&gt;
+      &lt;/div&gt;
+      &lt;div className="mb-3"&gt;
+        &lt;label htmlFor="exampleInputEmail1" className="form-label"&gt;Email address&lt;/label&gt;
+        &lt;input type="email" className="form-control" onChange={onChange} value={credential.email} id="email" name="email" aria-describedby="emailHelp"/&gt;
+        &lt;div id="emailHelp" className="form-text"&gt;We'll never share your email with anyone else.&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div className="mb-3"&gt;
+        &lt;label htmlFor="exampleInputPassword1" className="form-label"&gt;Password&lt;/label&gt;
+        &lt;input type="password" className="form-control" onChange={onChange} value={credential.password} id="password" name="password"/&gt;
+      &lt;/div&gt;
+      &lt;div className="mb-3"&gt;
+        &lt;label htmlFor="exampleInputPassword1" className="form-label"&gt;Confirm Password&lt;/label&gt;
+        &lt;input type="password" className="form-control" onChange={onChange} value={credential.cpassword} id="cpassword" name="cpassword"/&gt;
+      &lt;/div&gt;
+
+      &lt;button type="submit" className="btn btn-primary"&gt;Signup&lt;/button&gt;
+    &lt;/form&gt;
+  )
+}
+</code></pre></br></br>
+
+<b class="tit">
+46.Login file with connect with backend.
+</b>
+  <pre class="language-js"><code class="dec">import React,{useState} from 'react'
+import {useHistory} from 'react-router-dom';
+
+export default function Login() {
+  const [credential,setCredential] = useState({email:"",password:""});
+  let history= useHistory();
+  const handlesubmit= async (e) =&gt;{
+    e.preventDefault();
+    const response = await fetch("http://localhost:5000/api/auth/login", {
+      method: 'POST',
+      headers: {
+   'Content-Type': 'application/json',
+    },
+         body: JSON.stringify({email:credential.email,password:credential.password})
+
+});
+const json= await response.json();
+console.log(json);
+
+if(json.success){
+    localStorage.setItem('token',json.authtoken);
+    history.push("/");
+}
+else{
+  alert("invalid credential");
+}
+  }
+  const onChange= (e) =&gt;{
+    setCredential({...credential,[e.target.name]:e.target.value});
+  }
+  return (
+    &lt;&gt;
+    &lt;form onSubmit={handlesubmit}&gt;
+      &lt;div className="mb-3"&gt;
+        &lt;label htmlFor="exampleInputEmail1" className="form-label"&gt;Email address&lt;/label&gt;
+        &lt;input type="email" className="form-control" onChange={onChange} value={credential.email} id="email" name="email" aria-describedby="emailHelp"/&gt;
+        &lt;div id="emailHelp" className="form-text"&gt;We'll never share your email with anyone else.&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div className="mb-3"&gt;
+        &lt;label htmlFor="exampleInputPassword1" className="form-label"&gt;Password&lt;/label&gt;
+        &lt;input type="password" className="form-control" onChange={onChange} value={credential.password} id="password" name="password"/&gt;
+      &lt;/div&gt;
+
+      &lt;button type="submit" className="btn btn-primary"&gt;Login&lt;/button&gt;
+    &lt;/form&gt;
+    &lt;/&gt;
+  )
+}
+</code></pre></br></br>
+
+<b class="tit">
+47.Authentication file to all connect with backend.
+</b>
+  <pre class="language-js"><code class="dec">const express = require('express');
+const User = require('../models/User');
+const { body, validationResult } = require('express-validator');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const JWT_SECRET = "parth232@";
+const fetchuser = require('../middleware/fetchuser');
+
+const router = express.Router();
+
+//  CREATE USER END POINT.
+router.post('/createuser',[
+  body('email','Invalid email').isEmail(),
+  body('password','At least 5 charachter').isLength({ min: 5 }),
+   body('name','At least 3 charachter').isLength({ min: 3 }),
+],async (req,res)=>{
+let success=false;
+   const errors = validationResult(req.body);
+   if (!errors.isEmpty()) {
+     success=false;
+     return res.status(400).json({ success,errors: errors.array() });
+   }
+   try{
+     let user= await User.findOne({email:req.body.email})
+     if(user){
+       success=false;
+       return res.status(400).json({success,message: "The user is aleready exits."})
+     }
+
+     const salt = await bcrypt.genSalt(10);
+const secPass = await bcrypt.hash(req.body.password, salt);
+
+     user = await User.create({
+       name: req.body.name,
+       email: req.body.email,
+       password: secPass,
+     });
+
+     const data ={
+       user:{
+         id:user.id
+       }
+     }
+
+     const authtoken = jwt.sign(data, JWT_SECRET);
+     success=true;
+   res.json({success,authtoken});
+   }
+   catch(error){
+   console.error(message.error);
+   return res.status(500).json({message: "Some error is occured."})
+
+  }})
+
+
+//  LOGIN USER END POINT.
+  router.post('/login',[
+    body('email','Invalid email').isEmail(),
+    body('password','At least 5 charachter').isLength({ min: 5 }),
+  ],async (req,res)=>{
+    let success=false;
+
+     const errors = validationResult(req.body);
+     if (!errors.isEmpty()) {
+       return res.status(400).json({ errors: errors.array() });
+     }
+     const {email,password} =  req.body;
+     try{
+       let user= await User.findOne({email})
+       if(!user){
+         success=false;
+
+         return res.status(400).json({success,error: "Please try to login with correct credential."})
+       }
+
+const passwordCompare = await bcrypt.compare(password, user.password);
+      if(!passwordCompare){
+        success=false;
+        return res.status(400).json({success,error: "Please try to login with correct credential."})
+      }
+
+       const data ={
+         user:{
+           id:user.id
+         }
+       }
+
+       const authtoken = jwt.sign(data, JWT_SECRET);
+       success=true;
+     res.json({success,authtoken});
+     }
+     catch(error){
+     console.error(message.error);
+     return res.status(500).json({message: "Some error is occured."})
+
+    }
+  })
+
+
+
+  //  Get USER END POINT.
+    router.get('/getuser',fetchuser,async (req,res)=>{
+
+       try{
+         const userid=req.user.id;
+         const user= await User.findById(userid).select("-password")
+         res.send(user);
+      }
+       catch(error){
+       console.error(message.error);
+       return res.status(500).json({message: "Some error is occured."})
+
+      }
+    })
+
+
+
+
+
+
+module.exports = router;
+</code></pre></br></br>
+
+
+<b class="tit">
+48.How to create action-creators in redux.
+</b>
+  <pre class="language-js"><code class="dec">import React from 'react'
+
+export const depositeMoney = (amount) => {
+  return (dispatch)=>{
+    dispatch({
+      type:'deposite',
+      payload:amount
+    })
+  }
+
+}
+export const withdrawMoney = (amount) => {
+  return (dispatch)=>{
+    dispatch({
+      type:'withdraw',
+      payload:amount
+    })
+  }
+
+}</code></pre></br></br>
+
+<b class="tit">
+49.How to create amountReducers.
+</b>
+  <pre class="language-js"><code class="dec">import React from 'react'
+
+export default function reducer(state=0,action) {
+  if(action.type==='withdraw'){
+    return state-action.payload;
+  }
+  else if(action.type==='deposite'){
+    return state+action.payload;
+  }
+  else{
+    return state;
+  }
+}
+</code></pre></br></br>
+
+<b class="tit">
+50.How to create combine reducer.
+</b>
+  <pre class="language-js"><code class="dec">import {combineReducers} from 'redux';
+import amountReducer from './amountReducer';
+
+const  reducers = combineReducers({
+  amount:amountReducer
+})
+
+
+export default reducers;
+</code></pre></br></br>
+
+<b class="tit">
+51.How to export actionCreatores in state index.js file.
+</b>
+  <pre class="language-js"><code class="dec">export * as actionCreatores from './action-creators/index';
+</code></pre></br></br>
+
+<b class="tit">
+52.How to create store in redux.
+</b>
+  <pre class="language-js"><code class="dec">import {applyMiddleware,createStore} from 'redux'
+import thunk from 'redux-thunk';
+import reducers from './reducers';
+
+
+const store=createStore(reducers,{},applyMiddleware(thunk));
+
+
+export default store;
+</code></pre></br></br>
+
+<b class="tit">
+53.How to edit in main index.js file for redux.
+</b>
+  <pre class="language-js"><code class="dec">import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import {Provider } from 'react-redux';
+import store from './state/store'
+
+ReactDOM.render(
+  &lt;React.StrictMode&gt;
+    &lt;Provider store={store}&gt;
+    &lt;App /&gt;
+  &lt;/Provider&gt;
+  &lt;/React.StrictMode&gt;,
+  document.getElementById('root')
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+</code></pre></br></br>
+<b class="tit">
+54.How to use useSelector.
+</b>
+  <pre class="language-js"><code class="dec">import React from 'react'
+import { useSelector} from 'react-redux'
+
+const Navbar = () => {
+  const amount = useSelector(state=> state.amount)</code></pre></br></br>
+
+  <b class="tit">
+  55.How to useDispatch Hook.
+  </b>
+    <pre class="language-js"><code class="dec">import React from 'react'
+import { bindActionCreators } from 'redux';
+import { useDispatch,useSelector } from 'react-redux';
+import {actionCreatores} from './state/index'
+
+const Home = () => {
+  const amount = useSelector(state=> state.amount)
+
+  const dispatch = useDispatch();
+  const {depositeMoney,withdrawMoney} = bindActionCreators(actionCreatores,dispatch);
+  return (
+    &lt;&gt;
+    &lt;h2&gt;Withdraw/Deposite Money&lt;/h2&gt;
+    &lt;div className="container d-flex m-5"&gt;
+      &lt;button className="btn btn-primary m-2" onClick={()=&gt;withdrawMoney(100)} type="submit"&gt;-&lt;/button&gt;
+      &lt;h4 className=""&gt; Update Balance {amount}&lt;/h4&gt;
+      &lt;button className="btn btn-primary m-2" onClick={()=&gt;dispatch(actionCreatores.depositeMoney(100))} type="submit"&gt;+&lt;/button&gt;
+
+    &lt;/div&gt;
+    &lt;/&gt;
+  )
+}
+
+export default Home
+</code></pre></br></br>
+
+
+            
+
+</div>
+
+
+</div>
+
+{% else %}
+<div class="container" style="margin:50px;margin-right:150px;  ">
+<h1 style="background:#ccc;padding:30px;margin:100px 80px;font-weight:bold;margin-left:30px;">You are not logged in! Please   login to see a cheat sheet.</h1>
+</div>
+{% endif %}
+{% endblock body %}
