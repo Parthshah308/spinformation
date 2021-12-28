@@ -1,0 +1,424 @@
+{% extends "upbase.html" %}
+{% block title %}
+ mongoDB
+{% endblock title %}
+{% block body %}
+
+<!-- header section ends -->
+
+<div id="menu" class="fas fa-bars"></div>
+
+<!-- home section starts  -->
+
+
+
+<div style="margin: 2%;"><div class="head_cheat2" >All mongoDB cheat sheet below here...</div>
+{% if user.is_authenticated %}
+
+<!-- contact section ends -->
+<div style="margin:2%;">
+
+<b class="tit"> <i class="fa fa-arrow-right" ></i> MongoDB use with Mongo Cell.</b><br>  <br><br>
+    <b class="tit">
+1.How to see the exist database.
+
+</b>
+  <pre class="language-js"><code class="dec">show dbs</code></pre></br></br>
+
+  <b class="tit">
+  2.How to create database.
+
+  </b>
+  <pre class="language-js"><code class="dec">use parthshah</code></pre></br></br>
+
+  <b class="tit">
+  3.How to show the running database.
+
+  </b>
+  <pre class="language-js"><code class="dec">db</code></pre></br></br>
+
+  <b class="tit">
+  4.How to insert single document.
+
+  </b>
+  <pre class="language-js"><code class="dec">db.parthdata.insertOne({ name:"parth","rollno":2153,active:true})</code></pre></br></br>
+
+  <b class="tit">
+  5.How to show the collection.
+
+  </b>
+  <pre class="language-js"><code class="dec">show collection</code></pre></br></br>
+
+
+  <b class="tit">
+  6.How to show the documents.
+
+  </b>
+  <pre class="language-js"><code class="dec">db.parthdata.find()
+db.parthdata.find().pretty()</code></pre></br></br>
+
+
+    <b class="tit">
+    7.How to insert many document.
+
+    </b>
+    <pre class="language-js"><code class="dec"> db.parthdata.insertMany([  { name:' mohan'},{name:'sohan'}])</code></pre></br></br>
+
+    <b class="tit">
+    8.How to find the document with different filter method.
+
+    </b>
+    <pre class="language-js"><code class="dec">db.parthdata.find().limit(1)
+db.parthdata.find().limit(1).skip(1)
+db.parthdata.findOne()
+db.parthdata.find({name:" mohan"},{_id:0,name:1})</code></pre></br></br>
+
+<b class="tit">
+9.How to update the document.
+
+</b>
+<pre class="language-js"><code class="dec">db.parthdata.updateMany({name:"parth"},{$set:{name:"rohan"}})
+db.parthdata.updateOne({name:"parth"},{$set:{name:"rohan"}})</code></pre></br></br>
+
+<b class="tit">
+10.How to delete the document.
+
+</b>
+<pre class="language-js"><code class="dec">db.parthdata.deleteMany({name:"rohan"})
+db.parthdata.deleteMany({})</code></pre></br></br>
+
+<b class="tit"> <i class="fa fa-arrow-right" ></i> MongoDB use with Mongo Compass & Mongoose.</b><br>  <br><br>
+
+<b class="tit">
+11.How to connect mongoose to mongoDB.
+
+</b>
+<pre class="language-js"><code class="dec">const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost:27017/mongodemo').then(()=>{
+  console.log("connection is success..");
+}).catch((err)=>{
+  console.log(err);
+})</code></pre></br></br>
+
+<b class="tit">
+12.How to create Schema in mongoose.
+
+</b>
+<pre class="language-js"><code class="dec">// Schema is a structure of document.
+  const playlistSchema = new mongoose.Schema({
+    name:{
+      type:String,
+      required:true,
+    },
+    ctype:String,
+    author:String,
+    videos:Number,
+    active:Boolean,
+    date:{
+      type:Date,
+      default:Date.now,
+    }
+  })
+</code></pre></br></br>
+
+<b class="tit">
+13.How to create model in mongoose.
+
+</b>
+<pre class="language-js"><code class="dec">// Model is use for CRUD in mongoDB.
+const Playlist = new mongoose.model("Playlist",playlistSchema);
+</code></pre></br></br>
+
+<b class="tit">
+14.How to create and insert document in mongoDB.
+
+</b>
+<pre class="language-js"><code class="dec">// create and insert document
+const createdocument = async()=>{
+  try {
+    const reactPlylist=new Playlist({
+      name:"react",
+      ctype:"frondend",
+      author:"parth",
+      videos:45,
+      active:true,
+    });
+    const result=await reactPlylist.save();
+    console.log(result);
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+createdocument();</code></pre></br></br>
+
+<b class="tit">
+15.How to insert multiple documents.
+
+</b>
+<pre class="language-js"><code class="dec">const createdocument = async()=>{
+  try {
+    const nodejsPlylist=new Playlist({
+      name:"nodejs",
+      ctype:"frondend",
+      author:"parth",
+      videos:45,
+      active:true,
+    });
+
+    const expressPlylist=new Playlist({
+      name:"express",
+      ctype:"frondend",
+      author:"parth",
+      videos:45,
+      active:true,
+    });
+
+    const result=await Playlist.insertMany([nodejsPlylist,expressPlylist]);
+    console.log(result);
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+createdocument();</code></pre></br></br>
+
+<b class="tit">
+16.How to read document.
+
+</b>
+<pre class="language-js"><code class="dec">const getdocument =async ()=>{
+  const result = await Playlist.find({active:true}).select({name:1}).limit(1);
+  console.log(result);
+}
+
+getdocument();</code></pre></br></br>
+
+<b class="tit">
+17.How to use comparision operator.
+
+</b>
+<pre class="language-js"><code class="dec">const getdocument =async ()=>{
+  const result = await Playlist.find({author:{$in:"parth"}}).select({name:1});
+  console.log(result);
+}
+
+getdocument();</code></pre></br></br>
+
+<b class="tit">
+18.How to use logical operator.
+
+</b>
+<pre class="language-js"><code class="dec">const getdocument =async ()=>{
+  const result = await Playlist.find({$and:[{name:"react"},{videos:45}]}).select({name:1});
+  console.log(result);
+}
+
+getdocument();</code></pre></br></br>
+
+<b class="tit">
+19.How to count documents.
+
+</b>
+<pre class="language-js"><code class="dec">  const result = await Playlist.find().select({name:1}).countDocuments();
+</code></pre></br></br>
+
+<b class="tit">
+20.How to sorting documents.
+
+</b>
+<pre class="language-js"><code class="dec">  const result = await Playlist.find().select({name:1}).sort({name:-1});
+  const result = await Playlist.find().select({name:1}).sort({name:1});
+</code></pre></br></br>
+
+<b class="tit">
+21.How to update document.
+
+</b>
+<pre class="language-js"><code class="dec">const updatedocument = async (_id) =>{
+  try {
+    const result = await Playlist.findByIdAndUpdate({_id},{$set:{
+    const result = await Playlist.updateOne({_id},{$set:{
+      name:"react"
+    }},{new:true})
+    console.log(result);
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+updatedocument("61b701712deb400a456a1db4");
+</code></pre></br></br>
+
+<b class="tit">
+22.How to delete document.
+
+</b>
+<pre class="language-js"><code class="dec">const deletedocument = async (_id)=>{
+  try {
+    //const result = await Playlist.deleteOne({_id})
+      const result = await Playlist.findByIdAndDelete({_id})
+      console.log(result);
+    } catch (e) {
+      console.log(e);
+    }
+}
+deletedocument("61b703e5899b360217042e73");</code></pre></br></br>
+
+<b class="tit">
+23.How to put inbuilt validation.
+
+</b>
+<pre class="language-js"><code class="dec">name:{
+    type:String,
+    required:true,
+    lowercase:true,
+    minlength:[3,"min length is 3"],
+    trim:true
+
+
+  },
+  ctype:{
+  type:String,
+  enum:["front","back"]
+},</code></pre></br></br>
+
+<b class="tit">
+24.How to put your own custome validation.
+
+</b>
+<pre class="language-js"><code class="dec">videos:{
+  type:String,
+  // validate(value){
+  //   if(value<0){
+  //     throw new Error("videos value is lessthan 0")
+  //   }
+  // }
+  validate:
+  {
+    validator:function(v) {
+    return v.length <0;
+  },message:"videos value is lessthan 0"
+},
+},</code></pre></br></br>
+
+<b class="tit">
+25.How to use epxress router.
+
+</b>
+<pre class="language-js"><code class="dec">const express = require('express');
+const router = new express.Router();
+const Student= require('../models/students');
+
+
+// FOR CREATE STUDENT DOCUMENT.
+
+
+router.post("/students",async(req,res)=>{
+  try {
+
+    const user= new Student(req.body);
+    const createuser= await user.save();
+    res.status(201).send(createuser);
+  } catch (e) {
+    res.status(400).send(e);
+  }
+});
+
+
+module.exports= router;
+
+//In the app.js file:
+const studentRouter= require('./routers/student');
+app.use(studentRouter);
+</code></pre></br></br>
+
+<b class="tit"> <i class="fa fa-arrow-right" ></i> REST API build.</b><br>  <br><br>
+
+<b class="tit">
+25.create file app.js file.
+
+</b>
+<pre class="language-js"><code class="dec">const express = require('express');
+require('./db/conn.js');
+const Student = require('./models/students');
+const port = process.env.PORT || 8000;
+const studentRouter= require('./routers/student');
+
+const app= express();
+app.use(express.json());
+app.use(studentRouter);
+
+app.listen(port,()=>{
+  console.log(`server is listening on ${port}`);
+})
+</code></pre></br></br>
+
+<b class="tit">
+26.create file conn.js file.
+
+</b>
+<pre class="language-js"><code class="dec">const mongoose = require('mongoose');
+
+mongoose.connect("mongodb://localhost:27017/student-api").then(()=>{
+  console.log("connection is success");
+}).catch((e)=>{
+  console.log("not connection");
+})
+</code></pre></br></br>
+
+<b class="tit">
+27.create students.js file in include schema and model.
+
+</b>
+<pre class="language-js"><code class="dec">const mongoose= require('mongoose');
+const validator=require('validator');
+
+const studentschema= new mongoose.Schema({
+  name:{
+    type:String,
+    require:true,
+    minlength:3,
+  },
+  email:{
+    type:String,
+    require:true,
+    unique:[true,"Email is exist."],
+    validate(value){
+      if(!validator.isEmail(value))
+      {
+        throw new Error("Email is not valid");
+      }
+    },
+  },
+  phone:{
+    type:Number,
+    require:true,
+    min:10,
+  },
+  address:{
+    type:String,
+    require:true,
+  }
+
+})
+
+const Student = new mongoose.model('Student',studentschema);
+
+module.exports=Student;
+</code></pre></br></br>
+
+
+
+</div>
+
+
+</div>
+
+{% else %}
+<div class="container" style="margin:50px;margin-right:150px;  ">
+<h1 style="background:#ccc;padding:30px;margin:100px 80px;font-weight:bold;margin-left:30px;">You are not logged in! Please   login to see a cheat sheet.</h1>
+</div>
+{% endif %}
+{% endblock body %}

@@ -56,6 +56,15 @@ def django(request):
 def react(request):
 	return render(request, 'react.html')
 
+def nodejs(request):
+	return render(request, 'nodejs.html')
+
+def expressjs(request):
+	return render(request, 'expressjs.html')
+
+def mongodb(request):
+	return render(request, 'mongodb.html')
+
 def contact(request):
 	if request.method=="POST":
 		name=request.POST['name']

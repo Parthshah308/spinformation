@@ -1,0 +1,186 @@
+{% extends "upbase.html" %}
+{% block title %}
+ expressJS
+{% endblock title %}
+{% block body %}
+
+<!-- header section ends -->
+
+<div id="menu" class="fas fa-bars"></div>
+
+<!-- home section starts  -->
+
+
+
+<div style="margin: 2%;"><div class="head_cheat2" >All expressJS cheat sheet below here...</div>
+{% if user.is_authenticated %}
+
+<!-- contact section ends -->
+<div style="margin:2%;">
+
+
+
+  <b class="tit">
+1.First hello word.
+
+</b>
+<pre class="language-js"><code class="dec">npm init
+npm i express
+const express = require('express');
+const app= express();
+app.get('/', function (req, res) {
+  res.send('Hello World form the lkd')
+})
+
+app.get('/about', function (req, res) {
+  res.send('Hello')
+})
+
+
+app.listen(8000,()=>{
+  console.log("server is start");
+
+})
+</code></pre></br></br>
+
+<b class="tit">
+2.How to serve static file in expressJS.
+
+</b>
+<pre class="language-js"><code class="dec">const express = require('express');
+const app= express();
+const path=require("path");
+
+const staticpath=path.join(__dirname,"../public")
+app.use(express.static(staticpath))
+
+app.get('/', function (req, res) {
+  res.send('Hello World form the lkd')
+})</code></pre></br></br>
+
+<b class="tit">
+3.How to use handlerbar(hbs) template engine.
+
+</b>
+<pre class="language-js"><code class="dec">const express = require('express');
+const app= express();
+const hbs=require("hbs");
+const path=require("path");
+
+const staticpath=path.join(__dirname,"../public")
+
+// npm i hbs.
+// Create views folder and file name->index.hbs.
+// Delete index.html file.
+app.use(express.static(staticpath))
+app.set("view engine","hbs")
+
+// template engine use.
+app.get('/',function(req,res){
+  res.render('index',{
+    dyna:"hello"
+  });
+})</code></pre></br></br>
+
+<b class="tit">
+4.How to pass the dynamic data in hbs template engine.
+
+</b>
+<pre class="language-js"><code class="dec">
+  app.get('/',function(req,res){
+    res.render('index',{
+      dyna:"hello"
+    });
+
+    // IN the index.hbs file.
+    {/{ dyna }/}
+</code></pre></br></br>
+
+<b class="tit">
+5.How to change the default views directory name change for template engine.
+
+</b>
+<pre class="language-js"><code class="dec">const templatepath=path.join(__dirname,"../templates")
+app.set('views',templatepath)</code></pre></br></br>
+
+<b class="tit">
+6.How to use partials in expressJS.
+
+</b>
+<pre class="language-js"><code class="dec">//partials means like that the react components.
+// Only one time create and multiple time use.
+
+const partialspath=path.join(__dirname,"../templates/partials")
+hbs.registerPartials(partialspath);
+
+and in file use:-
+{ {>header} }</code></pre></br></br>
+
+<b class="tit">
+7.How to set the server restart for all file change.
+
+</b>
+<pre class="language-js"><code class="dec">nodemon src/app.js -e js,hbs</code></pre></br></br>
+
+
+<b class="tit">
+8.How to create Error-404 Page not found.
+
+</b>
+<pre class="language-js"><code class="dec">app.get("/about/*",(req,res)=>{
+  res.render('404',{
+    some:"about in the 404."
+  });
+})
+
+app.get("*",(req,res)=>{
+  res.render('404');
+})</code></pre></br></br>
+
+<b class="tit">
+9.How to use API with expressJS.
+
+</b>
+<pre class="language-js"><code class="dec">app.get('/about', function (req, res) {
+  requests(`https://api.openweathermap.org/data/2.5/weather?q=${req.query.name}&appid=f1cf0a553f4db6740372cf9d4d01733a`)
+      .on('data', function(chunk) {
+        const objdata=JSON.parse(chunk);
+        const arrdata=[objdata];
+        console.log(`${arrdata[0].name} and ${arrdata[0].main.temp}`);
+
+        res.write(arrdata[0].name);
+
+      })
+      .on('end',function(err){
+        console.log('end');
+        res.end();
+      })
+  // res.render('about')
+})</code></pre></br></br>
+
+<b class="tit">
+10.How to set PORT for server.listen().
+
+</b>
+<pre class="language-js"><code class="dec">const port = process.env.port|8000
+server.listen(port,()=>{
+
+})</code></pre></br></br>
+
+
+
+
+
+
+
+</div>
+
+
+</div>
+
+{% else %}
+<div class="container" style="margin:50px;margin-right:150px;  ">
+<h1 style="background:#ccc;padding:30px;margin:100px 80px;font-weight:bold;margin-left:30px;">You are not logged in! Please   login to see a cheat sheet.</h1>
+</div>
+{% endif %}
+{% endblock body %}

@@ -1,0 +1,181 @@
+{% extends "upbase.html" %}
+{% block title %}
+ nodeJS
+{% endblock title %}
+{% block body %}
+
+<!-- header section ends -->
+
+<div id="menu" class="fas fa-bars"></div>
+
+<!-- home section starts  -->
+
+
+
+<div style="margin: 2%;"><div class="head_cheat2" >All nodeJS cheat sheet below here...</div>
+{% if user.is_authenticated %}
+
+<!-- contact section ends -->
+<div style="margin:2%;">
+
+
+    <b class="tit">
+1.How to use npm and create.
+
+</b>
+  <pre class="language-js"><code class="dec">npm init</code></pre></br></br>
+
+  <b class="tit">
+  2.How to use nodemon package.
+
+  </b>
+  <pre class="language-js"><code class="dec">// nodemon is the default npm run.
+  npm i nodemon -g
+  nodemon index.js
+</code></pre></br></br>
+
+
+  <b class="tit">
+3.How to create own web server.
+
+</b>
+<pre class="language-js"><code class="dec">const http = require('http');
+
+const server= http.createServer((req,res)=>{
+  res.end("hello welcome to my create own web server");
+});
+
+server.listen(5000,"127.0.0.1",()=>{
+  console.log("server listening start...");
+});</code></pre></br></br>
+
+<b class="tit">
+4.How to handle http request.
+
+</b>
+<pre class="language-js"><code class="dec">const server= http.createServer((req,res)=>{
+  if(req.url === "/"){
+  res.end("hello welcome to my home page.");
+}else if(req.url === "/about"){
+res.end("hello welcome to my about page.");
+}else if(req.url === "/contact"){
+res.end("hello welcome to my contact page.");
+}
+else{
+  res.writeHead(404,{"Content-type":"text/html"});
+  res.end("404 not found");
+}
+});</code></pre></br></br>
+
+<b class="tit">
+5.How to own event create.
+
+</b>
+<pre class="language-js"><code class="dec">
+const EventEmitter= require("events");
+const event=new EventEmitter();
+
+event.on("clicking",()=>{
+  console.log("event is fire......");
+});
+
+event.emit("clicking");
+</code></pre></br></br>
+
+<b class="tit">
+6.How to use streaming.
+
+</b>
+<pre class="language-js"><code class="dec">
+// it means live real time fetch the data.
+const fs = require("fs");
+const http= require("http");
+
+const server=http.createServer();
+const rstream= fs.createReadStream("input.txt");
+
+server.on("request",(req,res)=>{
+// rstream.on("data",(chunkdata)=>{
+//   res.write(chunkdata)
+// })
+//
+// rstream.on("end",()=>{
+//   res.end();
+// })
+//
+// rstream.on("error",()=>{
+//   console.log("error found");
+// })
+rstream.pipe(res)
+});
+
+server.listen(5000,"127.0.0.1",()=>{
+  console.log("server starting.......");
+});
+</code></pre></br></br>
+
+<b class="tit">
+7.How to write in file from the backend api content.
+
+</b>
+<pre class="language-js"><code class="dec">const fs= require("fs");
+const http=require("http");
+const requests=require("requests")
+
+const homefile=fs.readFileSync("home.html","utf-8");
+
+const replaceVal = (tempVal,orgVal)=>{
+  let temperature=tempVal.replace("{/% location %/}",orgVal.name);
+  temperature=temperature.replace("{/% country %/}",orgVal.sys.country);
+   temperature=temperature.replace("{/% tempval %/}",orgVal.main.temp);
+  return temperature;
+}
+const server=http.createServer((req,res)=>{
+  if(req.url=="/"){
+    requests('https://api.openweathermap.org/data/2.5/weather?q=pune&appid=f1cf0a553f4db6740372cf9d4d01733a')
+      .on('data', function(chunk) {
+        const objdata=JSON.parse(chunk);
+        const arrdata=[objdata];
+        console.log(arrdata);
+        const realtimedata=arrdata.map((val) =>replaceVal(homefile,val)).join("");
+
+        console.log(realtimedata);
+        res.write(realtimedata);
+
+      })
+      .on('end',function(err){
+        console.log('end');
+        res.end();
+      })
+
+  }
+});
+
+
+
+server.listen(1000,"127.0.0.1",()=>{
+  console.log("server is start.....");
+})
+
+// And in the home.html file
+{/% location /%}
+{/% tempval /%}
+{/% country /%}
+</code></pre></br></br>
+
+
+
+
+
+
+</div>
+
+
+</div>
+
+{% else %}
+<div class="container" style="margin:50px;margin-right:150px;  ">
+<h1 style="background:#ccc;padding:30px;margin:100px 80px;font-weight:bold;margin-left:30px;">You are not logged in! Please   login to see a cheat sheet.</h1>
+</div>
+{% endif %}
+{% endblock body %}
